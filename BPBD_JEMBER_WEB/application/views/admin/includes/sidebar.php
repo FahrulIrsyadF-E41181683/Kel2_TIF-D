@@ -6,7 +6,7 @@
       <div class="logo">
         <a class="simple-text logo-mini">
           <div class="logo-image-small">
-            <img src="../assets/img/logo.png">
+            <img src="<?php echo base_url('assets/img/logo.png')?>">
           </div>
         </a>
         <a class="simple-text logo-normal">
@@ -28,7 +28,7 @@
             </a>
           </li>
           <li>
-            <a href="./admin/kategori">
+            <a href="<?php echo base_url('admin/kategori')?>">
               <i class="nc-icon nc-tag-content"></i>
               <p>Kategori</p>
             </a>
