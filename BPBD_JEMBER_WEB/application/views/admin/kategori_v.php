@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <!-- HEAD MEMANGGIL SIDEBAR YANG ADA DI admin/includes/head.php -->
+    <!-- HEAD MEMANGGIL HEAD YANG ADA DI admin/includes/head.php -->
     <?php $this->load->view("admin/includes/head.php") ?>
 </head>
 
@@ -10,7 +10,7 @@
     <!-- SIDEBAR MEMANGGIL SIDEBAR YANG ADA DI admin/includes/sidebar.php -->
     <?php $this->load->view("admin/includes/sidebar.php") ?>
 
-    <!-- SIDEBAR MEMANGGIL SIDEBAR YANG ADA DI admin/includes/sidebar.php -->
+    <!-- SIDEBAR MEMANGGIL NAVBAR YANG ADA DI admin/includes/sidebar.php -->
     <?php $this->load->view("admin/includes/navbar.php") ?>
 
     <!-- ISI KONTEN HALAMAN -->
@@ -35,12 +35,11 @@
         </div>
     <!-- BATAS ISI KONTEN HALAMAN -->
 
-    <!-- FOOTER MEMANGGIL SIDEBAR YANG ADA DI admin/includes/footer.php -->
+    <!-- FOOTER MEMANGGIL FOOTER YANG ADA DI admin/includes/footer.php -->
     <?php $this->load->view("admin/includes/footer.php") ?>
 
-    <!-- JS MEMANGGIL SIDEBAR YANG ADA DI admin/includes/js.php -->
+    <!-- JS MEMANGGIL JS YANG ADA DI admin/includes/js.php -->
     <?php $this->load->view("admin/includes/js.php") ?>
-
 </body>
 
 </html>
