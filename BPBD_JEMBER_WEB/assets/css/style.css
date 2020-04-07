@@ -1,9 +1,3 @@
-/*!
- * Bootstrap v4.2.1 (https://getbootstrap.com/)
- * Copyright 2011-2018 The Bootstrap Authors
- * Copyright 2011-2018 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -8197,7 +8191,7 @@ h1, h2, h3, h4, h5,
   line-height: 1; }
   .navbar-brand i {
     font-style: normal;
-    color: #ffd369; }
+    color: #fff281; }
 
 .container {
   max-width: 1210px; }
@@ -8221,14 +8215,14 @@ h1, h2, h3, h4, h5,
     bottom: 0;
     content: '';
     opacity: .8;
-    background: #f200ff;
-    background: -moz-linear-gradient(45deg, #f200ff 0%, #ffba42 100%);
-    background: -webkit-gradient(left bottom, right top, color-stop(0%, #f200ff), color-stop(100%, #ffba42));
-    background: -webkit-linear-gradient(45deg, #f200ff 0%, #ffba42 100%);
-    background: -o-linear-gradient(45deg, #f200ff 0%, #ffba42 100%);
-    background: -ms-linear-gradient(45deg, #f200ff 0%, #ffba42 100%);
-    background: linear-gradient(45deg, #f200ff 0%, #ffba42 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f200ff', endColorstr='#ffba42', GradientType=1 ); }
+    background: #FDB928;
+    background: -moz-linear-gradient(45deg, #FDB928 0%, #DE4F01 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, #FDB928), color-stop(100%, #DE4F01));
+    background: -webkit-linear-gradient(45deg, #FDB928 0%, #DE4F01 100%);
+    background: -o-linear-gradient(45deg, #FDB928 0%, #DE4F01 100%);
+    background: -ms-linear-gradient(45deg, #FDB928 0%, #DE4F01 100%);
+    background: linear-gradient(45deg, #FDB928 0%, #DE4F01 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FDB928', endColorstr='#DE4F01', GradientType=1 ); }
 
 .slider-text .text {
   position: relative; }
@@ -8568,7 +8562,8 @@ h1, h2, h3, h4, h5,
   font-weight: 600;
   border: 1px solid rgba(0, 0, 0, 0.1); }
   .tabulation-2 .nav-pills .nav-item .nav-link span {
-    color: #ffd369; }
+    color: #ffd369; 
+    border-bottom: 2px solid #ffd369;}
   .tabulation-2 .nav-pills .nav-item .nav-link.active {
     color: #fff;
     background: #ffd369;

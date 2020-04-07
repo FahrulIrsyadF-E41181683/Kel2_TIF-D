@@ -1,4 +1,5 @@
 <head>
+<link rel="icon" type="image/png" href="<?php echo base_url('assets/img/logo.png')?>">
 <title><?php echo SITE_NAME ?></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,4 +20,13 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/css/flaticon.css')?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/icomoon.css')?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css')?>">
+
+    <div class="overlay bg-dark">
+        <div class="float-left text-right pl-3">
+            BPBD (Badan Penanggulangan Bencana Daerah) Provensi Jember, Jawa Timur
+        </div>
+        <div class="text-right pr-3">
+            Telepon Darurat (0331) 3229665 / 08510176700
+        </div>
+    </div>
 </head>
