@@ -1,48 +1,156 @@
-<div class="container-fluid">
-    <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
+<!DOCTYPE html>
+<html lang="en">
 
-    <div class="row">
-        <div class="col-lg-8">
-            <?= form_open_multipart('user/edit'); ?>
-            <div class="form-group row">
-                <label for="email" class="col-sm-2 col-form-label">email</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="email" name="email" value="<?= $user['email']; ?>" readonly>
+<head>
+    <!-- HEAD MEMANGGIL HEAD YANG ADA DI admin/includes/head.php -->
+    <?php $this->load->view("admin/includes/head.php") ?>
+</head>
+
+<body class="">
+    <!-- SIDEBAR MEMANGGIL SIDEBAR YANG ADA DI admin/includes/sidebar.php -->
+    <?php $this->load->view("admin/includes/sidebar.php") ?>
+
+    <!-- SIDEBAR MEMANGGIL NAVBAR YANG ADA DI admin/includes/sidebar.php -->
+    <?php $this->load->view("admin/includes/navbar.php") ?>
+
+    <!-- ISI KONTEN HALAMAN -->
+    <div class="content">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card card-user">
+                <div class="image">
+                    <img src="../assets/img/damir-bosnjak.jpg" alt="...">
                 </div>
-            </div>
-            <div class="form-group row">
-                <label for="nama" class="col-sm-2 col-form-label">Nama</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="nama" name="nama" value="<?= $user['nama']; ?>">
-                    <?= form_error('nama', '<small class="text-danger pl-3">', '</small>'); ?>
+                <div class="card-body">
+                    <div class="author">
+                    <a href="#">
+                        <img class="avatar border-gray" src="../assets/img/mike.jpg" alt="...">
+                        <h5 class="title">Chet Faker</h5>
+                    </a>
+                    <p class="description">
+                        @chetfaker
+                    </p>
+                    </div>
+                    <p class="description text-center">
+                    "I like the way you work it <br>
+                    No diggity <br>
+                    I wanna bag it up"
+                    </p>
                 </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-sm-2">Gambar</div>
-                <div class="col-sm-10">
+                <div class="card-footer">
+                    <hr>
+                    <div class="button-container">
                     <div class="row">
-                        <div class="col-sm-3">
-                            <img src="<?= base_url('assets/img/profile/') . $user['image']; ?>" class="img-thumbnail">
+                        <div class="col-lg-3 col-md-6 col-6 ml-auto">
+                        <h5>12<br><small>Files</small></h5>
                         </div>
-                        <div class="col-sm-9">
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="image" name="image">
-                                <label for="image" class="custom-file-label">Pilih File</label>
-                            </div>
+                        <div class="col-lg-4 col-md-6 col-6 ml-auto mr-auto">
+                        <h5>2GB<br><small>Used</small></h5>
+                        </div>
+                        <div class="col-lg-3 mr-auto">
+                        <h5>24,6$<br><small>Spent</small></h5>
                         </div>
                     </div>
+                    </div>
+                </div>
+                </div>
+            
+            </div>
+            <div class="col-md-8">
+                <div class="card card-user">
+                <div class="card-header">
+                    <h5 class="card-title">Edit Profile</h5>
+                </div>
+                <div class="card-body">
+                    <form>
+                    <div class="row">
+                        <div class="col-md-5 pr-1">
+                        <div class="form-group">
+                            <label>Company (disabled)</label>
+                            <input type="text" class="form-control" disabled="" placeholder="Company" value="Creative Code Inc.">
+                        </div>
+                        </div>
+                        <div class="col-md-3 px-1">
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="text" class="form-control" placeholder="Username" value="michael23">
+                        </div>
+                        </div>
+                        <div class="col-md-4 pl-1">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" placeholder="Email">
+                        </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 pr-1">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" class="form-control" placeholder="Company" value="Chet">
+                        </div>
+                        </div>
+                        <div class="col-md-6 pl-1">
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" class="form-control" placeholder="Last Name" value="Faker">
+                        </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Address</label>
+                            <input type="text" class="form-control" placeholder="Home Address" value="Melbourne, Australia">
+                        </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 pr-1">
+                        <div class="form-group">
+                            <label>City</label>
+                            <input type="text" class="form-control" placeholder="City" value="Melbourne">
+                        </div>
+                        </div>
+                        <div class="col-md-4 px-1">
+                        <div class="form-group">
+                            <label>Country</label>
+                            <input type="text" class="form-control" placeholder="Country" value="Australia">
+                        </div>
+                        </div>
+                        <div class="col-md-4 pl-1">
+                        <div class="form-group">
+                            <label>Postal Code</label>
+                            <input type="number" class="form-control" placeholder="ZIP Code">
+                        </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                        <div class="form-group">
+                            <label>About Me</label>
+                            <textarea class="form-control textarea">Oh so, your weak rhyme You doubt I'll bother, reading into it</textarea>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="update ml-auto mr-auto">
+                        <button type="submit" class="btn btn-primary btn-round">Update Profile</button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
                 </div>
             </div>
-
-            <div class="form-group row justify-content-end">
-                <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary btn-user">Edit</button>
-                </div>
             </div>
-            </form>
         </div>
-    </div>
+    <!-- BATAS ISI KONTEN HALAMAN -->
 
+    <!-- FOOTER MEMANGGIL FOOTER YANG ADA DI admin/includes/footer.php -->
+    <?php $this->load->view("admin/includes/footer.php") ?>
 
-</div>
-</div>
+    <!-- JS MEMANGGIL JS YANG ADA DI admin/includes/js.php -->
+    <?php $this->load->view("admin/includes/js.php") ?>
+</body>
+
+</html>

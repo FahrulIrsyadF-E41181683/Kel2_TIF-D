@@ -1,76 +1,67 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class User extends CI_Controller
+class Profil extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('model_user');
-        is_logged_in();
+        $this->load->model('profil_m');
+        $this->load->helper('url');
+        // is_logged_in();
     }
     public function index()
     {
-        $data['title'] = 'Profil Saya';
-        $data['user'] = $this->db->get_where('user', [
-            'email' =>
-            $this->session->userdata('email')
-        ])->row_array();
+        
+        // $data['admin'] = $this->db->get_where('admin', [
+        //     'email' =>
+        //     $this->session->userdata('email')
+        // ])->row_array();
+        $data['tb_admin'] = $this->profil_m->tampil_data('tb_admin')->result();
+        $this->load->view('admin/profil_v', $data);
 
+    }
+    function edit($id){
+        // kode yang berfungsi untuk menyimpan id user ke dalam array $where pada index array benama id
+        $where = array('id_produk' => $id);
+        // kode di bawah ini adalah kode yang mengambil data user berdasarkan id dan disimpan kedalam array $data dengan index bernama user
+        $data['tb_admin'] = $this->m_data->edit_data($where,'tb_admin')->result();
+        //$data['getKategori'] = $this->db->get('tb_kategori')->result();
+        // kode ini memuat vie edit dan membawa data hasil query diatas
         $this->load->view('admin/includes/head.php', $data);
         $this->load->view('admin/includes/sidebar.php', $data);
         $this->load->view('admin/includes/navbar.php', $data);
         $this->load->view('admin/includes/footer.php');
+    
     }
-    public function edit()
-    {
-        $data['title'] = 'Edit Profil';
-        $data['user'] = $this->db->get_where('user', [
-            'email' =>
-            $this->session->userdata('email')
-        ])->row_array();
 
-        $this->form_validation->set_rules('nama', 'Full Name', 'required|trim');
-
-        if ($this->form_validation->run() == false) {
-            $this->load->view('admin/includes/head.php', $data);
-            $this->load->view('admin/includes/sidebar.php', $data);
-            $this->load->view('admin/includes/navbar.php', $data);
-            $this->load->view('user/edit', $data); // buat nampilin tampilan edit profil
-            $this->load->view('admin/includes/footer.php');
-        } else {
-            $nama = $this->input->post('nama');
-            $email = $this->input->post('email');
-
-            //cek jika ada gambar
-
-            $upload_image = $_FILES['image'];
-
-            if ($upload_image) {
-                $config['allowed_types'] = 'gif|jpg|png';
-                $config['max_size'] = '2048';
-                $config['upload_path'] = './assets/img/Profile/';
-
-                $this->load->library('upload', $config);
-
-                if ($this->upload->do_upload('image')) {
-                    $old_image = $data['user']['image'];
-                    if ($old_image != 'default.jpg') {
-                        unlink(FCPATH . 'assets/img/Profile/' . $old_image);
-                    }
-                    $new_image = $this->upload->data('file_name');
-                    $this->db->set('image', $new_image);
-                } else {
-                    echo $this->upload->display_errors();
-                }
-            }
-
-            $this->db->set('nama', $nama);
-            $this->db->where('email', $email);
-            $this->db->update('user');
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Selamat Data telah diperbarui</div>');
-            redirect('user');
-        }
+    // baris kode function update adalah method yang diajalankan ketika tombol submit pada form v_edit ditekan, method ini berfungsi untuk merekam data, memperbarui baris database yang dimaksud, lalu mengarahkan pengguna ke controller crud method index
+    function update(){
+    // keempat baris kode ini berfungsi untuk merekam data yang dikirim melalui method post
+        
+        $id = $this->input->post('id_produk');
+        $nama = $this->input->post('nama_produk');
+        $harga = $this->input->post('harga');
+        $ukuran = $this->input->post('ukuran');
+        $nama_kategori = $this->input->post('nama_kategori');
+    
+        // brikut ini adalah array yang berguna untuk menjadikan variabel diatas menjadi 1 variabel yang nantinya akan disertakan ke dalam query update pada model
+        $data = array(
+            'nama_produk' => $nama,
+            'harga' => $harga,
+            'ukuran' => $ukuran,
+            'nama_kategori' => $nama_kategori
+        );
+    
+        // kode yang berfungsi menyimpan id user ke dalam array $where pada index array bernama id
+        $where = array(
+            'id_produk' => $id
+        );
+    
+        // kode untuk melakukan query update dengan menjalankan method update_data() 
+        $this->m_data->update_data($where,$data,'tb_produk');
+        // baris kode yang mengerahkan pengguna ke link base_url()crud/index/
+        redirect('admin/C_produk/index');
     }
     public function edit_password()
     {
