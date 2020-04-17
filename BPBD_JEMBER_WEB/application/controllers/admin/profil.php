@@ -17,9 +17,8 @@ class Profil extends CI_Controller
         //     'email' =>
         //     $this->session->userdata('email')
         // ])->row_array();
-        $data['tb_admin'] = $this->profil_m->tampil_data('tb_admin')->result();
+        $data['tb_admin'] = $this->profil_m->tampil_data();
         $this->load->view('admin/profil_v', $data);
-
     }
     function edit($id){
         // kode yang berfungsi untuk menyimpan id user ke dalam array $where pada index array benama id
@@ -39,29 +38,49 @@ class Profil extends CI_Controller
     function update(){
     // keempat baris kode ini berfungsi untuk merekam data yang dikirim melalui method post
         
-        $id = $this->input->post('id_produk');
-        $nama = $this->input->post('nama_produk');
-        $harga = $this->input->post('harga');
-        $ukuran = $this->input->post('ukuran');
-        $nama_kategori = $this->input->post('nama_kategori');
-    
+    // $nama = $this->input->post('NAMA');
+    //     $email = $this->input->post('EMAIL');
+    //     $nomer = $this->input->post('NOMER');
+    //     $alamat = $this->input->post('ALAMAT');
+        
+        
+        $upload_image = $_FILES['GAMBAR'];
+
+            if ($upload_image) {
+                $config['allowed_types'] = 'gif|jpg|png';
+                $config['max_size'] = '2048';
+                $config['upload_path'] = './assets/img/profile/';
+
+                $this->load->library('upload', $config);
+
+                if ($upload_image == '') {
+                    $upload_image = 'default.png';
+                } else {
+                    if (!$this->upload->do_upload('GAMBAR')) {
+                        redirect('admin/profil/index');
+                    }else{
+                        $upload_image = $this->upload->do_upload('file_name');
+                    }
+                }
+            }
         // brikut ini adalah array yang berguna untuk menjadikan variabel diatas menjadi 1 variabel yang nantinya akan disertakan ke dalam query update pada model
         $data = array(
-            'nama_produk' => $nama,
-            'harga' => $harga,
-            'ukuran' => $ukuran,
-            'nama_kategori' => $nama_kategori
+            'ID_ADM' => $this->input->post('ID_ADM', true),
+            'NAMA' =>  $this->input->post('NAMA', true),
+            'EMAIL' => $this->input->post('EMAIL',true),
+            'NOMER' => $this->input->post('NOMER',true),
+            'ALAMAT' => $this->input->post('ALAMAT', true),
+            'GAMBAR' => $upload_image
         );
-    
         // kode yang berfungsi menyimpan id user ke dalam array $where pada index array bernama id
         $where = array(
-            'id_produk' => $id
+            'ID_ADM' => $id
         );
     
         // kode untuk melakukan query update dengan menjalankan method update_data() 
-        $this->m_data->update_data($where,$data,'tb_produk');
+        $this->profil_m->update_data($where,$data,'tb_admin');
         // baris kode yang mengerahkan pengguna ke link base_url()crud/index/
-        redirect('admin/C_produk/index');
+        redirect('admin/profil/index');
     }
     public function edit_password()
     {

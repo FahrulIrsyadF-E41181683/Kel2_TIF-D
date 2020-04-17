@@ -108,7 +108,7 @@
                 </div>
                 <div class="col-6">
                     <p>
-                    BPBD PROV.JEMBER<br> Jl. Danau Toba No.30, Lingkungan Panji, Tegalgede, Kec. Sumbersari, Kabupaten Jember, Jawa Timur <br>68124
+                    BPBD KAB.JEMBER<br> Jl. Danau Toba No.30, Lingkungan Panji, Tegalgede, Kec. Sumbersari, Kabupaten Jember, Jawa Timur <br>68124
                     </p>
                 </div>
             </div>
