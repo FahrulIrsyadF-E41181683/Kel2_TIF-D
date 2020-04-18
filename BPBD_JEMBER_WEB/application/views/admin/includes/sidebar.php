@@ -33,6 +33,12 @@
               <p>Kategori</p>
             </a>
           </li>
+          <li class="nav-item <?php echo $this->uri->segment(2) == 'profil' ? 'active': '' ?>">
+            <a class="nav-link" href="<?php echo site_url('admin/profil') ?>">
+              <i class="nc-icon nc-badge"></i>
+              <p>Profil</p>
+            </a>
+          </li>
           
         </ul>
       </div>

@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Login BPBD</string>
+
+    <string name="registrasi">Registrasi</string>
+    <string name="masuk">Masuk</string>
+    <string name="daftar">Daftar</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="kpassword">Konfirmasi Password</string>
+    <string name="selamatdatang">Selamat Datang</string>
+    <string name="namaapk">di Aplikasi BPBD Jember</string>
+
+
+</resources>
