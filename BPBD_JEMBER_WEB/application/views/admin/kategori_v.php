@@ -51,16 +51,14 @@
           </tr>
         </tfoot>
         <tbody>
-        <?php 
-        foreach ($tb_kategori as $tb ) { ?>
+        <!-- <?php 
+        foreach ($tb_kategori as $tb ) { ?> -->
           <tr>
             <td><?=$tb->nama?></td>
             <td><?=$tb->alamat?></td>
             <td><?=$tb->no_telepon?></td>
             <td><?=$tb->jenis_kelamin?></td>
-            <?php date_default_timezone_set('Asia/Jakarta');?>
-            <td><?= $tb->tanggal . '&nbsp;' . $tb->jam?></td>
-            <td>
+            
               <a class="btn btn-primary" href="<?php echo base_url('admin/kategori_v/edit/'. $tb->id_keterangan); ?>"><i class="fas fa-pencil-alt"></i></a>
               <a class="btn btn-danger" href="<?php echo base_url('admin/kategori_v/hapus/'. $tb->id_keterangan); ?>"><i class="fas fa-trash"></i></a>
             </td>
