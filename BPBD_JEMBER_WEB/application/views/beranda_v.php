@@ -15,9 +15,9 @@
         		<div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
           			<div class="col-md-6">
                         <div class="card bg-dark text-white">
-                        <img src="<?php echo base_url('assets/img/image_4.jpg')?>" class="card-img" alt="..." style="height:500px; weight:10px;">
-                        <div class="card-img-overlay pt-5">
-                            <h5 class="card-title">Card title</h5>
+                        <img src="<?php echo base_url('assets/img/berita.jpg')?>" class="card-img" alt="..." style="height:400px; weight:10px;">
+                        <div class="card-img-overlay pt-5" style="margin-top: 200px">
+                            <h5 class="card-title" style="color: white"><u>Berita</u></h5>
                             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                             <p class="card-text">Last updated 3 mins ago</p>
                         </div>
