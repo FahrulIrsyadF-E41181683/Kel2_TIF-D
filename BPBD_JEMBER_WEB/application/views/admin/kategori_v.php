@@ -23,53 +23,56 @@
               </div>
               <div class="card-body ">
                 <!-- isien ndek kene cym -->
-                <div class="pull-right">
-                        <a href="<?=site_url('category/add')?>" class="btn btn-primary btn-flat">
-                                <i class="fa fa-plus"></i> Buat
-                        </a>
-                </div>
-            </div>
+                <div class="card shadow mb-4">
+       <div class="card-header py-3">
+     <h6 class="m-0 font-weight-bold text-primary"> Kategori Bencana </h6>
+    </div>
+      <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Nama</th>
+            <th>Alamat</th>
+            <th>No telepon</th>
+            <th>Jenis Bencana</th>
+            <th>Tanggal</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th>Nama</th>
+            <th>Alamat</th>
+            <th>No telepon</th>
+            <th>Jenis Jenis Bencana</th>
+            <th>Tanggal</th>
+            <th>Aksi</th>
+          </tr>
+        </tfoot>
+        <tbody>
+        <?php 
+        foreach ($tb_kategori as $tb ) { ?>
+          <tr>
+            <td><?=$tb->nama?></td>
+            <td><?=$tb->alamat?></td>
+            <td><?=$tb->no_telepon?></td>
+            <td><?=$tb->jenis_kelamin?></td>
+            <?php date_default_timezone_set('Asia/Jakarta');?>
+            <td><?= $tb->tanggal . '&nbsp;' . $tb->jam?></td>
+            <td>
+              <a class="btn btn-primary" href="<?php echo base_url('admin/kategori_v/edit/'. $tb->id_keterangan); ?>"><i class="fas fa-pencil-alt"></i></a>
+              <a class="btn btn-danger" href="<?php echo base_url('admin/kategori_v/hapus/'. $tb->id_keterangan); ?>"><i class="fas fa-trash"></i></a>
+            </td>
+          </tr>
+        <?php } ?>
+          </tbody>
+        </table>
+        </div>
+    </div>
+    </div>
 
-            <div class="box-body table-responsive">
-                    <table class="table table-bordered table-striped" id="table1">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Nama category</th>
-                                <th>Actions</th>
-                            </tr>    
-                        </thead>
-                        <tbody>
-                            <?php   $no = 1;
-                                    foreach($row->result() as $key => $data){?>
-                        <tr>
-                                <td style="width : 5%"><?=$no++?>.</td>
-                                <td><?= $kategori ?></td>
-                                <td class="text-center" width="160px">
-
-                                <a href="<?=site_url('category/edit/'. $data->category_id)?>" class="btn btn-primary btn-xs">
-                                            <i class="fa fa-pencil"></i> Edit
-                                       </a>
-                                       <a href="<?=site_url('category/del/'. $data->category_id)?>" onclick="return confirm('apakah Anda Yakin Menghapus Data?')" class="btn btn-danger btn-xs">
-                                            <i class="fa fa-trash"></i> Hapus
-                                       </a>
-                                </td>
-                        </tr>
-                     <div class="box-body">
-                    <div class="row">
-                            <div class="col-md-4 col-md-offset-4">
-                               
-                                <form action="<?=site_url('category/process')?>" method="post">
-                                    <div class="form-group">
-                                    <input type="hidden" name="id" value="<?=$row->category_id?>">
-                                        <p>Tanda <b>*</b> Artinya Wajib Di isi</p>
-                                        <label for="">Nama category *</label>
-                                        <input type="text" name="category_name" value="<?= $row->name?>" class="form-control" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <button type="submit" name="<?= $page ?>" class="btn btn-success btn-flat"><i class="fa fa-paper-plane"></i> Simpan</button>
-                                        <button type="reset" class="btn btn-flat"><i class="fa fa-undo"></i> Reset</button>
-                                    </div>
+</div>
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                   <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
@@ -118,6 +121,9 @@
             </div>
           </div>
         </div>
+
+
+        
     <!-- BATAS ISI KONTEN HALAMAN -->
 
     <!-- FOOTER MEMANGGIL FOOTER YANG ADA DI admin/includes/footer.php -->
