@@ -88,7 +88,7 @@ class Profil extends CI_Controller
             if ($upload_image) {
                 $config['allowed_types'] = 'gif|jpg|png';
                 $config['max_size'] = '2048';
-                $config['upload_path'] = './assets/dist/img/user/';
+                $config['upload_path'] = './assets/img/profile/';
 
                 $this->load->library('upload', $config);
 
