@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/beranda_nav"
+        android:icon="@drawable/ic_beranda"
+        android:title="Beranda"/>
+    <item
+        android:id="@+id/cuaca_nav"
+        android:icon="@drawable/ic_cuaca"
+        android:title="Cuaca"/>
+    <item
+        android:id="@+id/gempa_nav"
+        android:icon="@drawable/ic_gempa"
+        android:title="Gempa"/>
+    <item
+        android:id="@+id/lapor_nav"
+        android:icon="@drawable/ic_lapor"
+        android:title="Lapor"/>
+</menu>
