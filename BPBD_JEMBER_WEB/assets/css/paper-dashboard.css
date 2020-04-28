@@ -1,25 +1,4 @@
-/*!
-
- =========================================================
- * Paper Dashboard 2 - v2.0.0
- =========================================================
-
- * Product Page: https://www.creative-tim.com/product/paper-dashboard-2
- * Copyright 2018 Creative Tim (http://www.creative-tim.com)
-
- * Designed by www.invisionapp.com Coded by www.creative-tim.com
-
- =========================================================
-
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
- */
-
-/*!
-Animate.css - http://daneden.me/animate
-Licensed under the MIT license - http://opensource.org/licenses/MIT
-
-Copyright (c) 2015 Daniel Eden
+/* CSS ADMIN
 */
 
 .animated {
@@ -420,7 +399,7 @@ Copyright (c) 2015 Daniel Eden
 .show>.navbar .navbar-nav>a.btn.dropdown-toggle:hover {
   background-color: #403D39 !important;
   color: #FFFFFF !important;
-  box-shadow: none !important;
+  box-shadow: white !important;
 }
 
 .btn:not([data-action]):hover,
@@ -3836,7 +3815,7 @@ License - nucleoapp.com/license/
   display: inline-block;
   font: normal normal normal 14px/1 'nucleo-icons';
   font-size: inherit;
-  speak-as: none;
+  speak: none;
   text-transform: none;
   /* Better Font Rendering */
   -webkit-font-smoothing: antialiased;
@@ -4607,8 +4586,7 @@ License - nucleoapp.com/license/
   width: 260px;
   left: 0;
   z-index: 1030;
-  border-right: 1px solid #fd7e14;
-  background-color: #2c2c2c;
+  border-right: 1px solid #ddd;
 }
 
 .sidebar .sidebar-wrapper,
@@ -4753,7 +4731,7 @@ License - nucleoapp.com/license/
   height: 100%;
   content: "";
   display: block;
-  background: rgb(34, 34, 34);
+  background: #FFFFFF;
   opacity: 1;
 }
 
@@ -5051,15 +5029,13 @@ License - nucleoapp.com/license/
 }
 
 .panel-header {
-  height: 0px;
+  height: 65px;
   padding-top: 0px;
   padding-bottom: 10px;
   background: #141E30;
   /* fallback for old browsers */
   background: -webkit-gradient(linear, left top, right top, from(#FDB928), color-stop(60%, #EE7316), to(#DE4F01));
   background: linear-gradient(to right, #FDB928 0%, #EE7316 60%, #DE4F01 100%);
-  position: relative;
-  overflow: hidden;
 }
 
 .panel-header .header .title {
@@ -5067,7 +5043,7 @@ License - nucleoapp.com/license/
 }
 
 .panel-header .header .category {
-  max-width: 0px;
+  max-width: 600px;
   color: rgba(255, 255, 255, 0.5);
   margin: 0 auto;
   font-size: 13px;
@@ -5078,11 +5054,11 @@ License - nucleoapp.com/license/
 }
 
 .panel-header-sm {
-  height: 0px;
+  height: 135px;
 }
 
 .panel-header-lg {
-  height: 0px;
+  height: 380px;
 }
 
 .footer {
@@ -6296,7 +6272,7 @@ License - nucleoapp.com/license/
   }
   .sidebar .sidebar-wrapper li.active>a:not([data-toggle="collapse"]):before,
   .sidebar .sidebar-wrapper li.active>[data-toggle="collapse"]+div .nav li:before {
-    border-right: 17px solid #343a40;
+    border-right: 17px solid #DDDDDD;
     border-top: 17px solid transparent;
     border-bottom: 17px solid transparent;
     content: "";
