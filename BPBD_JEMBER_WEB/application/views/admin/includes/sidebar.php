@@ -15,19 +15,19 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item <?php echo $this->uri->segment(2) == '' ? 'active': '' ?>">
-            <a class="nav-link" href="<?php echo site_url('admin') ?>">
+          <li class="nav-item <?php echo $this->uri->segment(2) == 'dashboard' ? 'active': '' ?>">
+            <a class="nav-link" href="<?php echo site_url('admin/dashboard') ?>">
               <i class="nc-icon nc-bank"></i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li>
-            <a href="./icons.html">
+          <li class="nav-item <?php echo $this->uri->segment(2) == 'berita' ? 'active': '' ?>">
+            <a class="nav-link" href="<?php echo site_url('admin/berita') ?>">
               <i class="nc-icon nc-paper"></i>
               <p>Laporan Berita</p>
             </a>
           </li>
-          <li>
+          <li class="nav-item <?php echo $this->uri->segment(2) == 'kategori' ? 'active': '' ?>">
             <a href="<?php echo base_url('admin/kategori')?>">
               <i class="nc-icon nc-tag-content"></i>
               <p>Kategori</p>
