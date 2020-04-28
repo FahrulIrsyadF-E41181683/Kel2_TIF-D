@@ -27,8 +27,8 @@
               <p>Laporan Berita</p>
             </a>
           </li>
-          <li>
-            <a href="<?php echo base_url('admin/kategori')?>">
+          <li class="nav-item <?php echo $this->uri->segment(2) == 'kategori' ? 'active': '' ?>">
+            <a class="nav-link" href="<?php echo site_url('admin/kategori') ?>">
               <i class="nc-icon nc-tag-content"></i>
               <p>Kategori</p>
             </a>
