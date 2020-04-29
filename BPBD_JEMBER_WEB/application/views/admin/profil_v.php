@@ -2,11 +2,12 @@
     <?php 
     
     foreach ($tb_admin as $ad ) : 
-        $id = $ad['ID_ADM'];
+        $id = $ad['ID_USR'];
     ?>
     <div class="content">
         <div class="row">
             <div class="col-md-4">
+                <!-- Tampilan Kartu Nama Admin -->
                 <div class="card card-user">
                 <div class="image">
                     <!-- <img src="../assets/img/damir-bosnjak.jpg" alt="..."> -->
@@ -36,6 +37,7 @@
                 </div>
                 </div>
             </div>
+            <!-- Tampilan Edit Profil Admin -->
             <div class="col-md-8">
                 <div class="card card-user">
                 <div class="card-header">
@@ -96,6 +98,7 @@
     <?php endforeach; ?>
     <!-- BATAS ISI KONTEN HALAMAN -->
 
+<!-- Modal Ubah Username dan Password -->
     <?php
 foreach ($koleksi as $i) :
     $id_koleksi = $i['id_koleksi'];

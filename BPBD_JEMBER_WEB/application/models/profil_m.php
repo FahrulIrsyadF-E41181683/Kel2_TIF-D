@@ -15,7 +15,7 @@ class profil_m extends CI_Model
         return $this->db->get_where($table,$where);
     }
     public function tampil_data(){
-        $sql = "SELECT * FROM tb_admin";
+        $sql = "SELECT * FROM tb_user";
         $tampil = $this->db->query($sql);
         return $tampil->result_array();
     }

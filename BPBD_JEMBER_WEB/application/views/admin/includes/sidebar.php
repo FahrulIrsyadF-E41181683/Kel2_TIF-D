@@ -39,7 +39,13 @@
               <p>Profil</p>
             </a>
           </li>
-          
+          <li class="nav-item <?php echo $this->uri->segment(2) == 'listuser' ? 'active': '' ?>">
+            <a class="nav-link" href="<?php echo site_url('admin/listuser') ?>">
+              <i class="nc-icon nc-book-bookmark"></i>
+              <p>Daftar Pengguna</p>
+            </a>
+          </li>
+
         </ul>
       </div>
     </div>

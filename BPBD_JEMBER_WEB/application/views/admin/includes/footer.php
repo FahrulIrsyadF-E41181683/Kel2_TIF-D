@@ -16,7 +16,7 @@
             </nav>
             <div class="credits ml-auto">
               <span class="copyright">
-              <p>Copyright &copy; 2020 BPBD PROV.JEMBER</p>
+              <p>Copyright &copy; 2020 BPBD KAB.JEMBER</p>
               </span>
             </div>
           </div>
