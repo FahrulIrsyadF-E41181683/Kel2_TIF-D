@@ -4,22 +4,19 @@
             <nav class="footer-nav">
               <ul>
                 <li>
-                  <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>
+                  <a href="<?php echo site_url('beranda') ?>">Halaman Utama</a>
                 </li>
                 <li>
-                  <a href="http://blog.creative-tim.com/" target="_blank">Blog</a>
+                  <a href="https://www.facebook.com/bpbd.jember" target="_blank">Facebook</a>
                 </li>
                 <li>
-                  <a href="https://www.creative-tim.com/license" target="_blank">Licenses</a>
+                  <a href="https://twitter.com/pusdalops_jbr" target="_blank">Twitter</a>
                 </li>
               </ul>
             </nav>
             <div class="credits ml-auto">
               <span class="copyright">
-                ©
-                <script>
-                  document.write(new Date().getFullYear())
-                </script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
+              <p>Copyright &copy; 2020 BPBD KAB.JEMBER</p>
               </span>
             </div>
           </div>
