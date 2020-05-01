@@ -23,7 +23,7 @@
 
     <div class="overlay bg-dark">
         <div class="float-left text-right pl-3">
-            BPBD (Badan Penanggulangan Bencana Daerah) Provensi Jember, Jawa Timur
+            BPBD (Badan Penanggulangan Bencana Daerah) Provinsi Jember, Jawa Timur
         </div>
         <div class="text-right pr-3">
             Telepon Darurat (0331) 3229665 / 08510176700

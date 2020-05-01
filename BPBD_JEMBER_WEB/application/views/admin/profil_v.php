@@ -17,7 +17,8 @@
                     <a href="#">
                     <img class="avatar border-gray" src="<?= base_url(). './assets/img/Profile/' . $ad['GAMBAR'];?>" alt="gambar profile">
                     </a>
-                    <h5 class="title"><?= $ad['USERNAME'];?></h5>
+                    <h5 class="title"><?= $ad['NAMA'];?></h5>
+                    <!-- <h7 class="title">Admin/Petugas</h7> -->
                     </div>
                     <p class="description text-center">
                     "I like the way you work it <br>

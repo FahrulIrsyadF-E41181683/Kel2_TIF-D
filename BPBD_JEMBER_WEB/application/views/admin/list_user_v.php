@@ -22,9 +22,39 @@
                 <?php $this->load->view("admin/includes/breadcrumb.php") ?>
             </div>
             <div class="card card-stats">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Data Pengguna</h6>
+            </div>
             <div class="card-body ">
                 <div class="row">
-
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                        <tr>
+                            <th>Nama</th>
+                            <th>Alamat</th>
+                            <th>Nomer</th>
+                            <th>Foto KTP</th>
+                            <th>Aksi</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php 
+                        foreach ($pengguna as $ad ) { ?>
+                        <tr>
+                            <td><?=$ad->NAMA?></td>
+                            <td><?=$ad->ALAMAT?></td>
+                            <td><?=$ad->NOMER?></td>
+                            <td><?=$ad->FOTO_KTP?></td>
+                            <td>
+                            <a class="btn btn-primary" href="<?php echo base_url('admin/listuser/edit/'. $ad->ID_USR); ?>"><i class="fas fa-pencil-alt"></i></a>
+                            <a class="btn btn-danger" href="<?php echo base_url('admin/listuser/hapus/'. $ad->ID_USR); ?>"><i class="fas fa-trash"></i></a>
+                            </td>
+                        </tr>
+                        <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
                 </div>
             </div> 
             </div>
