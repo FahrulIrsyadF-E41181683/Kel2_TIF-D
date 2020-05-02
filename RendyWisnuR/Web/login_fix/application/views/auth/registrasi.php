@@ -1,5 +1,4 @@
 <div class="container">
-
 	<div class="card o-hidden border-0 shadow-lg my-5 col-lg-7 mx-auto">
 		<div class="card-body p-0">
 			<!-- Nested Row within Card Body -->
@@ -10,6 +9,11 @@
 							<h1 class="h4 text-gray-900 mb-4">Buat akun baru!</h1>
 						</div>
 						<form class="user" method="POST" action="<?= base_url('auth/registrasi'); ?>">
+							<div class="form-group">
+								<input type="text" class="form-control form-control-user" id="id_user" name="id_user"
+								value="<?= set_value('ID_USR', $id); ?>" readonly hidden>
+							
+							</div>
 							<div class="form-group">
 								<input type="text" class="form-control form-control-user" id="name" name="name"
 									placeholder="Nama" value="<?= set_value('name'); ?>">
