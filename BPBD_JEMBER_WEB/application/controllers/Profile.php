@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Profile extends CI_Controller {
     function __construct(){
     parent::__construct();
-    is_logged_in();		
+    // is_logged_in();		
     // $this->load->model('m_user');
     
     //function untuk memanggil helper url melalui controller
@@ -12,17 +12,18 @@ class Profile extends CI_Controller {
 	}
     public function index(){
       //untuk mengecek session sesuai dengan email saat login
-      $data['tb_user']= $this->db->get_where('tb_user', ['EMAIL' =>
-      $this->session->userdata('EMAIL')])->row_array();
-        $data['tb_user'] = $this->m_data->tampil_datauser()->result();
+      $data['tb_user']= $this->db->get_where('tb_user', ['email' =>
+      $this->session->userdata('email')])->row_array();
+        // $data['tb_user'] = $this->m_user->tampil_datauser()->result();
       // memparsing ke dalam v_profile  
-            $this->load->view('v_profile',$data);
+            $this->load->view('v_profile', $data);
         }
 
         //membuat method untuk edit profile
     public function edituser(){
-      $data['tb_user']= $this->db->get_where('tb_user', ['EMAIL' =>
-      $this->session->userdata('EMAIL')])->row_array();
+      $this->load->library('form_validation');
+      $data['tb_user']= $this->db->get_where('tb_user', ['email' =>
+      $this->session->userdata('email')])->row_array();
 
       $this->form_validation->set_rules('USERNAME', 'Username', 'required|trim');
       $this->form_validation->set_rules('PASSWORD', 'Password', 'required|trim|min_length[8]');
@@ -34,7 +35,7 @@ class Profile extends CI_Controller {
       if ($this->form_validation->run()== false){
 
         // memparsing ke dalam v_editprofile  
-      $this->load->view('v_editprofile',$data);
+      $this->load->view('v_editprofile', $data);
       } else{
         $id_user = $this->input->post('ID_USR');
         $username = $this->input->post('USERNAME');
@@ -45,8 +46,7 @@ class Profile extends CI_Controller {
         $email = $this->input->post('EMAIL');
 
         //untuk mengecek gambar yang akan diupload
-        $upload_gambar = $_FILES['GAMBAR']['NAMA'];
-      }
+        $upload_gambar = $_FILES['GAMBAR']['NAMA'];   
 
         if($upload_gambar){
           $config['allowed_types']= 'jpg|png';
@@ -64,15 +64,16 @@ class Profile extends CI_Controller {
             if($old_gambar != 'default.jpg'){
 
               //menghapus foto lama yang telah di upload
-              unlink(FCPATH . 'assets/img/profile/'.$old_gambar);
+              unlink(FCPATH . 'assets/img/profile/'. $old_gambar);
             }
 
             $new_gambar= $this->upload->data('file_name');
-            $this->db->set->('GAMBAR', $new_gambar);
+            $this->db->set('GAMBAR', $new_gambar);
           }else{
              echo $this->upload->display_errors();
           }
         }
+        
 
         $this->db->set('USERNAME', $username );
         $this->db->set('PASSWORD', $password );
