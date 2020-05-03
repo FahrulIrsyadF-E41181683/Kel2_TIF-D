@@ -11,7 +11,7 @@
 				<li class="nav-item"><a href="#" class="nav-link">Berita</a></li>
 				<li class="nav-item"><a href="#" class="nav-link">About</a></li>
 				<li class="nav-item"><a href="#contact" class="nav-link">Kontak</a></li>
-				<li class="nav-item"><a href="#" class="nav-link">Login</a></li>
+				<li class="nav-item"><a href="<?php echo base_url('Auth') ?>" class="nav-link">Login</a></li>
 			</ul>
 		</div>
 	</div>

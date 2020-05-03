@@ -12,7 +12,7 @@ class Profil extends CI_Controller
     }
     public function index()
     {
-        
+
         // $data['admin'] = $this->db->get_where('admin', [
         //     'email' =>
         //     $this->session->userdata('email')
@@ -25,29 +25,30 @@ class Profil extends CI_Controller
         $this->load->view("admin/includes/footer.php");
         $this->load->view("admin/includes/js.php");
     }
-    function edit($id){
+    function edit($id)
+    {
         // kode yang berfungsi untuk menyimpan id user ke dalam array $where pada index array benama id
         $where = array('id_produk' => $id);
         // kode di bawah ini adalah kode yang mengambil data user berdasarkan id dan disimpan kedalam array $data dengan index bernama user
-        $data['tb_admin'] = $this->m_data->edit_data($where,'tb_admin')->result();
+        $data['tb_admin'] = $this->m_data->edit_data($where, 'tb_admin')->result();
         //$data['getKategori'] = $this->db->get('tb_kategori')->result();
         // kode ini memuat vie edit dan membawa data hasil query diatas
         $this->load->view('admin/includes/head.php', $data);
         $this->load->view('admin/includes/sidebar.php', $data);
         $this->load->view('admin/includes/navbar.php', $data);
         $this->load->view('admin/includes/footer.php');
-    
     }
 
     // baris kode function update adalah method yang diajalankan ketika tombol submit pada form v_edit ditekan, method ini berfungsi untuk merekam data, memperbarui baris database yang dimaksud, lalu mengarahkan pengguna ke controller crud method index
-    function update(){
-    // keempat baris kode ini berfungsi untuk merekam data yang dikirim melalui method post
+    function update()
+    {
+        // keempat baris kode ini berfungsi untuk merekam data yang dikirim melalui method post
         // $id = $this->input->post('ID_ADM');
         // $nama = $this->input->post('NAMA');
         // $email = $this->input->post('EMAIL');
         // $nomer = $this->input->post('NOMER');
         // $alamat = $this->input->post('ALAMAT');
-        
+
         // $upload_image = $_FILES['GAMBAR'];
 
         //     if ($upload_image) {
@@ -75,43 +76,47 @@ class Profil extends CI_Controller
         //     $this->db->set('ALAMAT', $alamat);
         //     $this->db->where('ID_ADM', $id);
         //     $this->db->update('tb_admin');
-// Post versi terbaru :D
-        $id = $this->input->post('ID_ADM');
+        // Post versi terbaru :D
+        $data['tb_admin'] = $this->db->get_where('tb_user', [
+            'ID_USR' =>
+            $this->session->userdata('ID_USR')
+        ])->row_array();
+        $id = $this->input->post('ID_USR');
         $nama = $this->input->post('NAMA');
         $email = $this->input->post('EMAIL');
         $nomer = $this->input->post('NOMER');
         $alamat = $this->input->post('ALAMAT');
-            //cek jika ada gambar
+        //cek jika ada gambar
 
-            $upload_image = $_FILES['GAMBAR'];
+        $upload_image = $_FILES['GAMBAR'];
 
-            if ($upload_image) {
-                $config['allowed_types'] = 'gif|jpg|png';
-                $config['max_size'] = '2048';
-                $config['upload_path'] = './assets/img/profile/';
+        if ($upload_image) {
+            $config['allowed_types'] = 'gif|jpg|png';
+            $config['max_size'] = '2048';
+            $config['upload_path'] = './assets/img/profile/';
 
-                $this->load->library('upload', $config);
+            $this->load->library('upload', $config);
 
-                if ($this->upload->do_upload('GAMBAR')) {
-                    $old_image = $data['tb_admin']['GAMBAR'];
-                    if ($old_image != 'default.jpg') {
-                        unlink(FCPATH . 'assets/img/profile/' . $old_image);
-                    }
-                    $new_image = $this->upload->data('file_name');
-                    $this->db->set('GAMBAR', $new_image);
-                } else {
-                    echo $this->upload->display_errors();
+            if ($this->upload->do_upload('GAMBAR')) {
+                $old_image = $data['tb_admin']['GAMBAR'];
+                if ($old_image != 'default.jpg') {
+                    unlink(FCPATH . 'assets/img/profile/' . $old_image);
                 }
+                $new_image = $this->upload->data('file_name');
+                $this->db->set('GAMBAR', $new_image);
+            } else {
+                echo $this->upload->display_errors();
             }
+        }
 
-            $this->db->set('NAMA', $nama);
-            $this->db->set('EMAIL', $email);
-            $this->db->set('NOMER', $nomer);
-            $this->db->set('ALAMAT', $alamat);
-            $this->db->where('ID_ADM', $id);
-            $this->db->update('tb_admin');
-            // $this->session->set_flashdata('message', '<div class="text-center alert alert-success" role="alert"><i class="far fa-check-square"></i> Selamat Data telah diperbarui</div>');
-            // redirect('user');
+        $this->db->set('NAMA', $nama);
+        $this->db->set('EMAIL', $email);
+        $this->db->set('NOMER', $nomer);
+        $this->db->set('ALAMAT', $alamat);
+        $this->db->where('ID_USR', $id);
+        $this->db->update('tb_user');
+        // $this->session->set_flashdata('message', '<div class="text-center alert alert-success" role="alert"><i class="far fa-check-square"></i> Selamat Data telah diperbarui</div>');
+        // redirect('user');
         // brikut ini adalah array yang berguna untuk menjadikan variabel diatas menjadi 1 variabel yang nantinya akan disertakan ke dalam query update pada model
         // $data = array(
         //     'ID_ADM' => $this->input->post('ID_ADM'),
@@ -125,7 +130,7 @@ class Profil extends CI_Controller
         // $where = array(
         //     'ID_ADM' => $id
         // );
-    
+
         // kode untuk melakukan query update dengan menjalankan method update_data() 
         //$this->profil_m->update_data($where,$data,'tb_admin');
         // baris kode yang mengerahkan pengguna ke link base_url()crud/index/

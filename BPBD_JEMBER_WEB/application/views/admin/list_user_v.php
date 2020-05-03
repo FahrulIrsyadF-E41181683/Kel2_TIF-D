@@ -47,8 +47,8 @@
                                             <td><?= $ad['NAMA']; ?></td>
                                             <td><?= $ad['ALAMAT']; ?></td>
                                             <td><?= $ad['NOMER']; ?></td>
-                                            <td><?= $ad['FOTO_KTP']; ?></td>
-                                            <td><?= $ad['FOTO_ORG']; ?></td>
+                                            <td><img src="<?= base_url() . './assets/img/Profile/' . $ad['FOTO_KTP']; ?>" width="190"></td>
+                                            <td><img src="<?= base_url() . './assets/img/Profile/' . $ad['FOTO_ORG']; ?>" width="90"></td>
                                             <td>
                                                 <a class="btn btn-primary" href="<?= base_url('admin/profil/konfirmasi' . $ad['ID_USR']); ?>">Konfirmasi<i class="icon-check-2"></i></a>
                                                 <a class="btn btn-danger" href="<?= base_url('admin/profil/hapus' . $ad['ID_USR']); ?>">Hapus<i class="icon-trash-simple"></i></a>

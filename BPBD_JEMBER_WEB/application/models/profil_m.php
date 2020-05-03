@@ -8,19 +8,22 @@ class profil_m extends CI_Model
     }
     public function getUser()
     {
-        $query = "SELECT * FROM tb_admin";
+        $query = "SELECT * FROM tb_user";
         return $this->db->query($query)->result_array();
     }
-    function edit_data($where,$table){		
-        return $this->db->get_where($table,$where);
+    function edit_data($where, $table)
+    {
+        return $this->db->get_where($table, $where);
     }
-    public function tampil_data(){
+    public function tampil_data()
+    {
         $sql = "SELECT * FROM tb_user";
         $tampil = $this->db->query($sql);
         return $tampil->result_array();
     }
-    function update_data($where,$data,$table){
+    function update_data($where, $data, $table)
+    {
         $this->db->where($where);
-        $this->db->update($table,$data);
-    }	
+        $this->db->update($table, $data);
+    }
 }
