@@ -8,6 +8,7 @@ class Auth extends CI_Controller
         parent::__construct();
         $this->load->library('form_validation');
         $this->load->model('m_id');
+        $this->load->model('m_login');
     }
     public function index()
     {
@@ -35,58 +36,41 @@ class Auth extends CI_Controller
 
     private function _login()
     {
-        $username = $this->input->post('username');
-        $password = $this->input->post('password');
+        $username = $this->input->post('username'); // Menangkap data username yang diinputkan di form login
+		$password = $this->input->post('password'); // Menangkap data password yang diinputkan di form login
 
-        $user = $this->db->get_where('tb_user', ['username' => $username])->row_array();
-        // Jika usernya ada, maka ->
-        if ($user) {
-            // Jika usernya aktif ->
-            if ($user['STATUS'] == 1) {
-                // Cek Password, bener atau nggak ->
-                if (password_verify($password, $user['password'])) {
-                    $data = [
-                        'username' => $user['username'],
-                        'role' => $user['role']
-                    ];
-                    $this->session->set_userdata($data);
-                    redirect('user');
-                } else {
-                    $this->session->set_flashdata(
-                        'message',
-                        '<div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
-                    <strong>Password salah!</strong> Silakan cek ulang!
+		// Kemudian data yang diterima dan ditangkap di jadikan array agar dapat dikembalikan lagi ke model m_login
+		$where = array(
+			'username' => $username,
+			'password' => md5($password) // Disini kita menggunakan MD5 sebagai enkripsi password
+			);
+
+		// Cek ketersediaan username dan password user dengan fungsi cek login yang ada di model->m_login
+		$cek = $this->m_login->cek_login("tb_user", $where)->num_rows();
+        
+		// Jika hasil cek ternyata menyatakan username dan password tersedia maka dibuat session berisi username dan status login, kemudian akan di arahkan ke view->dashboard.
+		if($cek > 0){
+
+			$data_session   = array(
+				'nama'      =>  $username,
+				'status'    =>  "login"
+				);
+
+			$this->session->set_userdata($data_session);
+            // Bisa diganti ke view lain
+			redirect(base_url("beranda"));
+
+        // Jika ternyata username dan password yang diinputkan tidak tersedia maka akan tampil alert 
+		} else {
+            $this->session->set_flashdata('message',
+                    '<div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+                    <strong>Username atau password salah!</strong> Silakan cek ulang!
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
-                    </div>'
-                    );
+                    </div>');
                     redirect('auth');
-                }
-            } else {
-                $this->session->set_flashdata(
-                    'message',
-                    '<div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
-                <strong>Akun ini belum diaktifkan</strong> Silakan cek email!
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-                </div>'
-                );
-                redirect('auth');
-            }
-        } else {
-            $this->session->set_flashdata(
-                'message',
-                '<div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
-            <strong>Akun ini tidak terdaftar!</strong> Silakan Daftar!
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-            </div>'
-            );
-            redirect('auth');
-        }
+        } 
     }
 
     public function verif()
@@ -203,7 +187,7 @@ class Auth extends CI_Controller
                 'nomer'     => htmlspecialchars($this->input->post('nomer', true)),
                 'email'     => htmlspecialchars($this->input->post('email', true)),
                 'gambar'    => 'default.jpg',
-                'password'  => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
+                'password'  => md5($this->input->post('password1')),
                 'role'      => 1,
                 'status'    => 0
             ];

@@ -5,7 +5,7 @@ class Beranda extends CI_Controller
 {
     public function __contruct()
     {
-        parent::__contruct();
+        parent::__construct();
     }
 
     public function index()
