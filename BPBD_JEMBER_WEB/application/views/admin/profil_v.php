@@ -101,71 +101,42 @@
 
     <!-- Modal Ubah Username dan Password -->
     <?php
-    foreach ($koleksi as $i) :
-        $id_koleksi = $i['id_koleksi'];
-        $judul = $i['judul'];
-        $nim = $i['nim'];
-        $isbn = $i['isbn'];
-        $penerbit = $i['penerbit'];
-        $penulis = $i['penulis'];
-        $tahun_terbit = $i['tahun_terbit'];
-        $nama_kategori = $i['nama_kategori'];
+    foreach ($user as $i) :
+        $ID_USR = $i['ID_USR'];
+
     ?>
-        <div class="modal fade" id="modal_edit<?= $id_koleksi; ?>" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+        <div class="modal fade" id="modal_edit<?= $id; ?>" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h3 class="modal-title" id="myModalLabel">Edit Koleksi</h3>
+                        <h3 class="modal-title" id="myModalLabel">Edit Password</h3>
                         <button class="close" type="button" data-dismiss="modal" aria-hidden="true">x</button>
                     </div>
-                    <?= form_open_multipart('koleksi/edit_koleksi'); ?>
-                    <div class="form-group">
-                        <label class="control-label col-xs-3">Judul</label>
-                        <div class="col-xs-8">
-                            <input type="text" class="form-control" name="judul" value="<?= $judul; ?>">
+                    <div class="modal-body">
+                        <?= $this->session->flashdata('message'); ?>
+                        <form action="<?= base_url('profil/edit_password'); ?>" method="post">
+                            <div class="form-group">
+                                <label for="passwordSkrg">Password Lama</label>
+                                <input type="password" id="passwordSkrg" name="passwordSkrg" class="form-control">
+                                <?= form_error('passwordSkrg', '<small class="text-danger pl-3">', '</small>'); ?>
+                            </div>
+                            <div class="form-group">
+                                <label for="passwordBaru1">Password Baru</label>
+                                <input type="password" id="passwordBaru1" name="passwordBaru1" class="form-control">
+                                <?= form_error('passwordBaru1', '<small class="text-danger pl-3">', '</small>'); ?>
+                            </div>
+                            <div class="form-group">
+                                <label for="passwordBaru2">Ulangi Password Baru</label>
+                                <input type="password" id="passwordBaru2" name="passwordBaru2" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Ganti Password</button>
+                            </div>
+                        </form>
+                        <div class="modal-footer">
+                            <button class="btn" data-dismiss="modal" aria-hidden="true">Tutup</button>
+                            <button class="btn btn-info">Update</button>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="" class="control-label col-xs-3">NIM</label>
-                        <div class="col-xs-8">
-                            <input type="text" class="form-control" name="nim" value="<?= $nim; ?>" readonly>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-xs-3">ISBN</label>
-                        <div class="col-xs-8">
-                            <input type="text" class="form-control" name="isbn" value="<?= $isbn; ?>">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-xs-3">Penerbit</label>
-                        <div class="col-xs-8">
-                            <input type="text" class="form-control" name="penerbit" value="<?= $penerbit; ?>">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-xs-3">Penulis</label>
-                        <div class="col-xs-8">
-                            <input type="text" class="form-control" name="penulis" value="<?= $penulis; ?>">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-xs-3">Tahun Terbit</label>
-                        <div class="col-xs-8">
-                            <input type="text" class="form-control" name="tahun_terbit" value="<?= $tahun_terbit; ?>">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="" class="control-label  col-xs-3">Kategori Koleksi</label>
-                        <select class="form-control" name="nama_kategori" id="nama_kategori">
-                            <?php foreach ($getKategoriKoleksi as $bc) : ?>
-                                <option value="<?= $bc['nama_kategori']; ?>"><?= $bc['nama_kategori']; ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn" data-dismiss="modal" aria-hidden="true">Tutup</button>
-                        <button class="btn btn-info">Update</button>
                     </div>
                 </div>
                 </form>

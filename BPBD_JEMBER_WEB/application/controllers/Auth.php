@@ -91,8 +91,8 @@ class Auth extends CI_Controller
 
     public function verif()
     {
-        $data['tb_admin'] = $this->m_id->tampil_data();
-        $this->load->view('auth/verif_v.php', $data);
+        $data['tb_admin'] = $this->m_id->tampil_data(); //Untuk me-load fungsi tampil_data() di modal m_id
+        $this->load->view('auth/verif_v.php', $data); //Untuk menampilkan view verif_v dan me-load variabel $data
     }
 
     public function verifikasi()
@@ -109,17 +109,18 @@ class Auth extends CI_Controller
         $upload_image = $_FILES['FOTO_KTP'];
 
         if ($upload_image) {
-            $config['allowed_types'] = 'gif|jpg|png';
-            $config['max_size'] = '2048';
-            $config['upload_path'] = './assets/img/profile/';
+            // Konfigurasi gambar yang akan diupload
+            $config['allowed_types'] = 'gif|jpg|png'; //Format file yang dibolehkan
+            $config['max_size'] = '2048'; // Ukuran maksimal
+            $config['upload_path'] = './assets/img/profile/'; // Tempat yang digunakan untuk menyimpan gambar
 
-            $this->load->library('upload', $config);
+            $this->load->library('upload', $config); // load library upload dan aktivasi konfigurasi gambar
 
-            if ($this->upload->do_upload('FOTO_KTP')) {
+            if ($this->upload->do_upload('FOTO_KTP')) { // jika melakukan upload foto ktp
                 $FOTO_KTP = $this->upload->data("file_name");
-                $this->db->set('FOTO_KTP', $FOTO_KTP);
+                $this->db->set('FOTO_KTP', $FOTO_KTP); // Maka simpan file yang diupload sesuai dengan nama file tersebut
             } else {
-                echo $this->upload->display_errors();
+                echo $this->upload->display_errors(); // jika upload gagal maka tampilkan error
             }
         }
 
