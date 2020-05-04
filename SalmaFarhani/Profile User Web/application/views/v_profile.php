@@ -1,4 +1,7 @@
-<div class="row">
+<div class="container">
+
+    <div class="card o-hidden border-0 shadow-lg my-5 col-lg-7 mx-auto">
+        <div class="card-body p-0"><div class="row">
 <div class="col-lg-6">
 <?= $this->session->flashdata('message');?>
 </div>
@@ -7,7 +10,7 @@
 <div class="card mb-3" style="max-width: 540px;">
   <div class="row no-gutters">
     <div class="col-md-4">
-      <img src="<?= base_url('assets/img/profile/').$user['GAMBAR'];?>" class="card-img">
+      <img src="<?= base_url('assets/img/Profile/').$user['GAMBAR'];?>" class="card-img">
     </div>
     <div class="col-md-8">
       <div class="card-body">
@@ -25,4 +28,6 @@
     </div>
   </div>
 </div>
+
+
   
