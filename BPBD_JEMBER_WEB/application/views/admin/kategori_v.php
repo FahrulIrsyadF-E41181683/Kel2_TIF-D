@@ -21,12 +21,18 @@
                 <p class="card-category">24 Hours performance</p>
               </div>
               <div class="card-body ">
+              
     <!-- isien ndek kene cym -->
-                <div class="card shadow mb-4">
-           <div class="card-header py-3">
+                        
+                <div class="card shadow ">
+           <div class="card-header ">
               <h6 class="m-0 font-weight-bold text-primary"> Kategori Bencana </h6>
+              <button type="submit" class="btn btn-primary btn-round ">Tambah Kategori</button>
+              <div class="card-footer">
+                            
                </div>
-           <div class="card-body">
+                       
+                  
         <div class="table-responsive">
           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
