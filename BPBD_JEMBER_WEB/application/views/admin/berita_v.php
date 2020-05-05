@@ -38,7 +38,7 @@
               </div>
               <!-- PENCARIAN -->
               <div class="col-md-4 pt-2 float-right">
-              <form action="<?php echo base_url('admin/berita')?>" method="post">
+              <form action="" method="post">
                 <div class="input-group no-border">
                   <input type="text" name="cari" class="form-control" placeholder="Pencarian..." autocomplete="off" autofocus>
                   <div class="input-group-append">
