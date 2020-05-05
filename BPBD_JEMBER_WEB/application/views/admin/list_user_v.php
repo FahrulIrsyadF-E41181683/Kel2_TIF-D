@@ -33,6 +33,7 @@
                                         <th class="text-center">Nama</th>
                                         <th class="text-center">Alamat</th>
                                         <th class="text-center">Nomer</th>
+                                        <th class="text-center">NIK</th>
                                         <th class="text-center">Foto KTP</th>
                                         <th class="text-center">Foto Pemilik KTP</th>
                                         <th class="text-center">Aksi</th>
@@ -47,6 +48,7 @@
                                             <td><?= $ad['NAMA']; ?></td>
                                             <td><?= $ad['ALAMAT']; ?></td>
                                             <td><?= $ad['NOMER']; ?></td>
+                                            <td><?= $ad['NIK']; ?></td>
                                             <td><img src="<?= base_url() . './assets/img/Profile/' . $ad['FOTO_KTP']; ?>" width="190"></td>
                                             <td><img src="<?= base_url() . './assets/img/Profile/' . $ad['FOTO_ORG']; ?>" width="90"></td>
                                             <td>

@@ -74,6 +74,11 @@ class Profil extends CI_Controller
         // baris kode yang mengerahkan pengguna ke link base_url()crud/index/
         redirect('admin/profil/index');
     }
+
+    public function konfirmasi()
+    {
+    }
+
     public function edit_password()
     {
         $data['title'] = 'Edit Password';

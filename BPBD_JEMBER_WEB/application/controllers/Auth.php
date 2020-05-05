@@ -37,59 +37,55 @@ class Auth extends CI_Controller
     private function _login()
     {
         $username = $this->input->post('username'); // Menangkap data username yang diinputkan di form login
-		$password = $this->input->post('password'); // Menangkap data password yang diinputkan di form login
+        $password = md5($this->input->post('password')); // Menangkap data password yang diinputkan di form login
 
-		// Kemudian data yang diterima dan ditangkap di jadikan array agar dapat dikembalikan lagi ke model m_login
-		$where = array(
-			'username' => $username,
-			'password' => md5($password) // Disini kita menggunakan MD5 sebagai enkripsi password
-			);
+        // Kemudian data yang diterima dan ditangkap di jadikan array agar dapat dikembalikan lagi ke model m_login
 
-		// Cek ketersediaan username dan password user dengan fungsi cek login yang ada di model->m_login
-		$cek = $this->m_login->cek_login("tb_user", $where)->num_rows();
-        
-		// Jika hasil cek ternyata menyatakan username dan password tersedia maka dibuat session berisi username dan status login, kemudian akan di arahkan ke view->dashboard.
-		if($cek > 0){
-
-			$data_session   = array(
-				'nama'      =>  $username,
-				'status'    =>  "login"
-				);
-
-			$this->session->set_userdata($data_session);
-            // Bisa diganti ke view lain
-			redirect(base_url("beranda"));
-
-        // Jika ternyata username dan password yang diinputkan tidak tersedia maka akan tampil alert 
-		} else {
-            $this->session->set_flashdata('message',
-                    '<div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
-                    <strong>Username atau password salah!</strong> Silakan cek ulang!
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                    </div>');
+        // Cek ketersediaan username dan password user dengan fungsi cek login yang ada di model->m_login
+        $cek = $this->m_login->cek_login("tb_user", ['USERNAME' => $username])->row_array();
+        $user = $this->db->get_where('tb_user', ['USERNAME' => $username])->row_array();
+        // Jika hasil cek ternyata menyatakan username dan password tersedia maka dibuat session berisi username dan status login, kemudian akan di arahkan ke view->dashboard.
+        if ($user) {
+            //jika user aktif
+            if ($user['STATUS'] == 1) {
+                //cek Password
+                if ($password == $user['PASSWORD']) {
+                    $data = [
+                        'ID_USR' => $user['ID_USR'],
+                        'ROLE' => $user['ROLE']
+                    ];
+                    $this->session->set_userdata($data);
+                    if ($user['ROLE'] == 1) {
+                        redirect('admin/dashboard');
+                    } else {
+                        redirect('admin/dashboard');
+                    }
+                } else {
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password Salah!</div>');
                     redirect('auth');
-        } 
+                }
+            } else {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email Ini Belum Di Aktivasi!</div>');
+                redirect('auth');
+            }
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Maaf Email belum terdaftar!</div>');
+            redirect('auth');
+        }
     }
 
     public function verif()
     {
-        $data['tb_admin'] = $this->m_id->tampil_data(); //Untuk me-load fungsi tampil_data() di modal m_id
+        $data['user'] = $this->db->get_where('tb_user', ['ID_USR' => $this->session->userdata('id_usr')])->row_array();
         $this->load->view('auth/verif_v.php', $data); //Untuk menampilkan view verif_v dan me-load variabel $data
     }
 
     public function verifikasi()
     {
-        $data['tb_admin'] = $this->db->get_where('tb_user', [
-            'ID_USR' =>
-            $this->session->userdata('ID_USR')
-        ])->row_array();
         $id = $this->input->post('ID_USR');
         $nik = $this->input->post('NIK');
 
         //cek jika ada gambar
-
         $upload_image = $_FILES['FOTO_KTP'];
 
         if ($upload_image) {
@@ -128,7 +124,15 @@ class Auth extends CI_Controller
         $this->db->set('NIK', $nik);
         $this->db->where('ID_USR', $id);
         $this->db->update('tb_user');
-
+        $this->session->set_flashdata(
+            'message',
+            '<div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+        <strong>Akun telah berhasil dibuat! Akun anda akan diverifikasi paling lambat 2 hari.</strong><br/>Silakan Login!
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+        </div>'
+        );
         redirect('auth');
     }
 
@@ -162,7 +166,7 @@ class Auth extends CI_Controller
             'valid_email' => 'Isi email yang valid!',
             'is_unique' => 'Email sudah terdaftar!'
         ]);
-        $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[3]|matches[password2]', [
+        $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[8]|matches[password2]', [
             'required' => 'Password harus diisi!',
             'matches' => 'Password tidak sama!',
             'min_length' => 'Password terlalu pendek!'
@@ -194,16 +198,12 @@ class Auth extends CI_Controller
             ];
 
             $this->db->insert('tb_user', $data);
-            $this->session->set_flashdata(
-                'message',
-                '<div class="alert alert-success alert-dismissible fade show text-center" role="alert">
-            <strong>Akun telah berhasil dibuat! </strong> Silakan Login!
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-            </div>'
-            );
-            redirect('auth/verif');
+            $id = $this->input->post('id_user');
+            $data['usr'] = $this->db->query("SELECT * FROM tb_user WHERE ID_USR='$id'")->row_array();
+            // $data['usr'] = $this->db->get_where('tb_user', ['ID_USR' => $this->input->post('id_user')])->row_array();
+            // $this->session->set_userdata($ver);
+            // redirect('auth/verif', $ver);
+            $this->load->view('auth/verif_v.php', $data);
         }
     }
 }
