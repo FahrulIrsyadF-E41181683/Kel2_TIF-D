@@ -27,7 +27,7 @@
           <li class="nav-item <?php echo $this->uri->segment(2) == 'berita' ? 'active': '' ?>">
             <a class="nav-link" href="<?php echo site_url('admin/berita') ?>">
               <i class="nc-icon nc-paper"></i>
-              <p>Laporan Berita</p>
+              <p>Data Berita</p>
             </a>
           </li>
           <li class="nav-item <?php echo $this->uri->segment(2) == 'kategori' ? 'active': '' ?>">
