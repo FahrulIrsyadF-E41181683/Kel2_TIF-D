@@ -1,5 +1,5 @@
 <div class="wrapper ">
-    <div class="sidebar" data-color="white" data-active-color="danger">
+    <div class="sidebar" data-color="black" data-active-color="danger">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
@@ -15,6 +15,9 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
+          <div class="col-md mt-3">
+            <p class="text-white">Home</p>
+          </div>
           <li class="nav-item <?php echo $this->uri->segment(2) == 'dashboard' ? 'active': '' ?>">
             <a class="nav-link" href="<?php echo site_url('admin/dashboard') ?>">
               <i class="nc-icon nc-bank"></i>
@@ -33,6 +36,9 @@
               <p>Kategori</p>
             </a>
           </li>
+          <div class="col-md mt-3">
+            <p class="text-white">Setting</p>
+          </div>
           <li class="nav-item <?php echo $this->uri->segment(2) == 'profil' ? 'active': '' ?>">
             <a class="nav-link" href="<?php echo site_url('admin/profil') ?>">
               <i class="nc-icon nc-badge"></i>

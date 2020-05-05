@@ -61,15 +61,15 @@ class Auth extends CI_Controller
                         redirect('admin/dashboard');
                     }
                 } else {
-                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password Salah!</div>');
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger text-center" role="alert">Password salah!</div>');
                     redirect('auth');
                 }
             } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email Ini Belum Di Aktivasi!</div>');
+                $this->session->set_flashdata('message', '<div class="alert alert-danger text-center" role="alert">Akun ini belum di aktivasi!</div>');
                 redirect('auth');
             }
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Maaf Email belum terdaftar!</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-danger text-center" role="alert">Akun tidak terdaftar!</div>');
             redirect('auth');
         }
     }
@@ -141,11 +141,6 @@ class Auth extends CI_Controller
         // ID Matters Start
         $this->load->model('m_id');
         $data['id'] = $this->m_id->get_kode();
-        // $dariDB = $this->m_id->cekidusr();
-        // contoh USR00004, angka 3 adalah awal pengambilan angka, dan 7 jumlah angka yang diambil
-        // $nourut = substr($dariDB, 3, 7);
-        // $idusrsekarang = $nourut + 1;
-        // $data = array('id_usr' => $idusrsekarang);
         // ID Matters End
         // Peraturan Form 
         $this->form_validation->set_rules('name', 'Name', 'required|trim', [

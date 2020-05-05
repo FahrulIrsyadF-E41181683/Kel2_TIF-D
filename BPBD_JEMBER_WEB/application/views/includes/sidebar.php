@@ -24,7 +24,7 @@
     <div class="sidebar-box ">
         <h3>Berita Terbaru</h3>
         <div class="block-21 mb-4 d-flex">
-            <a class="blog-img mr-4" style="background-image: url(images/image_1.jpg);"></a>
+            <a class="blog-img mr-4"><img src="<?php echo base_url('assets/img/berita.jpg')?>" class="card-img" alt="..."></a>
             <div class="text">
                 <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
                 <div class="meta">
@@ -57,21 +57,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Tag sidebar (belum tentu ada) -->
-            <div class="sidebar-box ">
-              <h3>Tag</h3>
-              <div class="tagcloud">
-                <a href="#" class="tag-cloud-link">cat</a>
-                <a href="#" class="tag-cloud-link">abstract</a>
-                <a href="#" class="tag-cloud-link">people</a>
-                <a href="#" class="tag-cloud-link">person</a>
-                <a href="#" class="tag-cloud-link">model</a>
-                <a href="#" class="tag-cloud-link">delicious</a>
-                <a href="#" class="tag-cloud-link">desserts</a>
-                <a href="#" class="tag-cloud-link">drinks</a>
-              </div>
-            </div>
 
     <!-- Sosial Media sidebar -->
     <div class="sidebar-box ">
