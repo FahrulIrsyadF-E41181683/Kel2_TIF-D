@@ -1,9 +1,9 @@
 <?php 
 //  berfungsi untuk melayani segala query CRUD database
-class M_data extends CI_Model{
+class kategori_m extends CI_Model{
   // function untuk mengambil keseluruhan baris data dari tabel user
 	public function tampil_data(){
-		return $this->db->get('tb_pelanggan');
+		return $this->db->get('tb_kategori');
     }
     public function tampil_data2(){
       return $this->db->get('admin');

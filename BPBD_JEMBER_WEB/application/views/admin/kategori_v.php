@@ -12,7 +12,6 @@
 
     <!-- SIDEBAR MEMANGGIL NAVBAR YANG ADA DI admin/includes/sidebar.php -->
     <?php $this->load->view("admin/includes/navbar.php") ?>
-
     <!-- ISI KONTEN HALAMAN -->
         <div class="row">
           <div class="col-md-12">
@@ -22,45 +21,43 @@
                 <p class="card-category">24 Hours performance</p>
               </div>
               <div class="card-body ">
+              
     <!-- isien ndek kene cym -->
-                <div class="card shadow mb-4">
-           <div class="card-header py-3">
+                        
+                <div class="card shadow ">
+           <div class="card-header ">
               <h6 class="m-0 font-weight-bold text-primary"> Kategori Bencana </h6>
+              <button type="submit" class="btn btn-primary btn-round ">Tambah Kategori</button>
+              <div class="card-footer">
+                            
                </div>
-           <div class="card-body">
+                       
+                  
         <div class="table-responsive">
           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
               <tr>
-                <th>Nama</th>
-                <th>Alamat</th>
-                <th>No telepon</th>
-                <th>Jenis Bencana</th>
-                <th>Tanggal</th>
-                <th>Aksi</th>
+                <th>Kategori</th> 
+                <th>Keterangan</th>
+                <th></th>
+            
               </tr>
              </thead>
              <tfoot>
               <tr>
-                <th>Nama</th>
-                <th>Alamat</th>
-                <th>No telepon</th>
-                <th>Jenis Bencana</th>
-                <th>Tanggal</th>
-                <th>Aksi</th>
+                
+              
               </tr>
             </tfoot>
         <tbody>
         <?php 
-        foreach ($tb_kategori_v as $tb ) { ?>
+        foreach ($tb->result() as $t ) { ?>
           <tr>
-            <td><?=$tb->nama?></td>
-            <td><?=$tb->alamat?></td>
-            <td><?=$tb->no_telepon?></td>
-            <td><?=$tb->jenis_kelamin?></td>
-            
-              <a class="btn btn-primary" href="<?php echo base_url('admin/kategori_v/edit/'. $tb->id_keterangan); ?>"><i class="fas fa-pencil-alt"></i></a>
-              <a class="btn btn-danger" href="<?php echo base_url('admin/kategori_v/hapus/'. $tb->id_keterangan); ?>"><i class="fas fa-trash"></i></a>
+            <td><?=$t->KATEGORI?></td>
+            <td><?=$t->KETERANGAN?></td>
+            <td>
+              <a class="btn btn-primary" href="<?php base_url('admin/kategori_v/edit/'. $t->ID_KTR); ?>">EDIT<i class="icon-check-2"></i></a>
+              <a class="btn btn-danger" href="<?php base_url('admin/kategori_v/hapus/'. $t->ID_KTR); ?>">HAPUS<i class="icon-trash-simple"></i></a>
             </td>
           </tr>
         <?php } ?>
@@ -69,46 +66,7 @@
         </div>
     </div>
     </div>
-
-</div>
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
-                  <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                      <div class="dropdown-header">Dropdown Header:</div>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                  </div>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                  <div class="chart-pie pt-4 pb-2">
-                    <canvas id="myPieChart"></canvas>
-                  </div>
-                  <div class="mt-4 text-center small">
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-primary"></i> Direct
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-success"></i> Social
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-info"></i> Referral
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-      
+    
               </div>
               <div class="card-footer ">
                 <hr>
