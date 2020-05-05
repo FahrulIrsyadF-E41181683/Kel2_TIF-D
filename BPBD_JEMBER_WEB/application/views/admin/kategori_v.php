@@ -18,28 +18,32 @@
             <div class="card ">
               <div class="card-header ">
                 <h5 class="card-title">Kategori</h5>
-                <p class="card-category">24 Hours performance</p>
+                <p class="card-category">
               </div>
               <div class="card-body ">
               
-    <!-- isien ndek kene cym -->
+    <!-- isi konten halaman-->
                         
-                <div class="card shadow ">
-           <div class="card-header ">
-              <h6 class="m-0 font-weight-bold text-primary"> Kategori Bencana </h6>
+    <div class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="container-fluid">
+                    <?php $this->load->view("admin/includes/breadcrumb.php") ?>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+              <h4 class="m-0 font-weight-bold "> Kategori Bencana </h4>
               <button type="submit" class="btn btn-primary btn-round ">Tambah Kategori</button>
               <div class="card-footer">
                             
-               </div>
-                       
-                  
+               </div> 
         <div class="table-responsive">
           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-            <thead>
+            <thead class="text-primary">
               <tr>
-                <th>Kategori</th> 
-                <th>Keterangan</th>
-                <th></th>
+                <th class="text-center">Kategori</th> 
+                <th class="text-center">Keterangan</th>
+                <th class="text-center">Aksi</th>
             
               </tr>
              </thead>
