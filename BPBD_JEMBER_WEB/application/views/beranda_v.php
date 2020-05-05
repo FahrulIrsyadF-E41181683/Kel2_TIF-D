@@ -9,21 +9,55 @@
     <!-- END nav -->
 
     <!-- BAGIAN BERITA TERBARU -->
+    <div id="beranda"></div>
     <div class="hero-wrap js-fullheight" style="background-image: url('<?php echo base_url('assets/img/bg1.jpg') ?>');" data-stellar-background-ratio="0.5">
         <div class="overlay">
         </div>
         <div class="container">
             <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
-                <div class="col-md-6">
-                    <div class="card bg-dark text-white">
-                        <img src="<?php echo base_url('assets/img/berita.jpg') ?>" class="card-img" alt="..." style="height:400px">
-                        <div class="card-img-overlay pt-5" style="margin-top: 200px">
-                            <h5 class="card-title" style="color: white"><u>Berita</u></h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text">Last updated 3 mins ago</p>
+            <div class="col-md-12">
+                    <div id="berita1">
+                        <div class="col-6 float-left">
+                            <div class="card bg-dark text-white">
+                                <div>
+                                    <img src="<?php echo base_url('assets/img/bg1.jpg')?>" class="card-img" alt="...">
+                                    <div class="bagian card-img-overlay pt-5">
+                                        <h5 class="card-title" style="color: white"><u>Berita</u></h5>
+                                        <p class="card-text text-white"><small class="icon-calendar pr-2"> 24 April 2020</small>
+                                        <small class="icon-person pr-2"> Admin</small>
+                                        <small class="icon-chat"> 19</small></p>
+                                    </div>    
+                                </div>
+                            </div>
                         </div>
                     </div>
-
+                        <div class="col-6 float-right pb-4">
+                            <div id="berita2" class="card bg-dark text-white">
+                                <div>
+                                    <img src="<?php echo base_url('assets/img/berita.jpg')?>" class="card-img" alt="..." style="height:210px; weight:10px;">
+                                    <div class="card-img-overlay pt-5" style="margin-top: 60px ">
+                                        <h5 class="card-title" style="color: white"><u>Berita</u></h5>
+                                        <p class="card-text text-white"><small class="icon-calendar pr-2"> 24 April 2020</small>
+                                        <small class="icon-person pr-2"> Admin</small>
+                                        <small class="icon-chat"> 19</small></p>
+                                    </div>    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 float-right">
+                            <div id="berita3" class="card bg-dark text-white">
+                                <div>
+                                    <img src="<?php echo base_url('assets/img/berita.jpg')?>" class="card-img" alt="..." style="height:210px; weight:10px;">
+                                    <div class="card-img-overlay pt-5" style="margin-top: 60px ">
+                                        <h5 class="card-title" style="color: white"><u>Berita</u></h5>
+                                        <p class="card-text text-white"><small class="icon-calendar pr-2"> 24 April 2020</small>
+                                        <small class="icon-person pr-2"> Admin</small>
+                                        <small class="icon-chat"> 19</small></p>
+                                    </div>    
+                                </div>
+                            </div>
+                        </div>
+                </div>
                 </div>
             </div>
         </div>
@@ -32,53 +66,136 @@
     <!-- BATAS -->
 
     <!-- BAGIAN BERITA -->
+    <div id="berita"></div>
     <section class="ftco-section ftco-degree-bg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-9">
-                    ISI BERITA
-                    <div class="card mb-3 border-0" style="max-width: 540px;">
+                <h4 class="pb-4">Dafter Berita</h4>
+                    <div class="card mb-4 border-0" style="max-width: 540px;">
                         <div class="row no-gutters">
                             <div class="col-md-4">
-                                <img src="..." class="card-img" alt="...">
+                            <img src="<?php echo base_url('assets/img/berita.jpg')?>" class="card-img" alt="...">
                             </div>
                             <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">Berita 1</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <p class="card-text"><small class="text-muted icon-calendar"> 24 April 2020</small></p>
-                                </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Berita 1</h5>
+                                <p class="card-text"><small class="text-muted icon-calendar pr-2"> 24 April 2020</small>
+                                <small class="text-muted icon-person pr-2"> Admin</small>
+                                <small class="text-muted icon-chat"> 19</small></p>
+                            </div>
                             </div>
                         </div>
                     </div>
-                </div> <!-- .col-md-8 -->
+                    <div class="card mb-4 border-0" style="max-width: 540px;">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                            <img src="<?php echo base_url('assets/img/berita.jpg')?>" class="card-img" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Berita 1</h5>
+                                <p class="card-text"><small class="text-muted icon-calendar pr-2"> 24 April 2020</small>
+                                <small class="text-muted icon-person pr-2"> Admin</small>
+                                <small class="text-muted icon-chat"> 19</small></p>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-4 border-0" style="max-width: 540px;">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                            <img src="<?php echo base_url('assets/img/berita.jpg')?>" class="card-img" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Berita 1</h5>
+                                <p class="card-text"><small class="text-muted icon-calendar pr-2"> 24 April 2020</small>
+                                <small class="text-muted icon-person pr-2"> Admin</small>
+                                <small class="text-muted icon-chat"> 19</small></p>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-4 border-0" style="max-width: 540px;">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                            <img src="<?php echo base_url('assets/img/berita.jpg')?>" class="card-img" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Berita 1</h5>
+                                <p class="card-text"><small class="text-muted icon-calendar pr-2"> 24 April 2020</small>
+                                <small class="text-muted icon-person pr-2"> Admin</small>
+                                <small class="text-muted icon-chat"> 19</small></p>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-4 border-0" style="max-width: 540px;">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                            <img src="<?php echo base_url('assets/img/berita.jpg')?>" class="card-img" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Berita 1</h5>
+                                <p class="card-text"><small class="text-muted icon-calendar pr-2"> 24 April 2020</small>
+                                <small class="text-muted icon-person pr-2"> Admin</small>
+                                <small class="text-muted icon-chat"> 19</small></p>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                    <div class="col text-center pb-5">
+                        <div class="block-27">
+                        <ul>
+                            <li><a href="#">&lt;</a></li>
+                            <li class="active"><span>1</span></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">&gt;</a></li>
+                        </ul>
+                        </div>
+                    </div>
+                    </div>
+                </div>
 
-                <!-- SIDEBAR MEMANGGIL SIDEBAR YANG ADA DI includes/footer.php -->
+                <!-- SIDEBAR MEMANGGIL SIDEBAR YANG ADA DI includes/sidebar.php -->
                 <?php $this->load->view("includes/sidebar.php") ?>
 
     </section>
     <!-- BATAS BERITA -->
 
     <!-- BAGIAN ABOUT -->
+    <div id="tentang"></div>
     <div class="hero-wrap js-fullheight" style="background-image: url('<?php echo base_url('assets/img/bg2.jpg') ?>');" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
-                <div class="col-md-12 ">
-                    <div class="col-4">
-                        <img src="<?php echo base_url('assets/img/logo.png') ?>" alt="">
+                <div class="col-md-12">
+                    <div class="col-3 float-left">
+          			<img src="<?php echo base_url('assets/img/logo.png')?>" alt="">
                     </div>
-                </div>
+                    <div class="col-7 mt-5 pt-5 pb-5 float-right border-left">
+                    <h2 class="text-white pb-4 pl-5">BPBD PROV.JEMBER</h2>
+                    <p class="pl-5">Badan Penanggulangan Bencana Daerah adalah lembaga pemerintah non-departemen yang melaksanakan tugas penanggulangan bencana di daerah baik Provinsi maupun Kabupaten/ Kota dengan berpedoman pada kebijakan yang ditetapkan oleh Badan Nasional Penanggulangan Bencana</p>
+                    </div>
+          		</div>
             </div>
         </div>
     </div>
     <!-- BATAS ABOUT -->
 
     <!-- BAGIAN KONTAK -->
+    <div id="kontak"></div>
     <div class="container">
         <section id="contact" class="pt-4 my-5 font-m-light text-center">
             <h2 class="font-m-bold pt-5">KONTAK</h2>
-            <h5 class="w-75 mx-auto">Isi formulir dibawah untuk memberi saran, menanyakan ketersediaan produk yang tak tersedia di Website kami, atau menghubungi kami.</h5>
+            <h5 class="w-75 mx-auto">Silahkan isi formulir dibawah ini jika anda memiliki pertanyaan atau kritik dan saran.</h5>
             <form action="contact_us.php" method="post">
                 <div class="row text-left mt-5">
                     <div class="col-6">

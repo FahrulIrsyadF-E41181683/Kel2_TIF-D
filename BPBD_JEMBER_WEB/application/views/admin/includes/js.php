@@ -19,3 +19,23 @@
       demo.initChartsPages();
     });
   </script>
+  <!-- Ckeditor -->
+  <script src="<?php echo base_url('assets/ckeditor/ckeditor.js')?>"></script>
+	<script type="text/javascript">
+	  $(function () {
+	    CKEDITOR.replace('ckeditor');
+	  });
+  </script>
+  <!-- datepicker -->
+  <script src="<?php echo base_url ('assets/datepicker/js/bootstrap-datepicker.js')?>"></script>
+  <script>
+    $(function () {
+    $('#datepicker').datepicker({
+    autoclose: true
+  });
+  });
+  </script>
+<!-- Sweetalert -->
+<script src="<?php echo base_url ('assets/js/sweetalert2.all.min.js')?>"></script>
+<!-- scrip js -->
+<script src="<?php echo base_url('assets/js/scrip.js')?>"></script>
