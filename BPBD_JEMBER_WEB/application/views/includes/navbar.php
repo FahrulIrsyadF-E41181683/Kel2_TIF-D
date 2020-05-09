@@ -12,7 +12,7 @@
 	          <li class="nav-item"><a href="#tentang" class="nav-link">Tentang</a></li>
 			  <li class="nav-item"><a href="#kontak" class="nav-link">Kontak</a></li>
 			  <li class="nav-item"><a href="#kontak" class="nav-link">Lapor Bencana</a></li>
-			  <li class="nav-item"><a href="#" class="nav-link">Login</a></li>
+			  <li class="nav-item"><a href="<?= base_url('auth'); ?>" class="nav-link">Login</a></li>
 			</ul>
 		</div>
 	</div>
