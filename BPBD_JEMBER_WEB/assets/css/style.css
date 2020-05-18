@@ -78,13 +78,13 @@ hr {
   overflow: visible;
 }
 
-#berita1 .card{
+#berita1 .card {
   height: 450px;
 }
 
-#berita1 .bagian{
+#berita1 .bagian {
   margin-top: 300px;
-  background:rgba(31, 31, 31, 0.8);
+  background: rgba(31, 31, 31, 0.8);
 }
 
 #berita1 img {
@@ -7438,7 +7438,7 @@ button.bg-dark:focus {
 }
 
 .border-secondary {
-  border-color: #6c757d !important;
+  border-color: #ffd369 !important;
 }
 
 .border-success {

@@ -7,11 +7,12 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="index.html" class="nav-link">Beranda</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Berita</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="#contact" class="nav-link">Kontak</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Login</a></li>
+                <li class="nav-item"><a href="#beranda" class="nav-link">Beranda</a></li>
+                <li class="nav-item"><a href="#berita" class="nav-link">Berita</a></li>
+                <li class="nav-item"><a href="#tentang" class="nav-link">Tentang</a></li>
+                <li class="nav-item"><a href="#kontak" class="nav-link">Kontak</a></li>
+                <li class="nav-item"><a href="<?= base_url('laporan'); ?>" class="nav-link">Lapor Bencana</a></li>
+                <li class="nav-item"><a href="<?= base_url('auth'); ?>" class="nav-link">Login</a></li>
             </ul>
         </div>
     </div>

@@ -36,7 +36,7 @@
 <script src="<?php echo base_url('assets/js/popper.min.js') ?>"></script>
 <script src="<?php echo base_url('assets/js/bootstrap.min.js') ?>"></script>
 <script src="<?php echo base_url('assets/js/jquery.easing.1.3.js') ?>"></script>
-<script src="<?php echo base_url('assets/s/jquery.waypoints.min.js') ?>"></script>
+<script src="<?php echo base_url('assets/js/jquery.waypoints.min.js') ?>"></script>
 <script src="<?php echo base_url('assets/js/jquery.stellar.min.js') ?>"></script>
 <script src="<?php echo base_url('assets/js/owl.carousel.min.js') ?>"></script>
 <script src="<?php echo base_url('assets/js/jquery.magnific-popup.min.js') ?>"></script>
