@@ -53,8 +53,8 @@
             </div>
             <!-- TABEL LIST -->
               <div class="card-body mb-3">
-                <h6 class="col-md">Jumlah data : <?php echo $total_rows;?></h6>
-                <div class="table-responsive">
+                <h6 class="col-md">Jumlah data berita : <?php echo $total_rows;?></h6>
+                <div class="table-responsive" id="data">
                 <table class="table table-striped" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr class="text-center">
@@ -78,7 +78,7 @@
                       <td><?php echo $berita['TANGGAL']?></td>
                       <td><?php echo $berita['LOKASI']?></td>
                       <!-- <td class="small"><?php echo $berita['ISI_BERITA']?></td> -->
-                      <td><img src="<?php echo base_url('assets/img/gambar_berita/'.$berita['GAMBAR']) ?>" width="64"></td>
+                      <td><img src="<?php echo base_url('assets/img/berita_gambar/'.$berita['GAMBAR_BRT'])?>" width="64"></td>
                       <td><?php echo $berita['NAMA']?></td>
                       <!-- merubah status agar mudah dipahami -->
                       <td class="text-center"><a href="<?php echo base_url(); ?>admin/berita/status/<?php echo $berita['ID_BRT']; ?>/<?php echo $berita['STATUS_BRT']; ?>">
@@ -94,7 +94,7 @@
                         </a></td>
                       <td class="text-center" width="130">
 											<a href="<?php echo base_url(); ?>admin/berita/ubah/<?php echo $berita['ID_BRT']; ?>" class="btn btn-primary btn-sm rounded-pill m-1"><i class="fas fa-edit"></i></a>
-                      <a href="<?php echo base_url(); ?>admin/berita/hapus/<?php echo $berita['ID_BRT']; ?>" class="btn btn-danger btn-sm rounded-pill m-1" onclick="return confirm('yakin?');"><i class="fas fa-trash"></i></a>
+                      <a href="<?php echo base_url(); ?>admin/berita/hapus/<?php echo $berita['ID_BRT']; ?>" class="btn btn-danger btn-sm rounded-pill m-1 tombol-hapus" onclick="return confirm('yakin?');"><i class="fas fa-trash"></i></a>
 										  </td>
                     </tr>
                     <?php endforeach; ?>

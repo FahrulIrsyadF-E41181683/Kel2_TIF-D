@@ -1,8 +1,10 @@
 <!--   Core JS Files   -->
-  <script src="<?php echo base_url('assets/js/core/jquery.min.js')?>"></script>
+  <script src="<?php echo base_url('assets/js/core/jquery.min.js')?>" type="text/javascript"></script>
   <script src="<?php echo base_url('assets/js/core/popper.min.js')?>"></script>
   <script src="<?php echo base_url('assets/js/core/bootstrap.min.js')?>"></script>
   <script src="<?php echo base_url('assets/js/plugins/perfect-scrollbar.jquery.min.js')?>"></script>
+   <!-- datepicker -->
+   <script src="<?php echo base_url ('assets/datepicker/js/bootstrap-datepicker.js')?>"></script>
   <!--  Google Maps Plugin    -->
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
   <!-- Chart JS -->
@@ -20,14 +22,18 @@
     });
   </script>
   <!-- Ckeditor -->
-  <script src="<?php echo base_url('assets/ckeditor/ckeditor.js')?>"></script>
+  <script src="<?php echo base_url('assets/ckeditor/ckeditor.js')?>" type="text/javascript"></script>
+  <script>
+  var ckeditor = CKEDITOR.replace('ckeditor');
+
+  CKEDITOR.disableAutoInline = true;
+  CKEDITOR.inline('editable');
+  </script>
 	<script type="text/javascript">
 	  $(function () {
 	    CKEDITOR.replace('ckeditor');
 	  });
   </script>
-  <!-- datepicker -->
-  <script src="<?php echo base_url ('assets/datepicker/js/bootstrap-datepicker.js')?>"></script>
   <script>
     $(function () {
     $('#datepicker').datepicker({

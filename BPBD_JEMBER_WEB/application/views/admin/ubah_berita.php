@@ -68,12 +68,13 @@
                     <div class="from-group col-md-11">
                         <!-- gambar priview -->
                         <div class="imgWrap pb-2">
-                            <img src="<?php echo base_url('assets/img/gambar_berita/default.png')?>" id="imgView" class="card-img-top img-fluid">
+                            <img src="<?php echo base_url('assets/img/berita_gambar/'.$tb_berita['GAMBAR_BRT'])?>" id="imgView" class="card-img-top img-fluid">
                         </div>
                         <!-- input gambar -->
                         <div class="custom-file">
-                            <input type="file" id="inputFile" name="gambar" class="imgFile custom-file-input" aria-describedby="inputGroupFileAddon01" value="<?php echo $tb_berita['GAMBAR']?>">
+                            <input type="file" id="inputFile" name="gambar" class="imgFile custom-file-input" aria-describedby="inputGroupFileAddon01">
                             <label class="custom-file-label" for="inputFile">Pilih Gambar Thumbnail Berita</label>
+                            <input type="hidden" name="gambar_lama" value="<?php echo $tb_berita['GAMBAR_BRT']?>">
                         </div>
                     </div>
                     </div>
@@ -83,13 +84,13 @@
                     <!-- input isi berita -->
                     <div class="form-group col-md-12 pb-3">
                         <label for="isi_berita">Isi Berita</label>
-                        <input id="ckeditor" name="isi_berita" class="form-control <?php echo form_error('isi_berita') ? 'is-invalid':'' ?>" value="<?php echo $tb_berita['ISI_BERITA']?>">
+                        <textarea id="ckeditor" name="isi_berita" class="form-control <?php echo form_error('isi_berita') ? 'is-invalid':'' ?>"><?php echo $tb_berita['ISI_BERITA']?></textarea>
                         <div class="invalid-feedback">
 							<?php echo form_error('isi_berita') ?>
 						</div>
                     </div>
                     <!-- tombol simpan -->
-                    <button type="submit" name="ubah" class="btn btn-primary float-right ">Ubah Data</button>
+                    <button type="submit" value="upload" name="ubah" class="btn btn-primary float-right ">Ubah Data</button>
                     </div>
                     </form>
                 </div> 

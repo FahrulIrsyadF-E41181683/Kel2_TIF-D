@@ -19,7 +19,7 @@ class Berita_m extends CI_Model
         if($cari) {
             $this->db->like('JUDUL', $cari); // method pencarian berdasarkan judul
         }
-        $this->db->order_by('ID_BRT', 'ASC');
+        $this->db->order_by('ID_BRT', 'DESC');
         return $this->db->from('tb_berita')
         ->join('tb_kategori', 'tb_kategori.ID_KTR=tb_berita.ID_KTR') // <- join tb_kategori agar dapat menampilkan nama
         ->join('tb_user', 'tb_user.ID_USR=tb_berita.ID_USR') // <- join tb_berita agar dapat menampilkan nama
@@ -86,7 +86,7 @@ class Berita_m extends CI_Model
             "TANGGAL" => $this->input->post('tanggal', true),
             "LOKASI" => $this->input->post('lokasi', true),
             "ISI_BERITA" => $this->input->post('isi_berita', true),
-            "GAMBAR" => $this->uploadGambar("file_name", true),
+            "GAMBAR_BRT" => $this->uploadGambar('gambar', true),
             "ID_USR" => $this->input->post('user', true),
             "STATUS_BRT" => "1"
         ];
@@ -97,7 +97,19 @@ class Berita_m extends CI_Model
     // hapus data berita
     public function hapusDataBerita($ID_BRT)
     {
+        $this->db->delete('tb_komentar', ['ID_BRT' => $ID_BRT]);
+        $this->hapusGambar($ID_BRT);
         $this->db->delete('tb_berita', ['ID_BRT' => $ID_BRT]);
+    }
+
+    // hapus gambar
+    private function hapusGambar($ID_BRT)
+    {
+        $berita = $this->getBeritabyID($ID_BRT);
+        if($berita->GAMBAR != "default.png"){
+            $filename = explode(".", $berita->GAMBAR)[0];
+            return array_map('unlink', glob(FCPATH."/assets/img/berita_gambar/$filename.*"));
+        }
     }
 
     // ubah status berita
@@ -136,7 +148,7 @@ class Berita_m extends CI_Model
             "TANGGAL" => $this->input->post('tanggal', true),
             "LOKASI" => $this->input->post('lokasi', true),
             "ISI_BERITA" => $this->input->post('isi_berita', true),
-            "GAMBAR" => "deafault.png",
+            "GAMBAR_BRT" => "deafault.png",
             "ID_USR" => $this->input->post('user', true),
             "STATUS_BRT" => "1"
         ];
@@ -147,21 +159,19 @@ class Berita_m extends CI_Model
 
     private function uploadGambar()
     {
-        $config['upload_path']          = './assets/img/gambar_berita/';
-        $config['allowed_types']        = 'gif|jpg|png';
+        $config['upload_path']          = './assets/img/berita_gambar/';
+        $config['allowed_types']        = 'gif|jpg|png|jpeg';
         $config['file_name']            = uniqid();
         $config['overwrite']			= true;
         $config['max_size']             = 3024; // 3MB
         // $config['max_width']            = 1024;
         // $config['max_height']           = 768;
 
-        $this->upload->initialize($config);
-        // $this->load->library('upload', $config);
+        $this->load->library('upload', $config);
 
         if ($this->upload->do_upload('gambar')) {
             return $this->upload->data("file_name");
-        }
-        print_r($this->upload->display_errors());
-        // return "default.png";
+        }print_r($this->upload->display_errors());
+        return "default.png";
     }
 }

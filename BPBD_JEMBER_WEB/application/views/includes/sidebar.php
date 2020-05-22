@@ -11,51 +11,30 @@
     <!-- Kategori sidebar -->
     <div class="sidebar-box ">
         <div class="categories">
-            <h3>Kategori</h3>
-            <li><a href="#">Banjir<span class="ion-ios-arrow-forward"></span></a></li>
-            <li><a href="#">Gempa Bumi<span class="ion-ios-arrow-forward"></span></a></li>
-            <li><a href="#">Angin Kencang<span class="ion-ios-arrow-forward"></span></a></li>
-            <li><a href="#">Puting Beliung<span class="ion-ios-arrow-forward"></span></a></li>
-            <li><a href="#">Info Jember<span class="ion-ios-arrow-forward"></span></a></li>
+        <h3>Kategori</h3>
+        <?php foreach($tb_kategori as $kategori):?>
+            <li><a href="#"><?php echo $kategori['KATEGORI']?><span class="ion-ios-arrow-forward"></span></a></li>
+        <?php endforeach; ?>
         </div>
     </div>
 
     <!-- Berita Terbaru sidebar -->
     <div class="sidebar-box ">
         <h3>Berita Terbaru</h3>
-        <div class="block-21 mb-4 d-flex">
-            <a class="blog-img mr-4"><img src="<?php echo base_url('assets/img/berita.jpg')?>" class="card-img" alt="..."></a>
+        <?php foreach($tb_berita as $berita):?>
+        <?php if($berita['STATUS_BRT'] == 1) : ?>
+        <div class="block-21 d-flex">
+            <a class="blog-img mr-4"><img src="<?php echo base_url('assets/img/berita_gambar/'.$berita['GAMBAR_BRT'])?>" class="card-img" alt="..."></a>
             <div class="text">
-                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                <h3 class="heading"><a href="#"><?php echo $berita['JUDUL'] ?></a></h3>
                 <div class="meta">
-                    <div><a href="#"><span class="icon-calendar"></span> Nov. 14, 2019</a></div>
-                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                    <div><a href="#"><span class="icon-calendar"></span> <?php echo $berita['TANGGAL'] ?></a></div>
+                    <div><a href="#"><span class="icon-person"></span> <?php echo $berita['NAMA'] ?></a></div>
                 </div>
             </div>
         </div>
-        <div class="block-21 mb-4 d-flex">
-            <a class="blog-img mr-4" style="background-image: url(images/image_2.jpg);"></a>
-            <div class="text">
-                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                <div class="meta">
-                    <div><a href="#"><span class="icon-calendar"></span> Nov. 14, 2019</a></div>
-                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                </div>
-            </div>
-        </div>
-        <div class="block-21 mb-4 d-flex">
-            <a class="blog-img mr-4" style="background-image: url(images/image_3.jpg);"></a>
-            <div class="text">
-                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                <div class="meta">
-                    <div><a href="#"><span class="icon-calendar"></span> Nov. 14, 2019</a></div>
-                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                </div>
-            </div>
-        </div>
+        <?php endif; ?>
+        <?php endforeach ?>
     </div>
 
     <!-- Sosial Media sidebar -->

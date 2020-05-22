@@ -16,52 +16,15 @@
         <div class="container">
             <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
             <div class="col-md-12">
-                    <div id="berita1">
-                        <div class="col-6 float-left">
-                            <div class="card bg-dark text-white">
-                                <div>
-                                    <img src="<?php echo base_url('assets/img/bg1.jpg')?>" class="card-img" alt="...">
-                                    <div class="bagian card-img-overlay pt-5">
-                                        <h5 class="card-title" style="color: white"><u>Berita</u></h5>
-                                        <p class="card-text text-white"><small class="icon-calendar pr-2"> 24 April 2020</small>
-                                        <small class="icon-person pr-2"> Admin</small>
-                                        <small class="icon-chat"> 19</small></p>
-                                    </div>    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                        <div class="col-6 float-right pb-4">
-                            <div id="berita2" class="card bg-dark text-white">
-                                <div>
-                                    <img src="<?php echo base_url('assets/img/berita.jpg')?>" class="card-img" alt="..." style="height:210px; weight:10px;">
-                                    <div class="card-img-overlay pt-5" style="margin-top: 60px ">
-                                        <h5 class="card-title" style="color: white"><u>Berita</u></h5>
-                                        <p class="card-text text-white"><small class="icon-calendar pr-2"> 24 April 2020</small>
-                                        <small class="icon-person pr-2"> Admin</small>
-                                        <small class="icon-chat"> 19</small></p>
-                                    </div>    
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 float-right">
-                            <div id="berita3" class="card bg-dark text-white">
-                                <div>
-                                    <img src="<?php echo base_url('assets/img/berita.jpg')?>" class="card-img" alt="..." style="height:210px; weight:10px;">
-                                    <div class="card-img-overlay pt-5" style="margin-top: 60px ">
-                                        <h5 class="card-title" style="color: white"><u>Berita</u></h5>
-                                        <p class="card-text text-white"><small class="icon-calendar pr-2"> 24 April 2020</small>
-                                        <small class="icon-person pr-2"> Admin</small>
-                                        <small class="icon-chat"> 19</small></p>
-                                    </div>    
-                                </div>
-                            </div>
-                        </div>
+                        
                 </div>
                 </div>
             </div>
         </div>
     </div>
+    </div>
+    <div class="col-md-12 bg-warning">
+        
     </div>
     <!-- BATAS -->
 

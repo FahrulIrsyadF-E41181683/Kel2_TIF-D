@@ -63,7 +63,7 @@
                     <div class="from-group col-md-11">
                         <!-- gambar priview -->
                         <div class="imgWrap pb-2">
-                            <img src="<?php echo base_url('assets/img/gambar_berita/default.png')?>" id="imgView" class="card-img-top img-fluid">
+                            <img src="<?php echo base_url('assets/img/berita_gambar/default.png')?>" id="imgView" class="card-img-top img-fluid">
                         </div>
                         <!-- input gambar -->
                         <div class="custom-file">
@@ -84,7 +84,7 @@
 						</div>
                     </div>
                     <!-- tombol simpan -->
-                    <button type="submit" name="tambah" class="btn btn-primary float-right ">Tambah Data</button>
+                    <button type="submit" value="upload" name="tambah" class="btn btn-primary float-right ">Tambah Data</button>
                     </div>
                     </form>
                 </div> 

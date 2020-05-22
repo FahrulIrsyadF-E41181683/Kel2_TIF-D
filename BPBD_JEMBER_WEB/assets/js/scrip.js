@@ -48,3 +48,8 @@ $('.custom-file-input').on('change',function(){
   function fadeInAlert(text){
     $(".alert").text(text).addClass("loadAnimate");  
   }
+
+  // 
+  $('.tombol_hapus').on('click', function (e){
+    e.preventDefault();
+  });
