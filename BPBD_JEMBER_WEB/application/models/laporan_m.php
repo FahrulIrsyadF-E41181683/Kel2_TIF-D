@@ -71,39 +71,6 @@ class Laporan_m extends CI_Model
         $this->db->insert('tb_laporan', $data);
     }
 
-    //tambah data berita
-    public function tambahLaporan()
-    {
-        // autonumber
-        $this->db->select('RIGHT(tb_laporan.ID_LPR,7) as ID_LPR', FALSE);
-        $this->db->order_by('ID_LPR', 'DESC');
-        $this->db->limit(1);
-        $query = $this->db->get('tb_laporan');  //cek dulu apakah ada sudah ada kode di tabel.    
-        if ($query->num_rows() <> 0) {
-            //cek kode jika telah tersedia    
-            $data = $query->row();
-            $kode = intval($data->ID_LPR) + 1;
-        } else {
-            $kode = 1;  //cek jika kode belum terdapat pada table
-        }
-        $batas = str_pad($kode, 7, "0", STR_PAD_LEFT);
-        $kodetampil = "LPR" . $batas;  //format kode
-
-        $data = [
-            "ID_LPR" => $kodetampil,
-            "NAMA" => $this->input->post('nama', true),
-            "EMAIL" => $this->input->post('email', true),
-            "ALAMAT" => $this->input->post('alamat', true),
-            "ID_KTR" => $this->input->post('kategori', true),
-            "TANGGAL" => $this->input->post('tanggal', true),
-            "LOKASI" => $this->input->post('lokasi', true),
-            "DESKRIPSI" => $this->input->post('deskripsi', true),
-            "GAMBAR" => $this->uploadGambar("file_name", true),
-            "STATUS" => "0"
-        ];
-
-        $this->db->insert('tb_laporan', $data);
-    }
 
     private function uploadGambar()
     {

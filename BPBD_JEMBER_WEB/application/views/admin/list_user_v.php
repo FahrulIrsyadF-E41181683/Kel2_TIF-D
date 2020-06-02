@@ -27,7 +27,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <table class="table table-bordered" id="DatTable" width="100%" cellspacing="0">
                                 <thead class=" text-primary">
                                     <tr>
                                         <th class="text-center">Nama</th>
@@ -48,12 +48,12 @@
                                             <td><?= $ad['NAMA']; ?></td>
                                             <td><?= $ad['ALAMAT']; ?></td>
                                             <td><?= $ad['NOMER']; ?></td>
-                                            <td><?= $ad['NIK']; ?></td>
-                                            <td><img src="<?= base_url() . './assets/img/Profile/' . $ad['FOTO_KTP']; ?>" width="190"></td>
-                                            <td><img src="<?= base_url() . './assets/img/Profile/' . $ad['FOTO_ORG']; ?>" width="90"></td>
+                                            <td width="150"><?= $ad['NIK']; ?></td>
+                                            <td><img src="<?= base_url() . './assets/img/berita_gambar/default.png' . $ad['FOTO_KTP']; ?>" width="190"></td>
+                                            <td><img src="<?= base_url() . './assets/img/berita_gambar/default.png' . $ad['FOTO_ORG']; ?>" width="90"></td>
                                             <td>
-                                                <a class="btn btn-primary" href="<?= base_url('admin/profil/konfirmasi' . $ad['ID_USR']); ?>">Konfirmasi<i class="icon-check-2"></i></a>
-                                                <a class="btn btn-danger" href="<?= base_url('admin/profil/hapus' . $ad['ID_USR']); ?>">Hapus<i class="icon-trash-simple"></i></a>
+                                                <a class="btn btn-primary" href="<?= base_url('admin/profil/konfirmasi' . $ad['ID_USR']); ?>"><i class="fas fa-check"></i></a>
+                                                <a class="btn btn-danger" href="<?= base_url('admin/profil/hapus' . $ad['ID_USR']); ?>"><i class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
