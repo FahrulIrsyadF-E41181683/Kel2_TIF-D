@@ -16,20 +16,10 @@
 </div>
 </div>
 
-<div class="card mb-3" style="max-width: 540px;">
-  <!-- <div class="row no-gutters">
-    <div class="col-md-4">
-      <img src="<?= base_url('assets/img/Profile/default.jpg')?>" class="card-img">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">Username :</h5>
-        <p class="card-text">Password :</p>
-        <p class="card-text">Nama :</p>
-        <p class="card-text">Alamat :</p>
-        <p class="card-text">No Telepon :</p>
-        <p class="card-text">Email :</p> -->
-      <img src="<?= base_url('assets/img/Profile/').$tb_user['GAMBAR'];?>" class="card-img">
+<div class="card mb-4" style="max-width: 540px;">
+<div class="row no-gutters">
+    <div class="col-md-">
+      <img src="<?= base_url('assets/img/Profile/default.jpg').$tb_user['GAMBAR'];?>" class="card-img">
     </div>
     <div class="col-md-8">
       <div class="card-body">
@@ -42,7 +32,14 @@
         
         
       </div>
+      <div class="col-sm-10">
+  <button href="<?= base_url('profile/changePassword'); ?>" type="submit" class="btn btn-primary">Ubah Password</button>
+  </div>
+  <div class="col-sm-10">
+  <button href="<?= base_url('profile/edituser'); ?>" type="submit" class="btn btn-primary">Edit Profil</button>
+  </div>
     </div>
+
   </div>
 </div>
 

@@ -12,8 +12,8 @@ class Profile extends CI_Controller {
 	}
     public function index(){
       //untuk mengecek session sesuai dengan email saat login
-      $data['tb_user']= $this->db->get_where('tb_user', ['email' =>
-      $this->session->userdata('email')])->row_array();
+      $data['tb_user']= $this->db->get_where('tb_user', ['EMAIL' =>
+      $this->session->userdata('EMAIL')])->row_array();
         // $data['tb_user'] = $this->m_user->tampil_datauser()->result();
       // memparsing ke dalam v_profile  
             $this->load->view('v_profile', $data);
@@ -22,11 +22,10 @@ class Profile extends CI_Controller {
         //membuat method untuk edit profile
     public function edituser(){
       $this->load->library('form_validation');
-      $data['tb_user']= $this->db->get_where('tb_user', ['email' =>
-      $this->session->userdata('email')])->row_array();
+      $data['tb_user']= $this->db->get_where('tb_user', ['EMAIL' =>
+      $this->session->userdata('EMAIL')])->row_array();
 
       $this->form_validation->set_rules('USERNAME', 'Username', 'required|trim');
-      $this->form_validation->set_rules('PASSWORD', 'Password', 'required|trim|min_length[8]');
       $this->form_validation->set_rules('NAMA', 'Nama', 'required');
       $this->form_validation->set_rules('ALAMAT', 'Alamat', 'required');
       $this->form_validation->set_rules('NOMER', 'No Hp', 'required');
@@ -39,7 +38,6 @@ class Profile extends CI_Controller {
       } else{
         $id_user = $this->input->post('ID_USR');
         $username = $this->input->post('USERNAME');
-        $password = $this->input->post('PASSWORD');
         $nama = $this->input->post('NAMA');
         $alamat = $this->input->post('ALAMAT');
         $no_hp = $this->input->post('NOMER');
@@ -76,7 +74,6 @@ class Profile extends CI_Controller {
         
 
         $this->db->set('USERNAME', $username );
-        $this->db->set('PASSWORD', $password );
         $this->db->set('NAMA', $nama );
         $this->db->set('ALAMAT', $alamat );
         $this->db->set('NOMER', $no_hp );
@@ -90,4 +87,46 @@ class Profile extends CI_Controller {
       
     }
 
+
+    public function changePassword(){
+      //untuk mengecek session sesuai dengan email saat login
+      $data['tb_user']= $this->db->get_where('tb_user', ['EMAIL' =>
+      $this->session->userdata('EMAIL')])->row_array();
+        
+      $this->form_validtion->set_rules('current_password', 'Password Saat Ini', 'required|trim');
+      $this->form_validtion->set_rules('new_password1', 'Password Baru', 'required|trim|min_length[8]|matches[new_password2]');
+      $this->form_validtion->set_rules('new_password2', 'Ulangi Password', 'required|trim|min_length[8]|matches[new_password1]');
+
+      if($this->form_validation->run() == false){
+      // memparsing ke dalam v_changepassword 
+            $this->load->view('v_changepassword', $data);
+          }
+          else{
+
+            $current_password = $this->input->post('current_password');
+            $new_password = $this->input->post('new_password1');
+            //melakukan pengecekan password apakah password yang diketik oleh user sama dengan yang ada dalam database
+            if(!password_verify($current_password, $data['tb_user']['PASSWORD'])){
+
+              $this->session->set_flashdata('message', '<div class="alert alert-danger" role= "alert">Password yang anda masukkan salah!</div>');
+              redirect('profile/changepassword');
+            }else{
+              if($current_password == $new_password) {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role= "alert">Password tidak boleh sama dengan sebelumnya !</div>');
+              redirect('profile/changepassword');
+              } else{
+                $password_hash = password_hash($new_password, PASSWORD_DEFAULT);
+
+                $this->db->set('password', $password_hash);
+                $this->db->where('EMAIL', $this->session->userdata('EMAIL'));
+                $this->db->update('tb_user');
+
+
+                $this->session->set_flashdata('message', '<div class="alert alert-success" role= "alert">Password berhasil diubah !</div>');
+              redirect('profile/changepassword');
+              }
+            }
+
+          }
+        }
 }

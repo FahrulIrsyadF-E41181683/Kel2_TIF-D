@@ -16,20 +16,13 @@
 					<div class="my_info_area">
 						<h3 class="my_info_title">Akun</h3>
 	
-    <!-- agar bisa mengupload atau mengedit file image -->
+    <!-- agar bisa mengupload atau mengedit file image tanpa menggunakan buka form -->
 <?= form_open_multipart('profile/edit');?>
 <div class="form-group row">
     <label for="USERNAME" class="col-sm-2 col-form-label">Username</label>
     <div class="col-sm-10">
       <input type="text" class="form-control" id="USERNAME" name="USERNAME" value="<?= $tb_user['USERNAME'];?>">
       <?= form_error('USERNAME', ' <small class="text-danger pl-3">', '</small>'); ?>
-    </div>
-  </div>
-  <div class="form-group row">
-    <label for="PASSWORD" class="col-sm-2 col-form-label">Password</label>
-    <div class="col-sm-10">
-      <input type="PASSWORD" class="form-control" id="PASSWORD" name="PASSWORD" value="<?= $tb_user['PASSWORD'];?>">
-      <?= form_error('PASSWORD', ' <small class="text-danger pl-3">', '</small>'); ?>
     </div>
   </div>
   <div class="form-group row">
@@ -65,7 +58,7 @@
     <div class="col-sm-10">
     <div class="row">
     <div class="col-sm-3">
-    <img src="<?= base_url('assets/img/profile/'). $tb_user['GAMBAR'];?>" class="img-thumbnail">
+    <img src="<?= base_url('assets/img/profile/default.jpg'). $tb_user['GAMBAR'];?>" class="img-thumbnail">
     </div>
     <div class="col-sm-9">
     <div class="custom-file">
@@ -80,7 +73,7 @@
   </div>
   <div class="form-group row justify-content-end">
   <div class="col-sm-10">
-  <button type="submit" class="btn btn-primary">Edit</button>
+  <button type="submit" class="btn btn-primary">Update</button>
   </div>
   </div>
 </form>
