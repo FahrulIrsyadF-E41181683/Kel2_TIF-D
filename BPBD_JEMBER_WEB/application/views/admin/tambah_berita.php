@@ -61,6 +61,7 @@
                     </div>
                     <div class="col-md-5 float-right">
                     <div class="from-group col-md-11">
+                    <label for="name">Gambar</label>
                         <!-- gambar priview -->
                         <div class="imgWrap pb-2">
                             <img src="<?php echo base_url('assets/img/berita_gambar/default.png')?>" id="imgView" class="card-img-top img-fluid">

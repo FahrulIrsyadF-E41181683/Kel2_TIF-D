@@ -5,7 +5,7 @@
           <div class="col-md">
             <div class="ftco-footer-widget mb-4">
               <h2 class="logo"><a href="#">BPBD<span> JEMBER</span></a></h2>
-              <div class="float-left">
+              <div class="float-left pb-5">
               <img src="<?php echo base_url('assets/img/logo.png')?>" style="height:70px;"> 
               <img src="<?php echo base_url('assets/img/jember_logo.png')?>" style="height:70px;"> 
               </div>

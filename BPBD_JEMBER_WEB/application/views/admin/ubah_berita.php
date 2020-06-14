@@ -66,14 +66,18 @@
                     </div>
                     <div class="col-md-5 float-right">
                     <div class="from-group col-md-11">
+                    <label for="name">Gambar</label>
                         <!-- gambar priview -->
                         <div class="imgWrap pb-2">
                             <img src="<?php echo base_url('assets/img/berita_gambar/'.$tb_berita['GAMBAR_BRT'])?>" id="imgView" class="card-img-top img-fluid">
                         </div>
                         <!-- input gambar -->
                         <div class="custom-file">
-                            <input type="file" id="inputFile" name="gambar" class="imgFile custom-file-input" aria-describedby="inputGroupFileAddon01">
+                            <input type="file" id="inputFile" name="gambar" class="imgFile custom-file-input <?php echo form_error('gambar') ? 'is-invalid':'' ?>" aria-describedby="inputGroupFileAddon01">
                             <label class="custom-file-label" for="inputFile">Pilih Gambar Thumbnail Berita</label>
+                            <div class="invalid-feedback">
+							    <?php echo form_error('gambar') ?>
+						    </div>
                             <input type="hidden" name="gambar_lama" value="<?php echo $tb_berita['GAMBAR_BRT']?>">
                         </div>
                     </div>

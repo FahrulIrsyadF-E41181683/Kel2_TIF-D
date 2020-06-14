@@ -1,9 +1,10 @@
 <div class="col-lg-3 sidebar pl-lg-0 pr-0">
     <div class="sidebar-box">
-        <form action="#" class="search-form">
+        <form action="" method="post" class="search-form">
             <div class="form-group">
                 <span class="icon icon-search"></span>
-                <input type="text" class="form-control" placeholder="Pencarian">
+                <input type="text" name="cari" class="form-control" placeholder="Pencarian" autocomplete="off" autofocus>
+                <input href="<?php echo base_url('beranda/daftar')?>" class="btn btn-primary" type="submit" name="submit" hidden>
             </div>
         </form>
     </div>
@@ -13,7 +14,7 @@
         <div class="categories">
         <h3>Kategori</h3>
         <?php foreach($tb_kategori as $kategori):?>
-            <li><a href="#"><?php echo $kategori['KATEGORI']?><span class="ion-ios-arrow-forward"></span></a></li>
+            <li><a href="<?php echo base_url('beranda/daftar')?>"><?php echo $kategori['KATEGORI']?><span class="ion-ios-arrow-forward"></span></a></li>
         <?php endforeach; ?>
         </div>
     </div>
@@ -21,8 +22,7 @@
     <!-- Berita Terbaru sidebar -->
     <div class="sidebar-box ">
         <h3>Berita Terbaru</h3>
-        <?php foreach($tb_berita as $berita):?>
-        <?php if($berita['STATUS_BRT'] == 1) : ?>
+        <?php foreach($tb_berita_baru as $berita):?>
         <div class="block-21 d-flex">
             <a class="blog-img mr-4"><img src="<?php echo base_url('assets/img/berita_gambar/'.$berita['GAMBAR_BRT'])?>" class="card-img" alt="..."></a>
             <div class="text">
@@ -33,7 +33,6 @@
                 </div>
             </div>
         </div>
-        <?php endif; ?>
         <?php endforeach ?>
     </div>
 

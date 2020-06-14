@@ -21,12 +21,12 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/css/icomoon.css')?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css')?>">
 
-    <div class="overlay bg-dark">
-        <div class="float-left text-right pl-3">
-            BPBD (Badan Penanggulangan Bencana Daerah) Provinsi Jember, Jawa Timur
+    <div class="overlay col-md-12 bg-dark">
+        <div class="float-left text-left">
+            BPBD Provinsi Jember, Jawa Timur
         </div>
-        <div class="text-right pr-3">
-            Telepon Darurat (0331) 3229665 / 08510176700
+        <div class="text-right">
+            <i class="icon-phone"></i> (0331) 3229665 / 08510176700
         </div>
     </div>
 </head>

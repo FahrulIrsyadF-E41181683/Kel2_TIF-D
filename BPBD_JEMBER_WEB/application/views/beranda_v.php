@@ -11,20 +11,68 @@
     <!-- BAGIAN BERITA TERBARU -->
     <div id="beranda"></div>
     <div class="hero-wrap js-fullheight" style="background-image: url('<?php echo base_url('assets/img/bg1.jpg') ?>');" data-stellar-background-ratio="0.5">
-        <div class="overlay">
-        </div>
+        <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
-            <div class="col-md-12">
-                        
+            <div class="col-md-12 pt-4">
+            <!-- slider -->
+            <div class="col-" style="max-width: 100%; float:left;"> 
+                <div id="carousel-berita" class="carousel slide" data-ride="carousel">
+                    <!-- indicator -->
+                    <ol class="carousel-indicators">
+                        <?php
+                        foreach ($tb_berita_baru as $key => $value) {
+                            $active = ($key == 0) ? 'active' : '';
+                            echo '<li data-target="#carousel-berita" data-slide-to="' . $key . '" class="' . $active . '"></li>';
+                        }
+                        ?>
+                    </ol>
+                        <!-- <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li> -->
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+                    <?php
+                    foreach ($tb_berita_baru as $key => $value) {
+                        $active = ($key == 0) ? 'active' : '';
+                        echo '<div class="item ' . $active . '">
+                            <img src="'.base_url().'assets/img/berita_gambar/'.$value['GAMBAR_BRT'].'" width="1200" height="560" class="" alt="...">
+                            <div class="text-left carousel-caption col-sm-12" style="background: rgba(53, 53, 53, 0.8); left:0; bottom:0; ">
+                            <h3 class="text-white">'.$value['JUDUL'].'</h3>
+                            <p><small class="icon-calendar pr-2"> '.$value['TANGGAL'].'</small>
+                                <small class="icon-person pr-2"> '.$value['NAMA'].'</small>
+                                <small class="icon-tag"> '.$value['KATEGORI'].'</small></p>
+                            </div>
+                            </div>';
+                        }
+                        ?>
+                    </div>
+                    <a class="left carousel-control" href="#carousel-berita" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-berita" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                    </div>    
                 </div>
-                </div>
+            </div>
+            
             </div>
         </div>
     </div>
     </div>
-    <div class="col-md-12 bg-warning">
-        
+    <div class="hero-wrap" style="background-image: url('<?php echo base_url('assets/img/bg4.jpg') ?>');" data-stellar-background-ratio="0.5">
+    <div class="hero-wrap" style="background: rgba(53, 53, 53, 0.8);" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="col-md-12 p-5 text-center">
+                <h3 class="text-white">Terjadi Bencana di sekitar anda?</h3>
+                <h5 class="text-white mt-3">Segera hubungi atau laporkan bencana tersebut sebelum terlambat! klik tombol dibawah ini untuk melaporkan bencana</h5>
+                <a type="button" class="btn btn-info mt-4 text-white">Lapor Benacana</a>
+        </div>
+        </div>
+    </div>
     </div>
     <!-- BATAS -->
 
@@ -35,85 +83,31 @@
             <div class="row">
                 <div class="col-lg-9">
                 <h4 class="pb-4">Dafter Berita</h4>
-                    <div class="card mb-4 border-0" style="max-width: 540px;">
+                    <?php foreach ($tb_berita as $berita):?>
+                    <a href="">
+                    <div class="card mb-4 border-0" >
                         <div class="row no-gutters">
-                            <div class="col-md-4">
-                            <img src="<?php echo base_url('assets/img/berita.jpg')?>" class="card-img" alt="...">
+                            <div class="col-4" style="overflow: hidden; padding: 0; max-width: 300px;">
+                            <img src="<?php echo base_url('assets/img/berita_gambar/'.$berita['GAMBAR_BRT'])?>" class="thumbnail carousel-inner" alt="..." style="max-height: 200px; display: block; margin: auto; width: 100%;">
                             </div>
-                            <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Berita 1</h5>
-                                <p class="card-text"><small class="text-muted icon-calendar pr-2"> 24 April 2020</small>
-                                <small class="text-muted icon-person pr-2"> Admin</small>
-                                <small class="text-muted icon-chat"> 19</small></p>
+                            <div class="col-8">
+                            <div class="card-body" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; max-width:500px">
+                                <h4 class="card-title"><?php echo $berita["JUDUL"]?></h4>
+                                <small class="card-text text-muted"><?php echo $berita["ISI_BERITA"]?></small>
+                                <p class="card-text"><small class="text-muted icon-calendar pr-2"> <?php echo $berita['TANGGAL']?></small>
+                                <small class="text-muted icon-person pr-2"> <?php echo $berita['NAMA']?></small>
+                                <small class="text-muted icon-tag"> <?php echo $berita['KATEGORI']?></small></p>
                             </div>
                             </div>
                         </div>
                     </div>
-                    <div class="card mb-4 border-0" style="max-width: 540px;">
-                        <div class="row no-gutters">
-                            <div class="col-md-4">
-                            <img src="<?php echo base_url('assets/img/berita.jpg')?>" class="card-img" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Berita 1</h5>
-                                <p class="card-text"><small class="text-muted icon-calendar pr-2"> 24 April 2020</small>
-                                <small class="text-muted icon-person pr-2"> Admin</small>
-                                <small class="text-muted icon-chat"> 19</small></p>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card mb-4 border-0" style="max-width: 540px;">
-                        <div class="row no-gutters">
-                            <div class="col-md-4">
-                            <img src="<?php echo base_url('assets/img/berita.jpg')?>" class="card-img" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Berita 1</h5>
-                                <p class="card-text"><small class="text-muted icon-calendar pr-2"> 24 April 2020</small>
-                                <small class="text-muted icon-person pr-2"> Admin</small>
-                                <small class="text-muted icon-chat"> 19</small></p>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card mb-4 border-0" style="max-width: 540px;">
-                        <div class="row no-gutters">
-                            <div class="col-md-4">
-                            <img src="<?php echo base_url('assets/img/berita.jpg')?>" class="card-img" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Berita 1</h5>
-                                <p class="card-text"><small class="text-muted icon-calendar pr-2"> 24 April 2020</small>
-                                <small class="text-muted icon-person pr-2"> Admin</small>
-                                <small class="text-muted icon-chat"> 19</small></p>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card mb-4 border-0" style="max-width: 540px;">
-                        <div class="row no-gutters">
-                            <div class="col-md-4">
-                            <img src="<?php echo base_url('assets/img/berita.jpg')?>" class="card-img" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Berita 1</h5>
-                                <p class="card-text"><small class="text-muted icon-calendar pr-2"> 24 April 2020</small>
-                                <small class="text-muted icon-person pr-2"> Admin</small>
-                                <small class="text-muted icon-chat"> 19</small></p>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
+                    </a>
+                    <?php endforeach ?> 
                     <div class="row mt-5">
-                    <div class="col text-center pb-5">
+                    <div class="col text-center">
                         <div class="block-27">
-                        <ul>
+                        <?php echo $this->pagination->create_links(); ?>
+                        <!-- <ul>
                             <li><a href="#">&lt;</a></li>
                             <li class="active"><span>1</span></li>
                             <li><a href="#">2</a></li>
@@ -121,7 +115,7 @@
                             <li><a href="#">4</a></li>
                             <li><a href="#">5</a></li>
                             <li><a href="#">&gt;</a></li>
-                        </ul>
+                        </ul> -->
                         </div>
                     </div>
                     </div>
@@ -134,18 +128,18 @@
     <!-- BATAS BERITA -->
 
     <!-- BAGIAN ABOUT -->
-    <div id="tentang"></div>
-    <div class="hero-wrap js-fullheight" style="background-image: url('<?php echo base_url('assets/img/bg2.jpg') ?>');" data-stellar-background-ratio="0.5">
+    <div class="pb-5" id="tentang"></div>
+    <div class="hero-wrap" style="background-image: url('<?php echo base_url('assets/img/bg2.jpg') ?>');" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
-            <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
-                <div class="col-md-12">
-                    <div class="col-3 float-left">
-          			<img src="<?php echo base_url('assets/img/logo.png')?>" alt="">
+            <div class="row no-gutters slider-text align-items-center text-center justify-content-start" data-scrollax-parent="true">
+                <div class="col-md-12 p-4">
+                    <div class="col-md">
+          			<img src="<?php echo base_url('assets/img/logo.png')?>" width="400" height="400" style="max-width: 100%; height: auto; float:left; padding:50px;">
                     </div>
-                    <div class="col-7 mt-5 pt-5 pb-5 float-right border-left">
-                    <h2 class="text-white pb-4 pl-5">BPBD PROV.JEMBER</h2>
-                    <p class="pl-5">Badan Penanggulangan Bencana Daerah adalah lembaga pemerintah non-departemen yang melaksanakan tugas penanggulangan bencana di daerah baik Provinsi maupun Kabupaten/ Kota dengan berpedoman pada kebijakan yang ditetapkan oleh Badan Nasional Penanggulangan Bencana</p>
+                    <div class="col-md mr-5 mt-5 pt-5 text-justify">
+                    <h2 class="text-white pb-4">BPBD PROVENSI JEMBER</h2>
+                    <p class="">Badan Penanggulangan Bencana Daerah adalah lembaga pemerintah non-departemen yang melaksanakan tugas penanggulangan bencana di daerah baik Provinsi maupun Kabupaten/ Kota dengan berpedoman pada kebijakan yang ditetapkan oleh Badan Nasional Penanggulangan Bencana</p>
                     </div>
           		</div>
             </div>
@@ -158,10 +152,10 @@
     <div class="container">
         <section id="contact" class="pt-4 my-5 font-m-light text-center">
             <h2 class="font-m-bold pt-5">KONTAK</h2>
-            <h5 class="w-75 mx-auto">Silahkan isi formulir dibawah ini jika anda memiliki pertanyaan atau kritik dan saran.</h5>
+            <h5 class=" mx-auto">Silahkan isi formulir dibawah ini jika anda memiliki pertanyaan atau kritik dan saran.</h5>
             <form action="contact_us.php" method="post">
                 <div class="row text-left mt-5">
-                    <div class="col-6">
+                    <div class="col-md pr-5">
                         <div class="form-group">
                             <input type="text" class="form-control border-right-0 border-left-0 border-top-0" id="kontak_nama" name="kontak_nama" aria-describedby="usernameHelp" placeholder="Masukkan Nama" required pattern="^[A-Za-z -.]+$" title="Mohon masukkan hanya huruf">
                         </div>
@@ -182,34 +176,28 @@
                         </div>
             </form>
     </div>
-    <div class="col-6 text-center">
+    <div class="col-md pt-3" style="padding-right:0px;">
         <div class="row text-left justify-content-center">
-            <div class="col-1 text-right border-left">
-                <p><i class="fa fa-tag fa-1x icon-pencil"></i></p>
-            </div>
-            <div class="col-6">
+            <div class="col-2 border-left"></div>
+            <div class="col-md">
                 <p>
-                    BPBD KAB.JEMBER<br> Jl. Danau Toba No.30, Lingkungan Panji, Tegalgede, Kec. Sumbersari, Kabupaten Jember, Jawa Timur <br>68124
+                <i class="fa fa-tag fa-1x icon-pencil" style="float:left; margin:0 8px 4px 0;"></i> BPBD KAB.JEMBER<br> Jl. Danau Toba No.30, Lingkungan Panji, Tegalgede, Kec.Sumbersari, Kabupaten Jember, Jawa Timur <br>68124
                 </p>
             </div>
         </div>
         <div class="row text-left justify-content-center">
-            <div class="col-1 text-right border-left">
-                <p><i class="fa fa-phone fa-1x icon-phone"></i></p>
-            </div>
-            <div class="col-6">
+            <div class="col-2 border-left"></div>
+            <div class="col-md">
                 <p>
-                    +62 85 101 767 00 (Hp) <br> (0331) 3229665 (Telp)
+                <i class="fa fa-phone fa-1x icon-phone" style="float:left; margin:0 8px 4px 0;"></i> +62 85 101 767 00 (Hp) <br> (0331) 3229665 (Telp)
                 </p>
             </div>
         </div>
         <div class="row text-left justify-content-center">
-            <div class="col-1 text-right border-left">
-                <p><i class="fa fa-envelope fa-1x icon-envelope"></i></p>
-            </div>
-            <div class="col-6">
+            <div class="col-2 border-left"></div>
+            <div class="col-md">
                 <p>
-                    ********@gmail.com
+                <i class="fa fa-envelope fa-1x icon-envelope" style="float:left; margin:0 8px 4px 0;"></i> ********@gmail.com
                 </p>
             </div>
         </div>

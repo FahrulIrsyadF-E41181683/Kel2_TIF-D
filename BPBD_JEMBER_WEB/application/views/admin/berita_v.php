@@ -73,6 +73,7 @@
                   <tbody>
                    <?php foreach($tb_berita as $berita):?>
                     <tr>
+                      <input type="hidden" name="id" value="<?php echo $berita['ID_BRT']?>">
                       <td width="150"><?php echo $berita['JUDUL'] ?></td>
                       <td width="130"><?php echo $berita['KATEGORI']?></td>
                       <td><?php echo $berita['TANGGAL']?></td>

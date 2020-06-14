@@ -26,7 +26,7 @@ class Berita extends CI_Controller
         $data['total_rows'] = $config['total_rows'];
         $config['per_page'] = 5; //untuk mengatur jumlah/limit yang akan ditampilkan
 
-        // initialize semua config
+        // initialize semua config 
         $this->pagination->initialize($config);
 
         // mulainya halaman
