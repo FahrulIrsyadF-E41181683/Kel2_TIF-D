@@ -17,42 +17,48 @@
             <div class="col-md-12 pt-4">
             <!-- slider -->
             <div class="col-" style="max-width: 100%; float:left;"> 
-                <div id="carousel-berita" class="carousel slide" data-ride="carousel">
+                <div id="carouselExampleIndicators" class="carousel slide pt-4" data-ride="carousel">
                     <!-- indicator -->
                     <ol class="carousel-indicators">
-                        <?php
-                        foreach ($tb_berita_baru as $key => $value) {
-                            $active = ($key == 0) ? 'active' : '';
-                            echo '<li data-target="#carousel-berita" data-slide-to="' . $key . '" class="' . $active . '"></li>';
-                        }
-                        ?>
-                    </ol>
-                        <!-- <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li> -->
+                    <?php $result = count($tb_berita_baru);?>
+                    <?php for($i=0; $i<$result;$i++){
+                            echo '
+                            <li data-target="#carouselExampleIndicators" data-slide-to="'.$i.'"';
+                            if($i==0){echo'class="active"';}echo'></li>';
+                        }?>
                     </ol>
                     <div class="carousel-inner" role="listbox">
+                    <?php $result = count($tb_berita_baru);?>
+                    <?php $count=0; $count<$result;?>
+                        <?php foreach ($tb_berita_baru as $b):?>
+                        
                     <?php
-                    foreach ($tb_berita_baru as $key => $value) {
-                        $active = ($key == 0) ? 'active' : '';
-                        echo '<div class="item ' . $active . '">
-                            <img src="'.base_url().'assets/img/berita_gambar/'.$value['GAMBAR_BRT'].'" width="1200" height="560" class="" alt="...">
-                            <div class="text-left carousel-caption col-sm-12" style="background: rgba(53, 53, 53, 0.8); left:0; bottom:0; ">
-                            <h3 class="text-white">'.$value['JUDUL'].'</h3>
-                            <p><small class="icon-calendar pr-2"> '.$value['TANGGAL'].'</small>
-                                <small class="icon-person pr-2"> '.$value['NAMA'].'</small>
-                                <small class="icon-tag"> '.$value['KATEGORI'].'</small></p>
-                            </div>
-                            </div>';
+                        if($count == 0){
+                            $output = 'active';
                         }
+                        else{
+                            $output = '';
+                        } 
+                            echo'
+                            <div class="carousel-item '.$output.'" data-slide="'.$count.'">
+                            <a href="'.base_url().'beranda/baca/'.$b['ID_BRT'].'"><img src="'.base_url().'assets/img/berita_gambar/'.$b['GAMBAR_BRT'].'" width="1200" height="560" class="" alt="..."></a>
+                            <a href="'.base_url().'beranda/baca/'.$b['ID_BRT'].'"><div class="text-left carousel-caption col-sm-12" style="background: rgba(53, 53, 53, 0.8); left:0; bottom:0; ">
+                            <h3 class="text-white">'.$b['JUDUL'].'</h3>
+                            <p><small class="icon-calendar pr-2"> '.$b['TANGGAL'].'</small>
+                                <small class="icon-person pr-2"> '.$b['NAMA'].'</small>
+                                <small class="icon-tag"> '.$b['KATEGORI'].'</small></p>
+                            </div></a>
+                            </div>';
+                            $count++;
                         ?>
+                        <?php endforeach; ?>
                     </div>
-                    <a class="left carousel-control" href="#carousel-berita" role="button" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
                     </a>
-                    <a class="right carousel-control" href="#carousel-berita" role="button" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
                     </div>    
@@ -84,16 +90,18 @@
                 <div class="col-lg-9">
                 <h4 class="pb-4">Dafter Berita</h4>
                     <?php foreach ($tb_berita as $berita):?>
-                    <a href="">
+                    <a href="<?php echo base_url(); ?>beranda/baca/<?php echo $berita['ID_BRT']; ?>">
                     <div class="card mb-4 border-0" >
                         <div class="row no-gutters">
                             <div class="col-4" style="overflow: hidden; padding: 0; max-width: 300px;">
                             <img src="<?php echo base_url('assets/img/berita_gambar/'.$berita['GAMBAR_BRT'])?>" class="thumbnail carousel-inner" alt="..." style="max-height: 200px; display: block; margin: auto; width: 100%;">
                             </div>
                             <div class="col-8">
-                            <div class="card-body" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; max-width:500px">
+                            <div class="card-body">
                                 <h4 class="card-title"><?php echo $berita["JUDUL"]?></h4>
+                                <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; max-width:500px">
                                 <small class="card-text text-muted"><?php echo $berita["ISI_BERITA"]?></small>
+                                </div>
                                 <p class="card-text"><small class="text-muted icon-calendar pr-2"> <?php echo $berita['TANGGAL']?></small>
                                 <small class="text-muted icon-person pr-2"> <?php echo $berita['NAMA']?></small>
                                 <small class="text-muted icon-tag"> <?php echo $berita['KATEGORI']?></small></p>

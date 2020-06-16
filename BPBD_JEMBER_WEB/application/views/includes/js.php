@@ -46,6 +46,7 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="<?php echo base_url('assets/js/google-map.js') ?>"></script>
 <script src="<?php echo base_url('assets/js/main.js') ?>"></script>
+<script src="<?php echo base_url('assets/js/myscrip.js') ?>"></script>
 <script>
 $('#nav a').click(function() {
     $('#nav a.active').removeClass('active');

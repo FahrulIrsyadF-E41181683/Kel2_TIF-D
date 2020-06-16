@@ -18,6 +18,7 @@ class Berita_m extends CI_Model
     {
         if($cari) {
             $this->db->like('JUDUL', $cari); // method pencarian berdasarkan judul
+            $this->db->or_like('tb_berita.ID_KTR', $cari); // method pencarian berdasarkan kategori
         }
         $this->db->order_by('ID_BRT', 'DESC');
         return $this->db->from('tb_berita')
@@ -42,6 +43,11 @@ class Berita_m extends CI_Model
     // menampilkan data yang ada di tabel tb_kategori
     public function getKategori(){
         return $this->db->get('tb_kategori')->result_array();
+    }
+
+    // menampilkan data yang ada di tabel user
+    public function getUser(){
+        return $this->db->get('tb_user')->result_array();
     }
 
     // menghitung data yang ada pada tabel berita
