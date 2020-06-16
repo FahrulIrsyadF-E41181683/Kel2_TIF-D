@@ -31,6 +31,10 @@ class Berita_m extends CI_Model
     // memanggil data terbaru
     public function getBeritaBaru($limit, $start, $cari = null)
     {
+        if($cari) {
+            $this->db->like('JUDUL', $cari); // method pencarian berdasarkan judul
+            $this->db->or_like('tb_berita.ID_KTR', $cari); // method pencarian berdasarkan kategori
+        }
         $this->db->order_by('ID_BRT', 'DESC');
         return $this->db->from('tb_berita')
         ->join('tb_kategori', 'tb_kategori.ID_KTR=tb_berita.ID_KTR') // <- join tb_kategori agar dapat menampilkan nama

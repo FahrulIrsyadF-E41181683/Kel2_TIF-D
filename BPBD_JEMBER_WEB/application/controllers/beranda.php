@@ -13,9 +13,8 @@ class Beranda extends CI_Controller
     public function index()
     {
         // ambil data pencarian
-        if($this->input->post('submit')){
-            $data['cari'] = $this->input->post('cari');
-            $this->session->set_userdata('cari', $data['cari']);
+        if($this->input->get('cari') == ''){
+            $this->session->set_userdata('cari', '');
         }else{
             $data['cari'] = $this->session->userdata('cari');
         }
@@ -59,7 +58,7 @@ class Beranda extends CI_Controller
         $data["tb_kategori"]= $this->berita->getKategori();
         $data["tb_berita_baru"] = $this->berita->getBeritaBaru(3, 0);
         $data['start'] = $this->uri->segment(3);
-        $data["tb_berita"] = $this->berita->getBerita($config['per_page'], $data['start']);
+        $data["tb_berita"] = $this->berita->getBeritaBaru($config['per_page'], $data['start']);
 
         // memanggil halaman view beranda_v
         $this->load->view("beranda_v", $data);
@@ -117,7 +116,7 @@ class Beranda extends CI_Controller
         $data["tb_kategori"]= $this->berita->getKategori();
         $data["tb_berita_baru"] = $this->berita->getBeritaBaru(3, 0);
         $data['start'] = $this->uri->segment(3);
-        $data["tb_berita"] = $this->berita->getBerita($config['per_page'], $data['start'], $data['cari']);
+        $data["tb_berita"] = $this->berita->getBeritaBaru($config['per_page'], $data['start'], $data['cari']);
         
         // memanggil halaman view
         $this->load->view("daftar_berita", $data);

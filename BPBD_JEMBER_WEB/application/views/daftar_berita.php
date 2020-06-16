@@ -13,7 +13,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-9 pb-5">
-                <h4 class="pb-4">Hasil Pencarian :</h4>
+                <h4 class="pb-4">Hasil Pencarian : </h4>
                     <?php foreach ($tb_berita as $berita):?>
                     <a href="<?php echo base_url(); ?>beranda/baca/<?php echo $berita['ID_BRT']; ?>">
                     <div class="card mb-4 border-0" >
