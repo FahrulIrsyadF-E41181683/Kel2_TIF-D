@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ScrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical">
+
+    <LinearLayout
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="32dp">
+
+        <EditText
+            android:id="@+id/nama"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Nama Pelapor"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp"
+            android:backgroundTint="@color/tema"/>
+        <EditText
+            android:id="@+id/alamat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="Alamat Pelapor"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp"
+            android:backgroundTint="@color/tema"/>
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:hint="Email Pelapor"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp"
+            android:backgroundTint="@color/tema"/>
+        <RadioGroup
+            android:id="@+id/kategori"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/kategori_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kategori Bencana"
+                android:onClick="onRadioButtonClicked"/>
+            <RadioButton
+                android:id="@+id/banjir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Banjir"
+                android:onClick="onRadioButtonClicked"
+                android:buttonTint="@color/black" />
+            <RadioButton
+                android:id="@+id/tanah_longsor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Tanah Longsor"
+                android:onClick="onRadioButtonClicked"
+                android:buttonTint="@color/black"/>
+            <RadioButton
+                android:id="@+id/gempa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Gempa Bumi"
+                android:onClick="onRadioButtonClicked"
+                android:buttonTint="@color/black"/>
+            <RadioButton
+                android:id="@+id/puting_beliung"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Puting Beliung"
+                android:onClick="onRadioButtonClicked"
+                android:buttonTint="@color/black"/>
+            <RadioButton
+                android:id="@+id/other"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Lain-lain"
+                android:onClick="onRadioButtonClicked"
+                android:buttonTint="@color/black"/>
+        </RadioGroup>
+        <EditText
+            android:id="@+id/detail_bencana"
+            android:enabled="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="Detail Bencana"
+            android:backgroundTint="@color/tema"/>
+        <EditText
+            android:id="@+id/lokasi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="Lokasi Bencana"
+            android:backgroundTint="@color/tema"/>
+
+        <EditText
+            android:id="@+id/detail_laporan"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp"
+            android:backgroundTint="@color/tema"
+            android:ems="10"
+            android:hint="Detail Laporan (Cth. Dampak bencana)"
+            android:inputType="textMultiLine" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btn_image"
+                android:layout_width="150dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorPrimary"
+                android:clickable="true"
+                android:drawableLeft="@drawable/ic_baseline_camera_alt_24"
+                android:padding="10dp"
+                android:text="Ambil Gambar"
+                android:textAllCaps="false"
+                android:textColor="#FFF"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="188dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="12dp"
+                android:text="Upload Foto Lokasi Bencana"
+                app:layout_constraintStart_toEndOf="@+id/btn_image"
+                app:layout_constraintTop_toTopOf="@+id/btn_image" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:clickable="false"
+            android:enabled="false"
+            android:id="@+id/btn_submit"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:background="@drawable/button_lapor_off"
+            android:text="Laporkan Bencana!"
+            android:textAllCaps="false"
+            android:textColor="@color/White"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp"
+            android:onClick="onSubmit"/>
+    </LinearLayout>
+</ScrollView>
