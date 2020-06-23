@@ -2,6 +2,15 @@
 
 class Daftar_laporan_m extends CI_Model
 {
+
+    public function getLaporanUnread()
+    {
+        $this->db->select('*');
+        $this->db->from('tb_kategori');
+        $this->db->join('tb_laporan', 'tb_kategori.ID_KTR=tb_laporan.ID_KTR');
+        return $this->db->get_where('', ['IS_READ' => 0]);
+    }
+
     // memanggil data yang ada pada tabel tb_berita & join tb_kategori & join tb_user
     public function getAllLaporan()
     {

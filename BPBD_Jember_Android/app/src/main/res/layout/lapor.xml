@@ -106,6 +106,7 @@
             android:layout_marginTop="8dp"
             android:ems="10"
             android:inputType="text"
+            android:visibility="gone"
             android:hint="Detail Bencana"
             android:backgroundTint="@color/tema"/>
         <EditText

@@ -7,12 +7,15 @@ class Kategori extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('kategori_m');
+        $this->load->model('daftar_laporan_m', 'laporan'); 
     }
 
     public function index()
     {
-        $tb_kategori['tb'] = $this->kategori_m->tampil_data();
+        $data['tb'] = $this->kategori_m->tampil_data();
+        $data['notif'] = $this->laporan->getLaporanUnread()->result_array();
+        $data['notifcount'] = $this->laporan->getLaporanUnread()->num_rows();
         // memanggil halaman view admin/dashboard_v
-        $this->load->view("admin/kategori_v", $tb_kategori);
+        $this->load->view("admin/kategori_v", $data);
     }
 }

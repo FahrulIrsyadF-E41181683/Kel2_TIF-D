@@ -1,21 +1,23 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Berita extends CI_Controller 
+class Berita extends CI_Controller
 {
-    function __construct(){
+    function __construct()
+    {
         parent::__construct();
         // memanggil model berita_m
         $this->load->model('berita_m', 'berita'); // <- berita digunakan untuk merubah/alias dari berita_m jadi cukup menuliskan berita
+        $this->load->model('daftar_laporan_m', 'laporan'); 
     }
 
     function index()
     {
         // ambil data pencarian
-        if($this->input->post('submit')){
+        if ($this->input->post('submit')) {
             $data['cari'] = $this->input->post('cari');
             $this->session->set_userdata('cari', $data['cari']);
-        }else{
+        } else {
             $data['cari'] = $this->session->userdata('cari');
         }
 
@@ -35,23 +37,25 @@ class Berita extends CI_Controller
         // method mengambil data dari model berita_m dan memanggil method getBerita
         $data["tb_berita"] = $this->berita->getBerita($config['per_page'], $data['start'], $data['cari']);
 
-        // memanggil halaman view admin/berita_v
-        $this->load->view("admin/berita_v", $data);        
+        $data['notif'] = $this->laporan->getLaporanUnread()->result_array();
+        $data['notifcount'] = $this->laporan->getLaporanUnread()->num_rows();
 
+        // memanggil halaman view admin/berita_v
+        $this->load->view("admin/berita_v", $data);
     }
 
     // menambahkan data berita
     public function tambah()
     {
         // method mengambil data dari model berita_m dan memanggil method getBerita
-        $data["tb_kategori"]= $this->berita->getKategori();
-        
+        $data["tb_kategori"] = $this->berita->getKategori();
+
         // validasi data
         $this->form_validation->set_rules($this->berita->rules());
-        if( $this->form_validation->run() == FALSE ){
-             // memanggil halaman view admin/berita_tambah
+        if ($this->form_validation->run() == FALSE) {
+            // memanggil halaman view admin/berita_tambah
             $this->load->view('admin/tambah_berita', $data);
-        }else {
+        } else {
             $this->berita->tambahDataBerita();
             $this->session->set_flashdata('flash', 'Ditambahkan');
             redirect('admin/berita');
@@ -70,15 +74,15 @@ class Berita extends CI_Controller
     public function ubah($ID_BRT)
     {
         // method mengambil data dari model berita_m dan memanggil method getBerita
-        $data["tb_kategori"]= $this->berita->getKategori();
-        $data["tb_berita"]= $this->berita->getBeritabyID($ID_BRT);
-        
+        $data["tb_kategori"] = $this->berita->getKategori();
+        $data["tb_berita"] = $this->berita->getBeritabyID($ID_BRT);
+
         // validasi data
         $this->form_validation->set_rules($this->berita->rules());
-        if( $this->form_validation->run() == FALSE ){
-             // memanggil halaman view admin/berita_tambah
+        if ($this->form_validation->run() == FALSE) {
+            // memanggil halaman view admin/berita_tambah
             $this->load->view('admin/ubah_berita', $data);
-        }else {
+        } else {
             $this->berita->ubahDataBerita();
             $this->session->set_flashdata('flash', 'Diubah');
             redirect('admin/berita');
@@ -92,5 +96,4 @@ class Berita extends CI_Controller
         $this->session->set_flashdata('flash', 'Diubah');
         redirect('admin/berita');
     }
-
 }
