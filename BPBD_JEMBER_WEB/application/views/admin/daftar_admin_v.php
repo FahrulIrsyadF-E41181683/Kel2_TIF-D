@@ -25,7 +25,7 @@
             <div class="card-header col-md-12">
               <!-- TOMBOL TAMBAH -->
               <div class="col-md-4 float-left">
-              <a href=""><button type="button" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Admin</button></a>
+              <a href="<?php echo base_url('admin/daftar_admin/tambah') ?>"><button type="button" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Admin</button></a>
               </div>
               <!-- PENCARIAN -->
               <div class="col-md-4 pt-2 float-right">

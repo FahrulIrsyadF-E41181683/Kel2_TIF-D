@@ -25,7 +25,6 @@
               <div class="col-md-4 float-left">
               <a href="<?php echo base_url('admin/kategori/tambah') ?>"><button type="button" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Kategori</button></a>
               </div>
-            </div>
             <!-- TABEL LIST -->
               <div class="card-body mb-3">
                 <div class="table-responsive">

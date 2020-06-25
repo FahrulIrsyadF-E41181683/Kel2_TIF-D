@@ -15,4 +15,15 @@ class Daftar_admin extends CI_Controller
         // memanggil halaman view
         $this->load->view("admin/daftar_admin_v", $data);
     }
+    public function tambah()
+    {
+        $this->form_validation->set_rules($this->daftar_admin_m->rules());
+        if( $this->form_validation->run() == FALSE ){
+            $this->load->view('admin/tambah_admin');
+        }else {
+            $this->daftar_admin_m->tambahDataDaftarAdmin();
+            $this->session->set_flashdata('flash', 'Ditambahkan');
+            redirect('admin/index');
+        }
+    }
 }
