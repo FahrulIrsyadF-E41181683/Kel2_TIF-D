@@ -49,6 +49,8 @@ class Berita extends CI_Controller
     {
         // method mengambil data dari model berita_m dan memanggil method getBerita
         $data["tb_kategori"] = $this->berita->getKategori();
+        $data['notif'] = $this->laporan->getLaporanUnread()->result_array();
+        $data['notifcount'] = $this->laporan->getLaporanUnread()->num_rows();
 
         // validasi data
         $this->form_validation->set_rules($this->berita->rules());
@@ -76,6 +78,8 @@ class Berita extends CI_Controller
         // method mengambil data dari model berita_m dan memanggil method getBerita
         $data["tb_kategori"] = $this->berita->getKategori();
         $data["tb_berita"] = $this->berita->getBeritabyID($ID_BRT);
+        $data['notif'] = $this->laporan->getLaporanUnread()->result_array();
+        $data['notifcount'] = $this->laporan->getLaporanUnread()->num_rows();
 
         // validasi data
         $this->form_validation->set_rules($this->berita->rules());

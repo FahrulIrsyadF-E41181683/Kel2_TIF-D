@@ -3,13 +3,23 @@
 class Berita_m extends CI_Model
 {
     // memanggil data yang ada pada tabel tb_berita & join tb_kategori & join tb_user
-    public function getAllBerita()
+    public function getAllBerita($kategori = null)
     {
-        $this->db->order_by('ID_BRT', 'ASC');
+        if ( $kategori === null) {
+            $this->db->order_by('ID_BRT', 'DESC');
+            return $this->db->from('tb_berita')
+            ->join('tb_kategori', 'tb_kategori.ID_KTR=tb_berita.ID_KTR') // <- join tb_kategori agar dapat menampilkan nama
+            ->join('tb_user', 'tb_user.ID_USR=tb_berita.ID_USR') // <- join tb_berita agar dapat menampilkan nama
+            ->where('tb_berita.STATUS_BRT = 1')
+            ->get()
+            ->result_array();
+        }
+        $this->db->order_by('ID_BRT', 'DESC');
         return $this->db->from('tb_berita')
         ->join('tb_kategori', 'tb_kategori.ID_KTR=tb_berita.ID_KTR') // <- join tb_kategori agar dapat menampilkan nama
         ->join('tb_user', 'tb_user.ID_USR=tb_berita.ID_USR') // <- join tb_berita agar dapat menampilkan nama
-        ->get()
+        ->where('tb_berita.STATUS_BRT = 1')
+        ->get_where('', ['tb_kategori.KATEGORI' => $kategori])
         ->result_array();
     }
 
@@ -58,6 +68,11 @@ class Berita_m extends CI_Model
     public function countberita()
     {
         return $this->db->get('tb_berita')->num_rows();
+    }
+
+    public function getCountBerita()
+    {
+        return $this->db->count_all_results('tb_berita', FALSE); 
     }
 
     // method untuk validasi data
