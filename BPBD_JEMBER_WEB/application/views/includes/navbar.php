@@ -12,7 +12,11 @@
 				<li class="nav-item"><a href="#tentang" class="nav-link">Tentang</a></li>
 				<li class="nav-item"><a href="#kontak" class="nav-link">Kontak</a></li>
 				<li class="nav-item"><a href="<?= base_url('laporan'); ?>" class="nav-link">Lapor Bencana</a></li>
+				<?php if ($this->session->userdata('ID_USR') == '') { ?>
 				<li class="nav-item"><a href="<?= base_url('auth'); ?>" class="nav-link">Login</a></li>
+				<?php }else{ ?>
+				<li class="nav-item"><a href="<?= base_url('auth/logout'); ?>" class="nav-link">Logout</a></li>
+				<?php }?>
 			</ul>
 		</div>
 	</div>
