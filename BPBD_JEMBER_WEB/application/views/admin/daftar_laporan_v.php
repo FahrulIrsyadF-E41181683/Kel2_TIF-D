@@ -58,7 +58,7 @@
                                 <tbody>
                                     <?php foreach ($tb_laporan as $berita) : ?>
                                         <?php $id = $berita['ID_LPR']; ?>
-                                        <tr>
+                                        <tr id="<?= $id; ?>">
                                             <td><?php echo $berita['NAMA'] ?></td>
                                             <td><?php echo $berita['KATEGORI'] ?></td>
                                             <td><?php echo $berita['TANGGAL'] ?></td>
@@ -85,7 +85,7 @@
                                     <?php foreach ($tb_laporan2 as $berita) : ?>
                                         <?php if (!$berita['ID_USR']) : ?>
                                             <?php $id = $berita['ID_LPR']; ?>
-                                            <tr>
+                                            <tr id="<?= $id; ?>">
                                                 <td><?php echo $berita['NAMA_PELAPOR'] ?></td>
                                                 <td><?php echo $berita['KATEGORI'] ?></td>
                                                 <td><?php echo $berita['TANGGAL'] ?></td>

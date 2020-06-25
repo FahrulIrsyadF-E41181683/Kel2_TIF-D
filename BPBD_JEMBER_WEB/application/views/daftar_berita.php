@@ -18,13 +18,13 @@
                     <a href="<?php echo base_url(); ?>beranda/baca/<?php echo $berita['ID_BRT']; ?>">
                     <div class="card mb-4 border-0" >
                         <div class="row no-gutters">
-                            <div class="col-4" style="overflow: hidden; padding: 0; max-width: 300px;">
+                            <div class="col-4" style="overflow: hidden; padding: 0; max-width: 280px;">
                             <img src="<?php echo base_url('assets/img/berita_gambar/'.$berita['GAMBAR_BRT'])?>" class="thumbnail carousel-inner" alt="..." style="max-height: 200px; display: block; margin: auto; width: 100%;">
                             </div>
                             <div class="col-8">
                             <div class="card-body">
+                                <div style="overflow: hidden; white-space: nowrap; max-width:500px; max-height:100px;">
                                 <h4 class="card-title"><?php echo $berita["JUDUL"]?></h4>
-                                <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; max-width:500px">
                                 <small class="card-text text-muted"><?php echo $berita["ISI_BERITA"]?></small>
                                 </div>
                                 <p class="card-text"><small class="text-muted icon-calendar pr-2"> <?php echo $berita['TANGGAL']?></small>

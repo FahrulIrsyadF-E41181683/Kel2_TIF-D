@@ -201,4 +201,12 @@ class Auth extends CI_Controller
             $this->load->view('auth/verif_v.php', $data);
         }
     }
+
+    public function logout()
+    {
+            //  baris kode yang akan menghapus session yang ada
+            $this->session->sess_destroy();
+            //  baris kode yang mengarahkan pengguna ke halaman beranda
+            redirect(base_url('beranda'));
+    }
 }

@@ -17,18 +17,24 @@
             <span class="navbar-toggler-bar navbar-kebab"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
-            <ul class="navbar-nav">            
+            <ul class="navbar-nav">
               <li class="nav-item btn-rotate dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="nc-icon nc-bell-55"></i>3
+                  <i class="nc-icon nc-bell-55"></i>
+                  <p class="countnotif"><?= $notifcount>0 ? $notifcount : '' ?></p>
                   <p>
                     <span class="d-lg-none d-md-block">Notifikasi</span>
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Komentar Baru</a>
-                  <a class="dropdown-item" href="#">Laporan Bencana</a>
-                  <a class="dropdown-item" href="#">Verifikasi User</a>
+                  <?php if (!$notif) : ?>
+                    <p><i>Tidak ada laporan</i></p>
+                  <?php endif; ?>
+                  <?php foreach ($notif as $n) : ?>
+                    <a class="dropdown-item notif" href="<?= base_url('admin/daftar_laporan') ?>" data-id_laporan="<?= $n['ID_LPR'] ?>"><?= $n['NAMA_PELAPOR'] ?>&nbsp;<b><?= $n['KATEGORI'] ?></b></a>
+                  <?php endforeach; ?>
+                  <!-- <a class="dropdown-item" href="#">Laporan Bencana</a>
+                  <a class="dropdown-item" href="#">Verifikasi User</a> -->
                 </div>
               </li>
               <li class="nav-item">

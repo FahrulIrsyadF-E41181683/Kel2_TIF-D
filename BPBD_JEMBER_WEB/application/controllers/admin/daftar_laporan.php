@@ -8,6 +8,7 @@ class Daftar_laporan extends CI_Controller
         parent::__construct();
         // memanggil model berita_m
         $this->load->model('daftar_laporan_m', 'daftar_laporan'); // <- berita digunakan untuk merubah/alias dari berita_m jadi cukup menuliskan berita
+        $this->load->model('daftar_laporan_m', 'laporan'); 
     }
 
     function index()
@@ -36,6 +37,9 @@ class Daftar_laporan extends CI_Controller
         // method mengambil data dari model berita_m dan memanggil method getBerita
         $data["tb_laporan"] = $this->daftar_laporan->getLaporan($config['per_page'], $data['start'], $data['cari']);
         $data["tb_laporan2"] = $this->daftar_laporan->getLaporan2($config['per_page'], $data['start'], $data['cari']);
+
+        $data['notif'] = $this->laporan->getLaporanUnread()->result_array();
+        $data['notifcount'] = $this->laporan->getLaporanUnread()->num_rows();
 
         // memanggil halaman view admin/berita_v
         $this->load->view("admin/daftar_laporan_v", $data);

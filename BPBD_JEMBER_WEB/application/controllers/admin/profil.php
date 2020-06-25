@@ -8,6 +8,7 @@ class Profil extends CI_Controller
         parent::__construct();
         $this->load->model('profil_m');
         $this->load->helper('url');
+        $this->load->model('daftar_laporan_m', 'laporan'); 
         // is_logged_in();
     }
     public function index()
@@ -19,9 +20,11 @@ class Profil extends CI_Controller
         // ])->row_array();
 
         $data['tb_admin'] = $this->profil_m->tampil_data(); //Untuk me-load fungsi tampil_data() di modal profil_m
+        $data['notif'] = $this->laporan->getLaporanUnread()->result_array();
+        $data['notifcount'] = $this->laporan->getLaporanUnread()->num_rows();
         $this->load->view("admin/includes/head.php");
         $this->load->view("admin/includes/sidebar.php");
-        $this->load->view("admin/includes/navbar.php");
+        $this->load->view("admin/includes/navbar.php", $data);
         $this->load->view('admin/profil_v', $data);
         $this->load->view("admin/includes/footer.php");
         $this->load->view("admin/includes/js.php");
@@ -85,6 +88,8 @@ class Profil extends CI_Controller
         $data['user'] = $this->db->get_where('tb_user', ['ID_USR' =>
 
         $this->session->userdata('ID_USR')])->row_array();
+        $data['notif'] = $this->laporan->getLaporanUnread()->result_array();
+        $data['notifcount'] = $this->laporan->getLaporanUnread()->num_rows();
 
         $this->form_validation->set_rules('passwordSkrg', 'PasswordSkrg', 'required|trim');
         $this->form_validation->set_rules('passwordBaru1', 'Password Baru', 'required|trim|min_length[8]|matches[passwordBaru2]');

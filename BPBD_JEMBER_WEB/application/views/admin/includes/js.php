@@ -54,3 +54,25 @@
 <script src="<?php echo base_url('assets/js/sweetalert2.all.min.js') ?>"></script>
 <!-- scrip js -->
 <script src="<?php echo base_url('assets/js/scrip.js') ?>"></script>
+
+<script>
+  $(document).ready(function() {
+    $('.notif').click(function() {
+      var id_laporan = $(this).data('id_laporan')
+      // $('.countnotif').empty();
+      $.ajax({
+        url: "<?= base_url('admin/dashboard/readNotif') ?>",
+        type: 'POST',
+        data: {
+          id_laporan: id_laporan
+        },
+        success: function(result) {
+          console.log(result)
+        },
+        error: function(e) {
+          console.log('gagal')
+        }
+      })
+    })
+  })
+</script>
