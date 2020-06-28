@@ -16,6 +16,10 @@ class Daftar_admin_m extends CI_Model
     $this->db->where($where);
     $this->db->update($table,$data);
     }	
+
+    function hapus_data($where){
+        
+      return $this->db->delete("tb_user", array("ID_USR"=>$where));}
   
       public function tambahDataDaftarAdmin(){
             

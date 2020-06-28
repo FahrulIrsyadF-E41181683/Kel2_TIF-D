@@ -67,7 +67,7 @@ class Berita extends CI_Controller
     // menghapus data berita
     public function hapus($ID_BRT)
     {
-        $this->berita->hapusDataBerita($ID_BRT);
+        $this->kategori->hapusDataBerita($ID_BRT);
         $this->session->set_flashdata('flash', 'Dihapus');
         redirect('admin/berita');
     }

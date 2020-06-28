@@ -29,4 +29,12 @@ class Daftar_admin extends CI_Controller
             redirect('admin/index');
         }
     }
+     // menghapus data kategori
+     public function hapus($ID_USR)
+     {
+         $this->daftar_admin_m->hapus_data($ID_USR);
+         
+         $this->session->set_flashdata('flash', 'Dihapus');
+         redirect('admin/tambah_admin');
+     }
 }

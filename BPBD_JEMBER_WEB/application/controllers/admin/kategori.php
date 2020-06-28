@@ -30,4 +30,13 @@ class Kategori extends CI_Controller {
             redirect('admin/kategori');
         }
     }
+
+    // menghapus data kategori
+    public function hapus($ID_KTR)
+    {
+		$this->kategori_m->hapus_data($ID_KTR);
+        
+        $this->session->set_flashdata('flash', 'Dihapus');
+        redirect('admin/kategori');
+    }
 }
