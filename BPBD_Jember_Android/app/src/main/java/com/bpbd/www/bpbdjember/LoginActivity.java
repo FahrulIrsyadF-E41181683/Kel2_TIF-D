@@ -1,4 +1,4 @@
-package com.example.bpbdjember;
+package com.bpbd.www.bpbdjember;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
     ProgressDialog progressDialog;
 
     //storing server url into string variabel
-    String HttpsUrl = "http://192.168.1.17/android_register/user_login.php";
+    String HttpsUrl = "http://192.168.1.9/android_register/user_login.php";
 
     Boolean CheckEditText;
 
@@ -101,7 +101,7 @@ public class LoginActivity extends AppCompatActivity {
                             finish();
 
                             //opening the user profile activity using intent
-                            Intent intent = new Intent(LoginActivity.this, ProfilActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
 
                             //sending username to another activity using intent
                             intent.putExtra("UsernameTAG", UsernameHolder);

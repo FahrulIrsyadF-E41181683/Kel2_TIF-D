@@ -1,4 +1,4 @@
-package com.example.bpbdjember;
+package com.bpbd.www.bpbdjember;
 
 import androidx.appcompat.app.AppCompatActivity;
 
