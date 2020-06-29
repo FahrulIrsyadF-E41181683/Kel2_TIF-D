@@ -1,10 +1,9 @@
 package com.bpbd.www.bpbdjember;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -37,7 +36,7 @@ public class LoginActivity extends AppCompatActivity {
     ProgressDialog progressDialog;
 
     //storing server url into string variabel
-    String HttpsUrl = "http://192.168.1.9/android_register/user_login.php";
+    String HttpsUrl = "http://192.168.1.5/android_register/user_login.php";
 
     Boolean CheckEditText;
 
@@ -50,11 +49,11 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         //Assigning ID's to EditText
-        Username = (EditText) findViewById(R.id.EditTextUsername);
-        Password = (EditText) findViewById(R.id.EditTextPassword);
+        Username = (EditText) findViewById(R.id.username);
+        Password = (EditText) findViewById(R.id.password);
 
         //Assigning ID's to Button
-        LoginButton = (Button) findViewById(R.id.button_login);
+        LoginButton = (Button) findViewById(R.id.btn_login);
 
         //Creating volley new requestQueue
         requestQueue = Volley.newRequestQueue(LoginActivity.this);
@@ -101,7 +100,7 @@ public class LoginActivity extends AppCompatActivity {
                             finish();
 
                             //opening the user profile activity using intent
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, ProfilActivity.class);
 
                             //sending username to another activity using intent
                             intent.putExtra("UsernameTAG", UsernameHolder);
