@@ -9,7 +9,9 @@
 <body id="">
     <!-- SIDEBAR MEMANGGIL SIDEBAR YANG ADA DI admin/includes/sidebar.php -->
     <?php $this->load->view("admin/includes/sidebar.php") ?>
-        
+
+<!-- SIDEBAR MEMANGGIL NAVBAR YANG ADA DI admin/includes/sidebar.php -->
+<?php $this->load->view("admin/includes/navbar.php") ?>
     <!-- ISI KONTEN HALAMAN -->
         
     <div class="content">

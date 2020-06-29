@@ -21,9 +21,12 @@ class Kategori extends CI_Controller {
 
     public function tambah()
     {
+        $data['notif'] = $this->laporan->getLaporanUnread()->result_array();
+        $data['notifcount'] = $this->laporan->getLaporanUnread()->num_rows();
+        
         $this->form_validation->set_rules($this->kategori_m->rules());
         if( $this->form_validation->run() == FALSE ){
-            $this->load->view('admin/tambah_kategori');
+            $this->load->view('admin/tambah_kategori', $data);
         }else {
             $this->kategori_m->tambahDataKategori();
             $this->session->set_flashdata('flash', 'Ditambahkan');
@@ -39,4 +42,22 @@ class Kategori extends CI_Controller {
         $this->session->set_flashdata('flash', 'Dihapus');
         redirect('admin/kategori');
     }
+
+    // mengedit data kategori 
+    public function edit ($ID_KTR)
+    { 
+        $data['notif'] = $this->laporan->getLaporanUnread()->result_array();
+        $data['notifcount'] = $this->laporan->getLaporanUnread()->num_rows();
+        
+        $this->form_validation->set_rules($this->kategori_m->rules());
+        if ($this->form_validation->run() == FALSE) {
+            // memanggil halaman view admin/berita_tambah
+            $this->load->view('admin/ubah_kategori', $data);
+        } else {
+            $this->kategori_m->ubahDataKategori();
+            $this->session->set_flashdata('flash', 'Diubah');
+            redirect('admin/kategori');
+        }
+    }
+
 }

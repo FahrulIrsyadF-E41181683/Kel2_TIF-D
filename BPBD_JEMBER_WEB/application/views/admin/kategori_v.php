@@ -44,7 +44,7 @@
                     <td class="text-center"><?php echo $kategori['KATEGORI']?></td>
                     <td class="text-justify" width="600"><?php echo $kategori['KETERANGAN']?></td>
                     <td class="text-center" width="130">
-					              <a href="" class="btn btn-primary btn-sm rounded-pill m-1"><i class="fas fa-edit"></i></a>
+					              <a href="<?php echo site_url('admin/kategori/edit/'.$kategori['ID_KTR']); ?>" class="btn btn-primary btn-sm rounded-pill m-1"><i class="fas fa-edit"></i></a>
                         <a href="<?php echo site_url('admin/kategori/hapus/'.$kategori['ID_KTR']); ?>" 
                         class="btn btn-danger btn-sm rounded-pill m-1" onclick="return confirm('yakin?');"><i class="fas fa-trash"></i></a>
                   	</td>
