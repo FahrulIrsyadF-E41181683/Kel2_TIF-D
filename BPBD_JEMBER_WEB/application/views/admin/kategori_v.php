@@ -12,6 +12,7 @@
 
     <!-- SIDEBAR MEMANGGIL NAVBAR YANG ADA DI admin/includes/sidebar.php -->
     <?php $this->load->view("admin/includes/navbar.php") ?>
+    
     <!-- ISI KONTEN HALAMAN -->
     <div class="content">
         <div class="row">
@@ -44,7 +45,8 @@
                     <td class="text-justify" width="600"><?php echo $kategori['KETERANGAN']?></td>
                     <td class="text-center" width="130">
 					              <a href="" class="btn btn-primary btn-sm rounded-pill m-1"><i class="fas fa-edit"></i></a>
-                        <a href="" class="btn btn-danger btn-sm rounded-pill m-1" onclick="return confirm('yakin?');"><i class="fas fa-trash"></i></a>
+                        <a href="<?php echo site_url('admin/kategori/hapus/'.$kategori['ID_KTR']); ?>" 
+                        class="btn btn-danger btn-sm rounded-pill m-1" onclick="return confirm('yakin?');"><i class="fas fa-trash"></i></a>
                   	</td>
                     </tr>
                     <?php endforeach; ?>

@@ -13,9 +13,9 @@ class kategori_m extends CI_Model{
       $this->db->insert($table,$data);
       }
 
-      function hapus_data($where,$table){
-        $this->db->where($where);
-        $this->db->delete($table);
+      function hapus_data($where){
+        
+        return $this->db->delete("tb_kategori", array("ID_KTR"=>$where));
     }
 
     function edit_data($where,$table){		
