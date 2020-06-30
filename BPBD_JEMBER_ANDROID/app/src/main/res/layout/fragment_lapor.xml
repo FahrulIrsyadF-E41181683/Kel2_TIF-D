@@ -46,56 +46,16 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="4dp"
             android:backgroundTint="@color/colorPrimary"/>
-        <RadioGroup
-            android:id="@+id/kategori"
+        <Spinner
+            android:id="@+id/spinnerKategori"
+            style="@android:style/Widget.DeviceDefault.Spinner"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:id="@+id/kategori_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Kategori Bencana"
-                />
-            <RadioButton
-                android:id="@+id/banjir"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Banjir"
-
-                android:buttonTint="@color/black" />
-            <RadioButton
-                android:id="@+id/tanah_longsor"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Tanah Longsor"
-
-                android:buttonTint="@color/black"/>
-            <RadioButton
-                android:id="@+id/gempa"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Gempa Bumi"
-
-                android:buttonTint="@color/black"/>
-            <RadioButton
-                android:id="@+id/puting_beliung"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Puting Beliung"
-
-                android:buttonTint="@color/black"/>
-            <RadioButton
-                android:id="@+id/other"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Lain-lain"
-                android:buttonTint="@color/black"/>
-        </RadioGroup>
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rounded_yellow"
+            android:popupBackground="@drawable/rounded_yellow"
+            android:spinnerMode="dropdown" />
         <EditText
             android:id="@+id/lokasi"
             android:layout_width="match_parent"

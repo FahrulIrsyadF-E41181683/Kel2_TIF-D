@@ -6,4 +6,6 @@
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
     <color name="biru">#6200EE</color>
+    <color name="bgLight">#f1f1f1</color>
+    <color name="bgDark">#212121</color>
 </resources>

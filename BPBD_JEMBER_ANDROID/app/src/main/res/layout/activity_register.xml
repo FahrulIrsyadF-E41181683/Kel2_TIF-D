@@ -18,9 +18,9 @@
         android:paddingBottom="20dp"
         android:textSize="20dp"
         android:text="@string/title_regis"
-        android:textColor="@color/colorTextBlack"
+        android:textColor="@color/black"
         android:gravity="center_horizontal" />
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/fnama">
@@ -28,12 +28,12 @@
             android:id="@+id/nama"
             android:hint="Nama"
             android:inputType="textPersonName"
-            android:textColor="@color/colorTextBlack"
+            android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/fuser">
@@ -41,12 +41,12 @@
             android:id="@+id/username"
             android:hint="Username"
             android:inputType="textPersonName"
-            android:textColor="@color/colorTextBlack"
+            android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/falamat">
@@ -54,11 +54,11 @@
             android:id="@+id/alamat"
             android:hint="Alamat"
             android:inputType="textPersonName"
-            android:textColor="@color/colorTextBlack"
+            android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-    </android.support.design.widget.TextInputLayout>
-    <android.support.design.widget.TextInputLayout
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/fnomer">
@@ -66,11 +66,11 @@
             android:id="@+id/nomer"
             android:hint="Nomer"
             android:inputType="textPersonName"
-            android:textColor="@color/colorTextBlack"
+            android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-    </android.support.design.widget.TextInputLayout>
-    <android.support.design.widget.TextInputLayout
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/femail">
@@ -78,12 +78,12 @@
             android:id="@+id/email"
             android:hint="Email"
             android:inputType="textEmailAddress"
-            android:textColor="@color/colorTextBlack"
+            android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:passwordToggleEnabled="true"
@@ -92,12 +92,12 @@
             android:id="@+id/password"
             android:hint="Password"
             android:inputType="textPassword"
-            android:textColor="@color/colorTextBlack"
+            android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:passwordToggleEnabled="true"
@@ -106,10 +106,10 @@
             android:id="@+id/c_password"
             android:hint="Confirm Password"
             android:inputType="textPassword"
-            android:textColor="@color/colorTextBlack"
+            android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <ProgressBar
         android:id="@+id/loading"
@@ -130,7 +130,7 @@
 
     <TextView
         android:gravity="center"
-        android:textColor="@color/colorTextBlack"
+        android:textColor="@color/black"
         android:text="Sudah memiliki akun?"
         android:layout_marginTop="30dp"
         android:layout_width="match_parent"
@@ -140,7 +140,7 @@
     <TextView
         android:id="@+id/tvLogin"
         android:gravity="center"
-        android:textColor="@color/colorTextBlack"
+        android:textColor="@color/black"
         android:text="Login"
         android:textStyle="bold"
         android:layout_width="match_parent"

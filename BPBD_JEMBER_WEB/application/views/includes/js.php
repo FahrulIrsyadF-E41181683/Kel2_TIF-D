@@ -48,10 +48,41 @@
 <script src="<?php echo base_url('assets/js/main.js') ?>"></script>
 <script src="<?php echo base_url('assets/js/myscrip.js') ?>"></script>
 <script>
-$('#nav a').click(function() {
+  $('#nav a').click(function() {
     $('#nav a.active').removeClass('active');
     $(this).addClass('active');
     $('html, body').scrollTo($(this).attr('href'), 1000);
     return false;
-});
+  });
 </script>
+<script>
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+  }
+
+  function showPosition(position) {
+    $('#button-lokasi').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span><span class="sr-only">Loading...</span>')
+    $('#input-lat').val(position.coords.latitude)
+    $('#input-lng').val(position.coords.longitude)
+    $.ajax({
+      url: `https://geocode.xyz/${position.coords.latitude},${position.coords.longitude}?json=1`,
+      method: "GET",
+      success: function(response) {
+        var jalan = response.staddress;
+        var kelurahan = response.city;
+        var kota = response.region;
+        var negara = response.country;
+        console.log(response.city, response.staddress)
+        $('#input-lokasi').val(jalan + ' ' + kelurahan + ', ' + kota + ' ' + negara)
+        $('#button-lokasi').html('Get Your Location')
+      }
+    })
+    // x.innerHTML = "Latitude: " + position.coords.latitude +
+    //   "<br>Longitude: " + position.coords.longitude;
+  }
+</script>
+
