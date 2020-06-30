@@ -84,7 +84,7 @@ class Login extends REST_Controller{
   // hapus data login menggunakan method delete
   public function delete_delete(){
     $response = $this->LoginM->delete_login(
-        $this->delete('id_usr')
+        $this->delete('ID_USR')
       );
     $this->response($response);
   }

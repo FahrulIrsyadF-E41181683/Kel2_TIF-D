@@ -4,8 +4,6 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -14,6 +12,8 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -34,8 +34,8 @@ import java.util.Objects;
 public class RegisterActivity extends AppCompatActivity {
 
     TextView tvLogin;
-    EditText nama, username, alamat, nomer, email, password, c_password;
-    String BaseUrl, fnama, fuser, falamat, fnomer, femail, fpass, fcpass;
+    EditText etnama, etusername, etalamat, etnomer, etemail, etpassword, etc_password;
+    String BaseUrl, fnama, fusername, falamat, fnomer, femail, fpassword, fc_password;
     Button btn_regist;
     ProgressBar loading;
     RequestQueue requestQueue;
@@ -47,76 +47,107 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        BaseUrl     = SessionManager.BASE_URL;
-        tvLogin     = findViewById(R.id.tvLogin);
-        loading     = findViewById(R.id.loading);
-        nama        = findViewById(R.id.nama);
-        username    = findViewById(R.id.username);
-        alamat      = findViewById(R.id.alamat);
-        nomer       = findViewById(R.id.nomer);
-        email       = findViewById(R.id.email);
-        password    = findViewById(R.id.password);
-        c_password  = findViewById(R.id.c_password);
-        btn_regist  = findViewById(R.id.btn_regist);
-        progressDialog  = new ProgressDialog(this);
-        requestQueue    = Volley.newRequestQueue(this);
+        BaseUrl = SessionManager.BASE_URL;
+        tvLogin = findViewById(R.id.tvLogin);
+        loading = findViewById(R.id.loading);
+        etnama = findViewById(R.id.etnama);
+        etusername = findViewById(R.id.etusername);
+        etalamat = findViewById(R.id.etalamat);
+        etnomer = findViewById(R.id.etnomer);
+        etemail = findViewById(R.id.etemail);
+        etpassword = findViewById(R.id.etpassword);
+        etc_password  = findViewById(R.id.etc_password);
+        btn_regist = findViewById(R.id.btn_regist);
+        progressDialog = new ProgressDialog(this);
+        requestQueue = Volley.newRequestQueue(this);
 
-//        tvLogin.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//                startActivity(intent);
-//            }
-//        });
-        
-        btn_regist.setOnClickListener(new View.OnClickListener() {
+        tvLogin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Regis();
+            public void onClick(View view) {
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
             }
         });
 
-    }
+//        btn_regist.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                CheckEditTextIsEmptyOrNot();
+//                Regis();
+//            }
+//        });
+        btn_regist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CheckEditTextIsEmptyOrNot();
+
+                if (CheckisEmpty){
+                    if (fpassword.equals(fc_password)){
+                        if (fpassword.length() >= 8){
+                            Regis();
+                        }else{
+                            Toast.makeText(RegisterActivity.this, "Password minimal 8 digit", Toast.LENGTH_LONG).show();
+                        }
+                    }else{
+                        Toast.makeText(RegisterActivity.this, "Password yang anda masukkan tidak cocok.", Toast.LENGTH_LONG).show();
+                    }
+                }else{
+                    Toast.makeText(RegisterActivity.this, "Mohon isi semua kolom Password", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+}
 
     private void Regis(){
         loading.setVisibility(View.VISIBLE);
         btn_regist.setVisibility(View.GONE);
 
-        final String nama = this.nama.getText().toString().trim();
-        final String username = this.username.getText().toString().trim();
-        final String alamat = this.alamat.getText().toString().trim();
-        final String nomer = this.nomer.getText().toString().trim();
-        final String email = this.email.getText().toString().trim();
-        final String password = this.password.getText().toString().trim();
-        final String c_password = this.c_password.getText().toString().trim();
+        final String fnama = this.etnama.getText().toString().trim();
+        final String fusername = this.etusername.getText().toString().trim();
+        final String falamat = this.etalamat.getText().toString().trim();
+        final String fnomer = this.etnomer.getText().toString().trim();
+        final String femail = this.etemail.getText().toString().trim();
+        final String fpassword = this.etpassword.getText().toString().trim();
+        final String fc_password = this.etc_password.getText().toString().trim();
 
         String HttpUrl = BaseUrl + "api/login/register";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, HttpUrl,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        progressDialog.dismiss();
                         try{
                             JSONObject jsonObject = new JSONObject(response);
-                            String success = jsonObject.getString("success");
-                            if (success.equals("1")){
-                                Toast.makeText(RegisterActivity.this, "Register Success!", Toast.LENGTH_SHORT).show();
+                            String message = jsonObject.getString("message");
+                            String status = jsonObject.getString("status");
+
+                            if (status.equals("200")){
+                                Toast.makeText(RegisterActivity.this, message, Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(intent);
+                                btn_regist.setVisibility(View.VISIBLE);
+                                finish();
+                            } else {
+                                btn_regist.setVisibility(View.VISIBLE);
+                                Toast.makeText(RegisterActivity.this, message, Toast.LENGTH_SHORT).show();
                             }
-                        } catch (JSONException e) {
+                        } catch (JSONException e){
                             e.printStackTrace();
-                            Toast.makeText(RegisterActivity.this, "Register Error! " + e.toString(), Toast.LENGTH_SHORT).show();
-                            loading.setVisibility(View.GONE);
                             btn_regist.setVisibility(View.VISIBLE);
+                            Toast.makeText(RegisterActivity.this, "Error" + e.toString(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(RegisterActivity.this, "Register Error! " + error.toString(), Toast.LENGTH_SHORT).show();
-                        loading.setVisibility(View.GONE);
-                        btn_regist.setVisibility(View.VISIBLE);
+                    public void onErrorResponse(VolleyError volleyError) {
+                        progressDialog.dismiss();
+                        Toast.makeText(RegisterActivity.this, "Error Response" + volleyError.toString(), Toast.LENGTH_LONG).show();
+
                     }
                 })
 
@@ -124,12 +155,12 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("nama", nama);
-                params.put("username", username);
-                params.put("alamat", alamat);
-                params.put("nomer", nomer);
-                params.put("email", email);
-                params.put("password", password);
+                params.put("nama", fnama);
+                params.put("username", fusername);
+                params.put("alamat", falamat);
+                params.put("nomer", fnomer);
+                params.put("email", femail);
+                params.put("password", fpassword);
                 params.put("Content-Type","application/x-www-form-urlencoded");
                 return params;
             }
@@ -137,5 +168,21 @@ public class RegisterActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
 
+    }
+
+    public void CheckEditTextIsEmptyOrNot(){
+
+        //Getting values from EditText.
+        fnama = etnama.getText().toString().trim();
+        fusername = etusername.getText().toString().trim();
+        falamat = etalamat.getText().toString().trim();
+        fnomer = etnomer.getText().toString().trim();
+        femail = etemail.getText().toString().trim();
+        fpassword = etpassword.getText().toString().trim();
+        fc_password = etc_password.getText().toString().trim();
+
+
+        CheckisEmpty = !TextUtils.isEmpty(fnama) && !TextUtils.isEmpty(fusername) && !TextUtils.isEmpty(falamat) && !TextUtils.isEmpty(fnomer)
+                && !TextUtils.isEmpty(femail) && !TextUtils.isEmpty(fpassword) && !TextUtils.isEmpty(fc_password);
     }
 }
