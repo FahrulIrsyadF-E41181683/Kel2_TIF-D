@@ -41,6 +41,14 @@ public class SessionManager {
 //        }
 //    }
 
+ public void checkLogin(){
+        if (!this.isLogin()){
+            Intent i = new Intent(context, LoginActivity.class);
+            context.startActivity(i);
+            ((ProfilActivity) context).finish();
+        }
+    }
+
     public HashMap<String, String> getUserDetail(){
         HashMap<String, String> user = new HashMap<>();
         user.put(ID, sharedPreferences.getString(ID, null));

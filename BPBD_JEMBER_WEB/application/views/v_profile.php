@@ -43,8 +43,7 @@
   </div>
 </div>
 
-    <!-- FOOTER MEMANGGIL FOOTER YANG ADA DI includes/footer.php -->
-    <!-- <?php $this->load->view("includes/footer.php") ?> -->
+   
 
     <!-- JS MEMANGGIL JS YANG ADA DI includes/js.php -->
     <?php $this->load->view("includes/js.php") ?>

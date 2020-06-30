@@ -16,6 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true">
             <ImageView
+		android:id="@+id/profile_image"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
                 android:layout_margin="15dp"
@@ -24,7 +25,14 @@
                 android:scaleType="centerInside" />
 
         </RelativeLayout>
-
+	<Button
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+           android:layout_centerHorizontal="true"
+            android:text="Edit Foto"
+            android:id="@+id/button_editfoto"
+            android:layout_below="@+id/imgUser"
+            android:layout_marginTop="20dp"/>
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -143,14 +151,7 @@
                     android:layout_marginTop="15dp"
                     android:background="@color/black"/>
             </LinearLayout>
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Edit"
-                android:id="@+id/button_edit"
-                android:layout_below="@+id/EditText"
-                android:layout_marginTop="20dp"/>
-        </LinearLayout>
+            </LinearLayout>
 
     </RelativeLayout>
 
