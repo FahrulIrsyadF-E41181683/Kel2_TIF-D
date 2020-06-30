@@ -105,7 +105,7 @@
                                                     </a></td>
                                                 <td class="text-center" width="130">
                                                     <a href="<?php echo base_url(); ?>admin/daftar_laporan/hapus/<?php echo $berita['ID_LPR']; ?>" class="btn btn-danger btn-sm rounded-pill m-1 tombol-hapus" onclick="return confirm('yakin?');"><i class="fas fa-trash"></i></a>
-                                                    <button class="btn btn-primary btn-sm rounded-pill m-1 fas fa-info" data-toggle="modal" data-target="#modal_detail<?= $id; ?>"></button>
+                                                    <button class="btn btn-primary btn-sm rounded-pill m-1 fas fa-info" id="btn-detail" data-lat="<?= $berita['LATITUDE']; ?>" data-lng="<?= $berita['LONGITUDE'] ?> " data-toggle="modal" data-target="#modal_detail<?= $id; ?>"></button>
                                                 </td>
                                             </tr>
                                         <?php endif; ?>
@@ -174,8 +174,7 @@
         <!-- FOOTER MEMANGGIL FOOTER YANG ADA DI admin/includes/footer.php -->
         <?php $this->load->view("admin/includes/footer.php") ?>
 
-        <!-- JS MEMANGGIL JS YANG ADA DI admin/includes/js.php -->
-        <?php $this->load->view("admin/includes/js.php") ?>
+
 
 </body>
 <!-- Modal Detail -->
@@ -186,6 +185,8 @@ foreach ($tb_laporan as $berita) :
     $NAMA = $berita['NAMA'];
     $ALAMAT = $berita['ALAMAT'];
     $EMAIL = $berita['EMAIL'];
+    $LATITUDE = $berita['LATITUDE'];
+    $LONGITUDE = $berita['LONGITUDE'];
     $KATEGORI = $berita['KATEGORI'];
     $TANGGAL = $berita['TANGGAL'];
     $DESKRIPSI = $berita['DESKRIPSI'];
@@ -232,6 +233,12 @@ foreach ($tb_laporan as $berita) :
                         <label class="control-label col-xs-3">Deskripsi Laporan</label>
                         <div class="col-xs-8">
                             <input name="role" value="<?php echo $DESKRIPSI; ?>" class="form-control" type="text" placeholder="Nama role" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3">Lokasi</label>
+                        <div class="col-xs-8">
+                            <a href="https://www.google.com/maps/search/?api=1&query=<?= $LATITUDE ?>,<?= $LONGITUDE ?>" target="_blank" class="btn btn-primary"><i class="fas fa-external-link-alt"></i>&nbsp;Open Maps</a>
                         </div>
                     </div>
                 </div>
@@ -250,6 +257,8 @@ foreach ($tb_laporan2 as $berita) :
     $id_laporan = $berita['ID_LPR'];
     $NAMA = $berita['NAMA_PELAPOR'];
     $ALAMAT = $berita['ALAMAT'];
+    $LATITUDE = $berita['LATITUDE'];
+    $LONGITUDE = $berita['LONGITUDE'];
     $EMAIL = $berita['EMAIL'];
     $KATEGORI = $berita['KATEGORI'];
     $TANGGAL = $berita['TANGGAL'];
@@ -299,6 +308,13 @@ foreach ($tb_laporan2 as $berita) :
                             <input name="role" value="<?php echo $DESKRIPSI; ?>" class="form-control" type="text" placeholder="Nama role" readonly>
                         </div>
                     </div>
+                    <!-- Data Map -->
+                    <div class="form-group">
+                        <label class="control-label col-xs-3">Lokasi</label>
+                        <div class="col-xs-8">
+                            <a href="https://www.google.com/maps/search/?api=1&query=<?= $LATITUDE ?>,<?= $LONGITUDE ?>" target="_blank" class="btn btn-primary"><i class="fas fa-external-link-alt"></i>&nbsp;Open Maps</a>
+                        </div>
+                    </div>
                 </div>
                 <br>
                 <div class="modal-footer">
@@ -310,5 +326,9 @@ foreach ($tb_laporan2 as $berita) :
     </div>
     </div>
 <?php endforeach; ?>
+
+
+<!-- JS MEMANGGIL JS YANG ADA DI admin/includes/js.php -->
+<?php $this->load->view("admin/includes/js.php") ?>
 
 </html>

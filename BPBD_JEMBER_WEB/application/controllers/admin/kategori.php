@@ -1,13 +1,14 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Kategori extends CI_Controller {
+class Kategori extends CI_Controller
+{
     public function __construct()
     {
         parent::__construct();
         $this->load->model('kategori_m');
-        $this->load->model('daftar_laporan_m', 'laporan'); 
+        $this->load->model('daftar_laporan_m', 'laporan');
     }
 
     public function index()
@@ -21,22 +22,54 @@ class Kategori extends CI_Controller {
 
     public function tambah()
     {
-        $this->form_validation->set_rules($this->kategori_m->rules());
-        if( $this->form_validation->run() == FALSE ){
-            $this->load->view('admin/tambah_kategori');
-        }else {
-            $this->kategori_m->tambahDataKategori();
-            $this->session->set_flashdata('flash', 'Ditambahkan');
+        $kategori = $this->input->post('kategori');
+        $deskripsi = $this->input->post('desk_kategori');
+
+        $data['tb'] = $this->kategori_m->tampil_data();
+        $data['notif'] = $this->laporan->getLaporanUnread()->result_array();
+        $data['notifcount'] = $this->laporan->getLaporanUnread()->num_rows();
+        $this->form_validation->set_rules('kategori', 'Kategori', 'trim|required');
+        $this->form_validation->set_rules('desk_kategori', 'Deskripsi Kategori', 'trim|required');
+        if ($this->form_validation->run() == false) {
+            $this->load->view("admin/tambah_kategori_v", $data);
+        } else {
+            $id = $this->kategori_m->getIdKategori();
+            $data = [
+                'ID_KTR' => $id,
+                'KATEGORI' => $kategori,
+                'KETERANGAN' => $deskripsi
+            ];
+            $this->kategori_m->input_data($data, 'tb_kategori');
             redirect('admin/kategori');
         }
     }
 
-    // menghapus data kategori
-    public function hapus($ID_KTR)
+    public function edit($id)
     {
-		$this->kategori_m->hapus_data($ID_KTR);
-        
-        $this->session->set_flashdata('flash', 'Dihapus');
+        $kategori = $this->input->post('kategori');
+        $deskripsi = $this->input->post('desk_kategori');
+
+        $data['kategori'] = $this->kategori_m->getDataById($id);
+        $data['tb'] = $this->kategori_m->tampil_data();
+        $data['notif'] = $this->laporan->getLaporanUnread()->result_array();
+        $data['notifcount'] = $this->laporan->getLaporanUnread()->num_rows();
+        $this->form_validation->set_rules('kategori', 'Kategori', 'trim|required');
+        $this->form_validation->set_rules('desk_kategori', 'Deskripsi Kategori', 'trim|required');
+        if ($this->form_validation->run() == false) {
+            $this->load->view("admin/tambah_kategori_v", $data);
+        } else {
+            $data = [
+                'KATEGORI' => $kategori,
+                'KETERANGAN' => $deskripsi
+            ];
+            $this->kategori_m->update_data(['ID_KTR' => $id], $data, 'tb_kategori');
+            redirect('admin/kategori');
+        }
+    }
+
+    public function hapus($id)
+    {
+        $this->kategori_m->hapus_data(['ID_KTR' => $id], 'tb_kategori');
         redirect('admin/kategori');
     }
 }

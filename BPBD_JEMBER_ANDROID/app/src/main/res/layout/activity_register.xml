@@ -224,6 +224,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+
     <Button
         android:id="@+id/btn_regist"
         android:layout_width="150dp"
@@ -236,7 +237,6 @@
         android:layout_marginTop="30dp"/>
 
     <TextView
-        android:id="@+id/sudahPunya"
         android:gravity="center"
         android:textColor="@color/black"
         android:text="Sudah memiliki akun?"
