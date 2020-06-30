@@ -4,7 +4,7 @@ class Daftar_admin_m extends CI_Model
 {
     public function getAllAdmin()
     {
-        return $this->db->get_where('tb_user',['ROLE' => 0])->result_array();
+        return $this->db->get_where('tb_user', ['ROLE' => 0])->result_array();
     }
 
     public function getAdminById($id)

@@ -60,17 +60,17 @@
                 <!-- MENGAMBIL DATA DARI DATABASE -->
                 <tbody>
                   <?php foreach ($tb_user as $admin) : ?>
-                      <tr class="text-center">
-                        <td><?php echo $admin['NAMA'] ?></td>
-                        <td><?php echo $admin['ALAMAT'] ?></td>
-                        <td><?php echo $admin['NOMER'] ?></td>
-                        <td><?php echo $admin['EMAIL'] ?></td>
-                        <td><img src="<?php echo base_url('assets/img/Profile/' . $admin['GAMBAR']) ?>" width="64"></td>
-                        <td class="text-center" width="130">
-                          <a href="<?php echo base_url('admin/daftar_admin/edit/') . $admin['ID_USR']?>" class="btn btn-primary btn-sm rounded-pill m-1"><i class="fas fa-edit"></i></a>
-                          <a href="<?php echo base_url('admin/daftar_admin/hapus/') . $admin['ID_USR']?>" class="btn btn-danger btn-sm rounded-pill m-1" onclick="return confirm('yakin?');"><i class="fas fa-trash"></i></a>
-                        </td>
-                      </tr>
+                    <tr class="text-center">
+                      <td><?php echo $admin['NAMA'] ?></td>
+                      <td><?php echo $admin['ALAMAT'] ?></td>
+                      <td><?php echo $admin['NOMER'] ?></td>
+                      <td><?php echo $admin['EMAIL'] ?></td>
+                      <td><img src="<?php echo base_url('assets/img/Profile/' . $admin['GAMBAR']) ?>" width="64"></td>
+                      <td class="text-center" width="130">
+                        <a href="<?php echo base_url('admin/daftar_admin/edit/') . $admin['ID_USR'] ?>" class="btn btn-primary btn-sm rounded-pill m-1"><i class="fas fa-edit"></i></a>
+                        <a href="<?php echo base_url('admin/daftar_admin/hapus/') . $admin['ID_USR'] ?>" class="btn btn-danger btn-sm rounded-pill m-1" onclick="return confirm('yakin?');"><i class="fas fa-trash"></i></a>
+                      </td>
+                    </tr>
                   <?php endforeach; ?>
                 </tbody>
               </table>

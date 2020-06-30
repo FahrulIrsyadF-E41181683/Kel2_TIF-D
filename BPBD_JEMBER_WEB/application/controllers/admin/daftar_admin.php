@@ -110,7 +110,7 @@ class Daftar_admin extends CI_Controller
                 'NOMER' => $nomor,
                 'EMAIL' => $email,
                 'STATUS' => 1,
-                'ROLE' => 0 
+                'ROLE' => 0
             ];
             $uploadgambar = $_FILES['gambar']['name'];
             if ($uploadgambar) {
@@ -137,7 +137,7 @@ class Daftar_admin extends CI_Controller
                 }
             }
 
-            $this->daftar_admin_m->edit_data('tb_user', $id , $data1);
+            $this->daftar_admin_m->edit_data('tb_user', $id, $data1);
 
             redirect('admin/daftar_admin');
         }
