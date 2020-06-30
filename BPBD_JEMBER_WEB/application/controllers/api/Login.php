@@ -27,7 +27,7 @@ class Login extends REST_Controller{
   }
 
   public function login_post(){
-    $response = $this->LoginM->auth_login($this->post('username'),$this->post('password'));
+    $response = $this->LoginM->auth_login($this->post('USERNAME'),$this->post('PASSWORD'));
     $this->response($response);
   }
 

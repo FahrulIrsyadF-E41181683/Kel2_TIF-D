@@ -24,12 +24,19 @@ import com.android.volley.toolbox.Volley;
 import com.bpbd.www.bpbdjember.helper.SessionManager;
 import com.google.android.material.snackbar.Snackbar;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.w3c.dom.Text;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
 
+    //creating textView to link tvRegis
+    TextView tvRegis;
     //creating Edit text
     EditText etusername, etpassword;
     //creating button
@@ -38,24 +45,27 @@ public class LoginActivity extends AppCompatActivity {
     RequestQueue requestQueue;
 
     //create string variabel to hold the EditText value
-    String fusername, fpassword;
+    String BaseUrl, fusername, fpassword;
 
     //creating progress dialog
     ProgressDialog progressDialog;
 
     //storing server url into string variabel
-    String HttpsUrl = "http://192.168.1.19/android_register/user_login.php";
+//    String HttpsUrl = "http://192.168.1.19/android_register/user_login.php";
 
     Boolean CheckEditText;
 
     String TempServerResponseMatchedValue = "Data yang dimasukkan sama";
 
+    SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        //Assigning Text View to tvRegis
+        tvRegis   = (TextView) findViewById(R.id.tvRegis);
         //Assigning ID's to EditText
         etusername = (EditText) findViewById(R.id.etusername);
         etpassword = (EditText) findViewById(R.id.etpassword);
@@ -69,28 +79,45 @@ public class LoginActivity extends AppCompatActivity {
         //Assigning Activity this to progress dialog
         progressDialog = new ProgressDialog(LoginActivity.this);
 
+        //Assigning sessionManager
+        sessionManager = new SessionManager(this);
+
+        BaseUrl = SessionManager.BASE_URL;
+
         //Adding click listener to Button
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 CheckEditTextIsEmptyOrNot();
                 if (CheckEditText){
-                    UserLogin();
+                    Login();
                 }else {
                     Toast.makeText(LoginActivity.this, "Harap diisi terlebih dahulu", Toast.LENGTH_LONG).show();
                 }
             }
         });
+
+        tvRegis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+            }
+        });
+
     }
 
     //Creating username login function
-    public void UserLogin(){
+    public void Login(){
         //Showing Progress dialog at user login time
         progressDialog.setMessage("Mohon tunggu sebentar");
         progressDialog.show();
 
         //creating string request with post method
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, HttpsUrl,
+        String HttpUrl = BaseUrl + "api/login/login";
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, HttpUrl,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String ServerResponse) {
@@ -99,24 +126,33 @@ public class LoginActivity extends AppCompatActivity {
                         progressDialog.dismiss();
 
                         //matching server response message to our text
-                        if (ServerResponse.equalsIgnoreCase("Data Sesuai")) {
+                        try{
+                            JSONObject jsonObject = new JSONObject(ServerResponse);
+                            String message = jsonObject.getString("message");
 
-                            //if response matched then show the toast
-                            Toast.makeText(LoginActivity.this, "Login Sukses", Toast.LENGTH_LONG).show();
+                            if (message.equals("success")){
+                                JSONArray jsonArray = jsonObject.getJSONArray("data");
+                                for (int i = 0; i < jsonArray.length(); i++){
+                                    JSONObject object = jsonArray.getJSONObject(i);
+                                    String id = object.getString("ID_USR").trim();
+                                    sessionManager.createSession(id);
 
-                            //finish the current login activity
-                            finish();
 
-                            //opening the user profile activity using intent
-                            Intent intent = new Intent(LoginActivity.this, ProfilActivity.class);
-
-                            //sending username to another activity using intent
-                            intent.putExtra("UsernameTAG", fusername);
-
-                            startActivity(intent);
-                        } else {
-                            //Showing echo response message coming from server
-                            Toast.makeText(LoginActivity.this, "Trycatch" + ServerResponse, Toast.LENGTH_LONG).show();
+                                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                    startActivity(intent);
+                                    btn_login.setVisibility(View.VISIBLE);
+                                    finish();
+                                }
+                            } else {
+                                btn_login.setVisibility(View.VISIBLE);
+                                Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (JSONException e){
+                            e.printStackTrace();
+                            btn_login.setVisibility(View.VISIBLE);
+                            Toast.makeText(LoginActivity.this, "Error" + e.toString(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 },
