@@ -15,9 +15,14 @@ class Dashboard extends CI_Controller
     public function index()
     {
         // memanggil halaman view admin/dashboard_v
+        $data['role'] = $this->session->userdata('ROLE');
+        // var_dump($data['role']);
         $data['notif'] = $this->laporan->getLaporanUnread()->result_array();
         $data['notifcount'] = $this->laporan->getLaporanUnread()->num_rows();
         // var_dump($data['notif']); die;
+        $this->load->view("admin/includes/head", $data);
+        $this->load->view("admin/includes/sidebar", $data);
+        $this->load->view("admin/includes/navbar", $data);
         $this->load->view("admin/dashboard_v", $data);
     }
 
