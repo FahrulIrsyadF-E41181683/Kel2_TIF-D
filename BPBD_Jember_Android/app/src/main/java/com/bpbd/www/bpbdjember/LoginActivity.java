@@ -50,9 +50,6 @@ public class LoginActivity extends AppCompatActivity {
     //creating progress dialog
     ProgressDialog progressDialog;
 
-    //storing server url into string variabel
-//    String HttpsUrl = "http://192.168.1.19/android_register/user_login.php";
-
     Boolean CheckEditText;
 
     String TempServerResponseMatchedValue = "Data yang dimasukkan sama";

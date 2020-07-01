@@ -73,13 +73,6 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-//        btn_regist.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                CheckEditTextIsEmptyOrNot();
-//                Regis();
-//            }
-//        });
         btn_regist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
