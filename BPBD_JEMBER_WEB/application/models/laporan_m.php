@@ -123,4 +123,8 @@ class Laporan_m extends CI_Model
             echo $this->upload->display_errors(); // jika upload gagal maka tampilkan error
         }
     }
+    public function getID()
+    {
+        return $this->db->query("SELECT * FROM tb_laporan ORDER BY ID_LPR DESC LIMIT 1");
+    }
 }

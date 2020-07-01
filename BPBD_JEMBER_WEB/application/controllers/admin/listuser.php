@@ -9,7 +9,10 @@ class Listuser extends CI_Controller
         parent::__construct();
         $this->load->model('listuser_m');
         $this->load->helper('url');
-        $this->load->model('daftar_laporan_m', 'laporan'); 
+        $this->load->model('daftar_laporan_m', 'laporan');
+        if (!$this->session->userdata('ID_USR')) {
+            redirect('auth');
+        }
     }
 
     public function index()

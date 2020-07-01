@@ -2,17 +2,7 @@
 <project version="4">
   <component name="AndroidLayouts">
     <shared>
-      <config>
-        <device id="pixel_3a_xl" />
-        <device id="Nexus 6" />
-        <device id="pixel_2_xl" />
-        <device id="pixel" />
-        <device id="Nexus 6P" />
-        <device id="pixel_xl" />
-        <device id="pixel_3a" />
-        <device id="pixel_3_xl" />
-        <device id="pixel_2" />
-      </config>
+      <config />
     </shared>
   </component>
   <component name="AndroidLogFilters">
@@ -23,6 +13,14 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/bpbd/www/bpbdjember/LaporFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/bpbd/www/bpbdjember/LaporFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_lapor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_lapor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BPBD_JEMBER_WEB/application/controllers/api/lapor.php" beforeDir="false" afterPath="$PROJECT_DIR$/../BPBD_JEMBER_WEB/application/controllers/api/lapor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BPBD_JEMBER_WEB/application/models/kategori_m.php" beforeDir="false" afterPath="$PROJECT_DIR$/../BPBD_JEMBER_WEB/application/models/kategori_m.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BPBD_JEMBER_WEB/application/models/laporan_m.php" beforeDir="false" afterPath="$PROJECT_DIR$/../BPBD_JEMBER_WEB/application/models/laporan_m.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/bpbd/www/bpbdjember/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/bpbd/www/bpbdjember/LoginActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/bpbd/www/bpbdjember/ProfilActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/bpbd/www/bpbdjember/ProfilActivity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +46,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="layoutResourceFile" />
+        <option value="Class" />
         <option value="resourceFile" />
       </list>
     </option>
@@ -56,37 +55,30 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1dleYXUVwyOvlDVBcIB7QljZL9m" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
-    <property name="last_opened_file_path" value="$USER_HOME$/AndroidStudioProjects/RegisterActivity" />
+    <property name="last_opened_file_path" value="D:/BPBD_Jember_Android" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
-  <component name="PsdUISettings">
-    <option name="MODULE_TAB" value="Signing Configs" />
-  </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/src/main/res/drawable-v24" />
-    </key>
-    <key name="android.template.packageName">
-      <recent name="com.bpbd.www.bpbdjember" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\Kel2_TIF-D\BPBD_JEMBER_ANDROID\app\src\main\res" />
       <recent name="$PROJECT_DIR$/app/src/main/res/anim" />
       <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
+    </key>
+    <key name="android.template.packageName">
+      <recent name="com.bpbd.www.bpbdjember" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/res/drawable-v24" />
     </key>
   </component>
   <component name="RunManager">
@@ -106,7 +98,7 @@
       <option name="PM_INSTALL_OPTIONS" value="" />
       <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
       <option name="ACTIVITY_EXTRA_FLAGS" value="" />
-      <option name="MODE" value="default_activity" />
+      <option name="MODE" value="specific_activity" />
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
       <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
@@ -143,7 +135,7 @@
         <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
       </Profilers>
       <option name="DEEP_LINK" value="" />
-      <option name="ACTIVITY_CLASS" value="" />
+      <option name="ACTIVITY_CLASS" value="com.bpbd.www.bpbdjember.MainActivity" />
       <method v="2">
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
@@ -222,47 +214,48 @@
       </map>
     </option>
   </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
   <component name="WindowStateProjectService">
-    <state x="186" y="133" key="#PSD" timestamp="1593439777661">
+    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593510954676">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="186" y="133" key="#PSD/0.0.1366.728@0.0.1366.728" timestamp="1593439777661" />
-    <state x="373" y="167" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1593439494354">
+    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1593510954676" />
+    <state x="829" y="73" key="#com.intellij.ide.util.MemberChooser" timestamp="1593446624016">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="373" y="167" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1593439494354" />
+    <state x="829" y="73" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1593446624016" />
+    <state x="412" y="148" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1593447787379">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="412" y="148" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1366.728@0.0.1366.728" timestamp="1593447787379" />
     <state x="263" y="119" key="AndroidCreateResourceDirectoryDialog" timestamp="1593263528687">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="263" y="119" key="AndroidCreateResourceDirectoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1593263528687" />
-    <state x="263" y="118" key="AndroidCreateResourceFileDialog" timestamp="1593446587684">
+    <state x="306" y="153" key="AndroidCreateResourceFileDialog" timestamp="1593444353405">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="263" y="118" key="AndroidCreateResourceFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1593446587684" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1593439527090">
+    <state x="306" y="153" key="AndroidCreateResourceFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1593444353405" />
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1593353045189">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1593439527090" />
-    <state width="1325" height="179" key="GridCell.Tab.0.bottom" timestamp="1593532258145">
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1593353045189" />
+    <state width="1323" height="155" key="GridCell.Tab.0.bottom" timestamp="1593513850851">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1325" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1593532258145" />
-    <state width="1325" height="179" key="GridCell.Tab.0.center" timestamp="1593532258145">
+    <state width="1323" height="155" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1593513850851" />
+    <state width="1323" height="155" key="GridCell.Tab.0.center" timestamp="1593513850851">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1325" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1593532258145" />
-    <state width="1325" height="179" key="GridCell.Tab.0.left" timestamp="1593532258145">
+    <state width="1323" height="155" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1593513850851" />
+    <state width="1323" height="155" key="GridCell.Tab.0.left" timestamp="1593513850851">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1325" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1593532258145" />
-    <state width="1325" height="179" key="GridCell.Tab.0.right" timestamp="1593532258145">
+    <state width="1323" height="155" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1593513850851" />
+    <state width="1323" height="155" key="GridCell.Tab.0.right" timestamp="1593513850851">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1325" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1593532258145" />
-    <state x="92" y="92" width="1182" height="544" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1593453663246">
+    <state width="1323" height="155" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1593513850851" />
+    <state x="721" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1593506045657">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="92" y="92" width="1182" height="544" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1366.728@0.0.1366.728" timestamp="1593453663246" />

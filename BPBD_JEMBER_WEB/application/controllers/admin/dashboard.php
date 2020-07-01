@@ -7,6 +7,9 @@ class Dashboard extends CI_Controller
     {
         parent::__construct();
         $this->load->model('daftar_laporan_m', 'laporan');
+        if (!$this->session->userdata('ID_USR')) {
+            redirect('auth');
+        }
     }
 
     public function index()
@@ -22,7 +25,7 @@ class Dashboard extends CI_Controller
     {
         $id_laporan = $this->input->post('id_laporan');
         $this->db->where('ID_LPR', $id_laporan);
-        $this->db->update('tb_laporan',['IS_READ' => 1]);
+        $this->db->update('tb_laporan', ['IS_READ' => 1]);
         echo $id_laporan;
     }
 }

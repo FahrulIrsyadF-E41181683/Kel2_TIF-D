@@ -12,6 +12,7 @@ class Lapor extends REST_Controller
         parent::__construct($config);
         $this->load->library('auto_id');
         $this->load->model('kategori_m');
+        $this->load->model('laporan_m');
         $this->load->database();
     }
 
@@ -33,23 +34,38 @@ class Lapor extends REST_Controller
     //Masukan function selanjutnya disini
     function index_post()
     {
-        $data = array(
-            'id_surat'           => $this->post('id_surat'),
-            'nip'          => $this->post('nip'),
-            'id_jenis_surat'    => $this->post('id_jenis_surat'),
-            'nim'          => $this->post('nim'),
-            'nama_mitra'          => $this->post('nama_mitra'),
-            'alamat_mitra'          => $this->post('alamat_mitra'),
-            'tanggal'          => $this->post('tanggal'),
-            'tanggal_pengajuan'          => $this->post('tanggal_pengajuan'),
-            'status_surat'          => $this->post('status_surat'),
-            'keterangan'          => $this->post('keterangan')
-        );
-        $insert = $this->db->insert('surat', $data);
-        if ($insert) {
-            $this->response($data, 200);
+        $row_id = $this->laporan_m->getID()->num_rows();
+        // mengambil 1 baris data terakhir
+        $old_id = $this->laporan_m->getID()->row();
+
+        if ($row_id > 0) {
+            // melakukan auto number dari id terakhir
+            $id = $this->auto_id->autonumber($old_id->ID_LPR, 3, 7);
         } else {
-            $this->response(array('status' => 'fail', 502));
+            // generate id pertama kali jika tidak ada data sama sekali di dalam database
+            $id = 'LPR0000001';
         }
+        $data = array(
+            'ID_LPR'           => $id,
+            'NAMA_PELAPOR'          => $this->post('NAMA_PELAPOR'),
+            'ALAMAT'    => $this->post('ALAMAT'),
+            'EMAIL'          => $this->post('EMAIL'),
+            'LOKASI'          => $this->post('LOKASI'),
+            'ID_KTR'        => $this->post('KATEGORI'),
+            'DESKRIPSI'          => $this->post('DESKRIPSI'),
+            'GAMBAR'          => $this->post('GAMBAR')
+        );
+        $insert = $this->db->insert('tb_laporan', $data);
+        if ($insert) {
+            $response['status'] = 200;
+            $response['error'] = false;
+            $response['message'] = 'success';
+        } else {
+            $response['status'] = 502;
+            $response['error'] = true;
+            $response['message'] = 'Data gagal diupload';
+            return $response;
+        }
+        $this->response($response);
     }
 }

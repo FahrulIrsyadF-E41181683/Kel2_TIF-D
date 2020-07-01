@@ -18,6 +18,7 @@
                         <div class="border-bottom text-center border-warning font-m-semi">
                             <h2>Form Pelaporan Bencana</h2>
                         </div>
+
                         <div class="card-body">
                             <?= form_open_multipart('laporan'); ?>
                             <div class="col-md-7 float-left">
@@ -98,7 +99,7 @@
                                 </div>
                             </div>
                             <!-- tombol simpan -->
-                            <button type="submit" name="tambah" class="btn btn-primary float-right ">Lapor Bencana</button>
+                            <button type="submit" name="tambah" class="btn btn-primary float-right">Lapor Bencana</button>
                         </div>
                         </form>
                     </div>
@@ -113,8 +114,6 @@
     <!-- JS MEMANGGIL JS YANG ADA DI includes/js.php -->
     <?php $this->load->view("includes/js.php") ?>
     <?php $this->load->view("admin/includes/js.php") ?>
-
-
 </body>
 
 </html>

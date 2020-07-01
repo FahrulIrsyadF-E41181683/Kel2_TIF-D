@@ -9,6 +9,9 @@ class Kategori extends CI_Controller
         parent::__construct();
         $this->load->model('kategori_m');
         $this->load->model('daftar_laporan_m', 'laporan');
+        if (!$this->session->userdata('ID_USR')) {
+            redirect('auth');
+        }
     }
 
     public function index()

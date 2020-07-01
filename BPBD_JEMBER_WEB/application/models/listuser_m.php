@@ -3,9 +3,7 @@ class listuser_m extends CI_Model
 {
     public function tampil_data()
     {
-        $sql = "SELECT * FROM tb_user";
-        $tampil = $this->db->query($sql);
-        return $tampil->result_array();
+        return $this->db->get_where('tb_user', ['ROLE' => 1])->result_array();
     }
     function update_data($where, $data, $table)
     {

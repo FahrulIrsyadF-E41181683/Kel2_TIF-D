@@ -8,17 +8,19 @@ class Profil extends CI_Controller
         parent::__construct();
         $this->load->model('profil_m');
         $this->load->helper('url');
-        $this->load->model('daftar_laporan_m', 'laporan'); 
+        $this->load->model('daftar_laporan_m', 'laporan');
+        if (!$this->session->userdata('ID_USR')) {
+            redirect('auth');
+        }
         // is_logged_in();
     }
     public function index()
     {
 
-        // $data['admin'] = $this->db->get_where('admin', [
-        //     'email' =>
-        //     $this->session->userdata('email')
-        // ])->row_array();
-
+        $data['admin'] = $this->db->get_where('tb_user', [
+            'ID_USR' =>
+            $this->session->userdata('ID_USR')
+        ])->row_array();
         $data['tb_admin'] = $this->profil_m->tampil_data(); //Untuk me-load fungsi tampil_data() di modal profil_m
         $data['notif'] = $this->laporan->getLaporanUnread()->result_array();
         $data['notifcount'] = $this->laporan->getLaporanUnread()->num_rows();
@@ -52,7 +54,7 @@ class Profil extends CI_Controller
         if ($upload_image) {
             $config['allowed_types'] = 'gif|jpg|png';
             $config['max_size'] = '2048';
-            $config['upload_path'] = './assets/img/profile/';
+            $config['upload_path'] = './assets/img/Profile/';
 
             $this->load->library('upload', $config);
 
