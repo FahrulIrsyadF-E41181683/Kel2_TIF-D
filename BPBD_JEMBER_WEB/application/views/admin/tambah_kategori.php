@@ -52,7 +52,6 @@
             </div>
         </div>      
     </div>     
-          
     <!-- BATAS ISI KONTEN HALAMAN -->
 
     <!-- FOOTER MEMANGGIL FOOTER YANG ADA DI admin/includes/footer.php -->

@@ -204,6 +204,7 @@ class Auth extends CI_Controller
 
     public function logout()
     {
+        $this->session->set_flashdata('flashdata', 'Dihapus');
         //  baris kode yang akan menghapus session yang ada
         $this->session->sess_destroy();
         //  baris kode yang mengarahkan pengguna ke halaman beranda
