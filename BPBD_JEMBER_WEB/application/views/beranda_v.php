@@ -73,13 +73,14 @@
     </div>
     </div>
     <div class="hero-wrap" style="background-image: url('<?php echo base_url('assets/img/bg4.jpg') ?>');" data-stellar-background-ratio="0.5">
-    <div class="hero-wrap" style="background: rgba(53, 53, 53, 0.8);" data-stellar-background-ratio="0.5">
-    <div class="container">
-        <div class="col-md-12 p-5 text-center">
-                <h3 class="text-white">Terjadi bencana di sekitar Anda?</h3>
-                <h5 class="text-white mt-3">Segera hubungi atau laporkan bencana tersebut sebelum terlambat! Klik tombol dibawah ini untuk melaporkan bencana</h5>
-                <a type="button" class="btn btn-info mt-4 text-white">Lapor Bencana</a>
-        </div>
+        <div class="hero-wrap" style="background: rgba(53, 53, 53, 0.8);" data-stellar-background-ratio="0.5">
+            <div class="container">
+                <div class="col-md-12 p-5 text-center">
+                    <h3 class="text-white">Terjadi Bencana di sekitar anda?</h3>
+                    <h5 class="text-white mt-3">Segera hubungi atau laporkan bencana tersebut sebelum terlambat! klik tombol dibawah ini untuk melaporkan bencana</h5>
+                    <a type="button" class="btn btn-info mt-4 text-white">Lapor Bencana</a>
+                </div>
+            </div>
         </div>
     </div>
     <!-- BATAS -->
@@ -90,19 +91,25 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-9">
-                <h4 class="pb-4">Daftar Berita</h4>
-                    <?php foreach ($tb_berita as $berita):?>
-                    <a href="<?php echo base_url(); ?>beranda/baca/<?php echo $berita['ID_BRT']; ?>">
-                    <div class="card mb-4 border-0" >
-                        <div class="row no-gutters">
-                            <div class="col-4" style="overflow: hidden; padding: 0; max-width: 280px;">
-                            <img src="<?php echo base_url('assets/img/berita_gambar/'.$berita['GAMBAR_BRT'])?>" class="thumbnail carousel-inner" alt="..." style="max-height: 200px; display: block; margin: auto; width: 100%;">
-                            </div>
-                            <div class="col-7">
-                            <div class="card-body">
-                                <div style="overflow: hidden; white-space: nowrap; max-width:500px; max-height:100px;">
-                                <h4 class="card-title"><?php echo $berita["JUDUL"]?></h4>
-                                <small class="card-text text-muted"><?php echo $berita["ISI_BERITA"]?></small>
+                    <h4 class="pb-4">Dafter Berita</h4>
+                    <?php foreach ($tb_berita as $berita) : ?>
+                        <a href="<?php echo base_url(); ?>beranda/baca/<?php echo $berita['ID_BRT']; ?>">
+                            <div class="card mb-4 border-0">
+                                <div class="row no-gutters">
+                                    <div class="col-4" style="overflow: hidden; padding: 0; max-width: 280px;">
+                                        <img src="<?php echo base_url('assets/img/berita_gambar/' . $berita['GAMBAR_BRT']) ?>" class="thumbnail carousel-inner" alt="..." style="max-height: 200px; display: block; margin: auto; width: 100%;">
+                                    </div>
+                                    <div class="col-7">
+                                        <div class="card-body">
+                                            <div style="overflow: hidden; white-space: nowrap; max-width:500px; max-height:100px;">
+                                                <h4 class="card-title"><?php echo $berita["JUDUL"] ?></h4>
+                                                <small class="card-text text-muted"><?php echo $berita["ISI_BERITA"] ?></small>
+                                            </div>
+                                            <p class="card-text"><small class="text-muted icon-calendar pr-2"> <?php echo $berita['TANGGAL'] ?></small>
+                                                <small class="text-muted icon-person pr-2"> <?php echo $berita['NAMA'] ?></small>
+                                                <small class="text-muted icon-tag"> <?php echo $berita['KATEGORI'] ?></small></p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </a>
@@ -142,8 +149,8 @@
                         <img src="<?php echo base_url('assets/img/logo.png') ?>" width="400" height="400" style="max-width: 100%; height: auto; float:left; padding:50px;">
                     </div>
                     <div class="col-md mr-5 mt-5 pt-5 text-justify">
-                    <h2 class="text-white pb-4">BPBD PROVINSI JEMBER</h2>
-                    <p class="">Badan Penanggulangan Bencana Daerah adalah lembaga pemerintah non-departemen yang melaksanakan tugas penanggulangan bencana di daerah baik Provinsi maupun Kabupaten/ Kota dengan berpedoman pada kebijakan yang ditetapkan oleh Badan Nasional Penanggulangan Bencana</p>
+                        <h2 class="text-white pb-4">BPBD KABUPATEN JEMBER</h2>
+                        <p class="">Badan Penanggulangan Bencana Daerah adalah lembaga pemerintah non-departemen yang melaksanakan tugas penanggulangan bencana di daerah baik Provinsi maupun Kabupaten/ Kota dengan berpedoman pada kebijakan yang ditetapkan oleh Badan Nasional Penanggulangan Bencana</p>
                     </div>
                 </div>
             </div>
@@ -156,7 +163,7 @@
     <div class="container">
         <section id="contact" class="pt-4 my-5 font-m-light text-center">
             <h2 class="font-m-bold pt-5">KONTAK</h2>
-            <h5 class=" mx-auto">Silahkan isi formulir dibawah ini jika Anda memiliki pertanyaan atau kritik dan saran.</h5>
+            <h5 class=" mx-auto">Silahkan isi formulir dibawah ini jika anda memiliki pertanyaan atau kritik dan saran.</h5>
             <form action="contact_us.php" method="post">
                 <div class="row text-left mt-5">
                     <div class="col-md pr-5">
@@ -220,4 +227,5 @@
     <?php $this->load->view("includes/js.php") ?>
 
 </body>
+
 </html>
