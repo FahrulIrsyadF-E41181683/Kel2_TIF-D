@@ -78,11 +78,15 @@
                                 </div>
                             </div>
                             <!-- input lokasi -->
-                            <div class="form-group col-md-12">
-                                <label for="lokasi">Lokasi Bencana</label>
-                                <input type="text" class="form-control <?php echo form_error('lokasi') ? 'is-invalid' : '' ?>" id="lokasi" name="lokasi">
-                                <div class="invalid-feedback">
-                                    <?php echo form_error('lokasi') ?>
+                            <div class="col-md-12">
+                                <label for="basic-url">Lokasi</label>
+                                <div class="input-group mb-3">
+                                    <input type="hidden" name="latitude" id="input-lat" value="">
+                                    <input type="hidden" name="longitude" id="input-lng" value="">
+                                    <input type="text" id="input-lokasi" class="form-control" name="lokasi" aria-describedby="basic-addon3" readonly>
+                                    <div class="input-group-prepend">
+                                        <a href="javascript:void(0)" id="button-lokasi" class="input-group-text" onclick="getLocation()" id="basic-addon3">Get Your Location</a>
+                                    </div>
                                 </div>
                             </div>
                             <!-- input isi berita -->

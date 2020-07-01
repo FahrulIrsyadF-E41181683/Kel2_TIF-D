@@ -1,6 +1,4 @@
-package com.example.bpbdjember;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.bpbd.www.bpbdjember;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +7,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class ProfilActivity extends AppCompatActivity {
 
