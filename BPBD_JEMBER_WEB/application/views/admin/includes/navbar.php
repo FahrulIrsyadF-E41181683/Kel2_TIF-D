@@ -21,13 +21,13 @@
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
             <ul class="navbar-nav">
               <li class="nav-item btn-rotate dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-dark btn-round nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="nc-icon nc-bell-55"></i>
                   <p class="countnotif"><?= $notifcount > 0 ? $notifcount : '' ?></p>
                   <p>
                     <span class="d-lg-none d-md-block">Notifikasi</span>
                   </p>
-                </a>
+                </button>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                   <?php if (!$notif) : ?>
                     <p><i>Tidak ada laporan</i></p>
@@ -40,19 +40,13 @@
                 </div>
               </li>
               <?php if ($this->session->userdata('ID_USR') != '') { ?>
-                <li class="nav-item">
-                  <a class="nav-link btn-rotate" data-toggle="modal" data-target="#exampleModal">
-                    <i class="nc-icon nc-button-power"></i>
-                    Logout
+              <li class="nav-item">
+                  <a href="<?= base_url('auth/logout'); ?>" class="nav-link btn-rotate">
+                    <button type="submit" class="btn btn-dark btn-round">Logout</button>
+                    <i class="nc-icon nc-bell-power"></i>
                   </a>
-                </li>
-              <?php } else {
-                // $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show text-center" role="alert">
-                // <strong>Silakan login terlebih dahulu!</strong>
-                // <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                // <span aria-hidden="true">&times;</span>
-                // </button>
-                // </div>');
+              </li>
+              <?php }else{
                 redirect(base_url('auth/logout'));
               } ?>
             </ul>

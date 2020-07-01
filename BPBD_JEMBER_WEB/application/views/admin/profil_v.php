@@ -12,7 +12,7 @@
                     <div class="image">
                         <!-- <img src="../assets/img/damir-bosnjak.jpg" alt="..."> -->
                     </div>
-                    <div class="card-body">
+                    <div class="card-body-sm-12">
                         <div class="author">
                             <a href="#">
                                 <img class="avatar border-gray" src="<?= base_url() . './assets/img/Profile/' . $admin['GAMBAR']; ?>" alt="gambar profile">
@@ -20,11 +20,6 @@
                             <h5 class="title"><?= $admin['NAMA']; ?></h5>
                             <!-- <h7 class="title">Admin/Petugas</h7> -->
                         </div>
-                        <p class="description text-center">
-                            "I like the way you work it <br>
-                            No diggity <br>
-                            I wanna bag it up"
-                        </p>
                     </div>
                     <div class="card-footer">
                         <hr>
@@ -81,9 +76,14 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                            <div class="col-md-12">
+                                    <label>Ganti Foto</label>
+                            </div>
+                            </div>
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" name="GAMBAR" id="">
-                                <label class="custom-file-label" for="customFile">Choose file</label>
+                                <input type="file" class="custom-file-input" name="GAMBAR" id="GAMBAR">
+                                <label class="custom-file-label" for="customFile">Pilih foto</label>
                             </div>
                             <div class="row">
                                 <div class="update ml-auto mr-auto">
