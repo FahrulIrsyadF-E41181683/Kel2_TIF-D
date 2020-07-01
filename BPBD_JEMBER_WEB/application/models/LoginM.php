@@ -78,9 +78,9 @@ class LoginM extends CI_Model{
   }
 
   public function auth_login($username, $password){
-    $login = $this->db->get_where('tb_user',array('username'=>$username));
+    $login = $this->db->get_where('tb_user',array('USERNAME'=>$username));
     if ($login->num_rows() > 0) {
-        if(password_verify($password,$login->row()->password)){
+        if(md5($password)==$login->row()->PASSWORD){
             $response['status']=200;
             $response['error']=false;
             $response['data']=$login->result();
@@ -92,10 +92,10 @@ class LoginM extends CI_Model{
             $response['message']='Username atau password salah';
         }
     } else {
-      $response['status']=502;
+      $response['status']=500;
       $response['error']=true;
       $response['data']=null;
-      $response['message']='Username atau password salah';
+      $response['message']='Password salah';
     }
     return $response;
   }
