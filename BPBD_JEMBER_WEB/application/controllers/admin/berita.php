@@ -8,7 +8,10 @@ class Berita extends CI_Controller
         parent::__construct();
         // memanggil model berita_m
         $this->load->model('berita_m', 'berita'); // <- berita digunakan untuk merubah/alias dari berita_m jadi cukup menuliskan berita
-        $this->load->model('daftar_laporan_m', 'laporan'); 
+        $this->load->model('daftar_laporan_m', 'laporan');
+        if (!$this->session->userdata('ID_USR')) {
+            redirect('auth');
+        }
     }
 
     function index()

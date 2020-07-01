@@ -3,7 +3,7 @@ package com.bpbd.www.bpbdjember;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
         Password = (EditText) findViewById(R.id.password);
 
         //Assigning ID's to Button
-        LoginButton = (Button) findViewById(R.id.btn_login);
+        LoginButton = (Button) findViewById(R.id.button_login);
 
         //Creating volley new requestQueue
         requestQueue = Volley.newRequestQueue(LoginActivity.this);

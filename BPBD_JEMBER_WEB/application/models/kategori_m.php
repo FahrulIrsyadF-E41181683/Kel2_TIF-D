@@ -56,4 +56,15 @@ class kategori_m extends CI_Model
     $this->db->where($where);
     $this->db->update($table, $data);
   }
+
+  function getAllKategori()
+  {
+
+    $data = $this->db->get("tb_kategori")->result();
+    $response['status'] = 200;
+    $response['error'] = false;
+    $response['data'] = $data;
+    $response['message'] = 'success';
+    return $response;
+  }
 }

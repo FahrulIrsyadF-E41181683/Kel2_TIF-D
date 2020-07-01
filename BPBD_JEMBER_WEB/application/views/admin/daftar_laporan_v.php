@@ -312,7 +312,7 @@ foreach ($tb_laporan2 as $berita) :
                     <div class="form-group">
                         <label class="control-label col-xs-3">Lokasi</label>
                         <div class="col-xs-8">
-                            <a href="https://www.google.com/maps/search/?api=1&query=<?= $LATITUDE ?>,<?= $LONGITUDE ?>" target="_blank" class="btn btn-primary"><i class="fas fa-external-link-alt"></i>&nbsp;Open Maps</a>
+                            <a href="https://www.google.com/maps/?q=<?= $LATITUDE ?>,<?= $LONGITUDE ?>" target="_blank" class="btn btn-primary"><i class="fas fa-external-link-alt"></i>&nbsp;Open Maps</a>
                         </div>
                     </div>
                 </div>

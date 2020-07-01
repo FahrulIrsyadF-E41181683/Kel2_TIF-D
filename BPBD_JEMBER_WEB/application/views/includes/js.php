@@ -85,4 +85,13 @@
     //   "<br>Longitude: " + position.coords.longitude;
   }
 </script>
-
+<?php if ($this->session->flashdata('flash')) : ?>
+  <script>
+    Swal.fire({
+      title: 'Pelaporan Bencana',
+      text: 'Laporan berhasil ditambahkan',
+      footer: '*Jika laporan anda tidak ditanggapi dalam waktu 12-24 jam, silahkan hubungi nomer yang ada di Kontak',
+      icon: 'success'
+    })
+  </script>
+<?php endif; ?>

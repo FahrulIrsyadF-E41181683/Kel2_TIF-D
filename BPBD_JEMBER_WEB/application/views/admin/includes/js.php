@@ -77,6 +77,8 @@
   })
 </script>
 
+<script src="<?= base_url('assets/js/plugins/sweetalert2.all.min.js'); ?>"></script>
+<script src="<?= base_url('assets/js/plugins/tes.js'); ?>"></script>
 <script>
   $('#btn-detail').click(function() {
     var lat = $(this).data('lat');

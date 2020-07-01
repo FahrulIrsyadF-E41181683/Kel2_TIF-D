@@ -31,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="text"
+            android:inputType="textMultiLine"
             android:hint="Alamat Pelapor"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="4dp"
@@ -108,19 +108,28 @@
                 app:layout_constraintStart_toEndOf="@+id/btn_image"
                 app:layout_constraintTop_toTopOf="@+id/btn_image" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/gambarBcn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_baseline_camera_alt_24"
+            app:srcCompat="@drawable/button_lapor_on" />
+
         <Button
-            android:clickable="false"
-            android:enabled="false"
             android:id="@+id/btn_submit"
             android:layout_width="match_parent"
             android:layout_height="36dp"
-            android:background="@drawable/button_lapor_off"
-            android:text="Laporkan Bencana!"
-            android:textAllCaps="false"
-            android:textStyle="bold"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="4dp"
-            android:textColor="@color/white"/>
-<!--            android:onClick="onSubmit"-->
+            android:background="@drawable/button_lapor_on"
+            android:clickable="true"
+            android:enabled="true"
+            android:text="Laporkan Bencana!"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+        <!--            android:onClick="onSubmit"-->
     </LinearLayout>
 </ScrollView>

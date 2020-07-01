@@ -9,6 +9,9 @@ class Daftar_admin extends CI_Controller
         $this->load->model('daftar_admin_m');
         $this->load->model('daftar_laporan_m', 'laporan');
         $this->load->model('kategori_m');
+        if (!$this->session->userdata('ID_USR')) {
+            redirect('auth');
+        }
     }
 
     public function index()
