@@ -226,6 +226,32 @@
     <!-- JS MEMANGGIL JS YANG ADA DI includes/js.php -->
     <?php $this->load->view("includes/js.php") ?>
 
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header mx-auto text-center">
+                    <h2 class="modal-title">Daftarkan Diri Anda !</h2>
+                    <button type="button" class="close ml-5" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body mx-auto text center">
+                    <p> Segera Buat Akun Anda Dan Lengkapi Data Diri Anda. 
+                    Agar Laporan Bencana Anda Dapat Direspon Lebih Cepat Oleh Kami. </p>
+                </div>
+                <div class="modal-footer mx-auto text-center"> 
+                <a href="<?= base_url('auth/registrasi'); ?>" ?><button type="button" class="btn btn-primary"><i class="fas fa-plus"></i> buat akun</button></a>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <script>
+        $('#myModal').modal('show');
+    </script>
+
 </body>
 
 </html>

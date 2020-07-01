@@ -8,7 +8,7 @@ class Profile extends CI_Controller {
     // $this->load->model('m_user');
     
     //function untuk memanggil helper url melalui controller
-                $this->load->helper('url');
+    $this->load->helper('url');
 	}
     public function index(){
       //untuk mengecek session sesuai dengan email saat login
@@ -28,6 +28,7 @@ class Profile extends CI_Controller {
       $this->form_validation->set_rules('USERNAME', 'Username', 'required|trim');
       $this->form_validation->set_rules('NAMA', 'Nama', 'required');
       $this->form_validation->set_rules('ALAMAT', 'Alamat', 'required');
+      $this->form_validation->set_rules('GAMBAR', 'Gambar', 'required');
       $this->form_validation->set_rules('NOMER', 'No Hp', 'required');
       $this->form_validation->set_rules('EMAIL', 'Email', 'required');
 
@@ -40,6 +41,7 @@ class Profile extends CI_Controller {
         $username = $this->input->post('USERNAME');
         $nama = $this->input->post('NAMA');
         $alamat = $this->input->post('ALAMAT');
+        $gambar = $this->input->post('GAMBAR');
         $no_hp = $this->input->post('NOMER');
         $email = $this->input->post('EMAIL');
 
@@ -77,6 +79,7 @@ class Profile extends CI_Controller {
         $this->db->set('NAMA', $nama );
         $this->db->set('ALAMAT', $alamat );
         $this->db->set('NOMER', $no_hp );
+        $this->db->set('GAMBAR', $gambar );
         $this->db->set('EMAIL', $email );
         $this->db->where('ID_USR', $id_user);
         $this->db->update('tb_user');
