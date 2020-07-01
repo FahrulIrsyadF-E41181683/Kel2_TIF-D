@@ -1,118 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:label="Login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg4"
     android:orientation="vertical"
-    android:layout_margin="15dp"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp"
+    android:paddingTop="100dp"
+    android:background="@drawable/bg"
     tools:context=".LoginActivity">
 
     <TextView
+        android:id="@+id/tlogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="36dp"
+        android:layout_marginBottom="20dp"
+        android:text="Login Akun"
+        android:textColor="@color/black"
+        android:textSize="28sp"
+        android:textStyle="bold"/>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:text="LOGIN"
+        android:id="@+id/fusername"
         android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        tools:ignore="MissingConstraints"
+        android:textColorHint="@color/dark">
+
+        <EditText
+            android:id="@+id/etusername"
+            android:layout_width="332dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="36dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:background="@drawable/rounded"
+            android:hint="Username"
+            android:textColor="@color/black"
+            android:inputType="textPersonName"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fpassword"
+        android:gravity="center"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        tools:ignore="MissingConstraints"
+        android:textColorHint="@color/dark">
+
+        <EditText
+            android:id="@+id/etpassword"
+            android:layout_width="332dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="36dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:background="@drawable/rounded"
+            android:hint="Password"
+            android:textColor="@color/black"
+            android:inputType="textPassword"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_marginTop="30dp"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:layout_marginRight="30dp"
+        android:layout_gravity="right"
+        android:text="Login"
+        android:background="@drawable/rounded_button"
+        android:textColor="@color/white"
         android:layout_marginTop="30dp"/>
 
-    <ImageView
-        android:id="@+id/imageViewLogo"
-        android:layout_width="wrap_content"
-        android:layout_height="200dp"
-        android:layout_below="@+id/textView"
-        android:layout_marginTop="50dp"
-        android:src="@drawable/logo"
-        android:gravity="center"
-        android:padding="3dp"
-        android:scaleType="centerInside" />
-<LinearLayout
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_below="@+id/imageViewLogo"
-        android:id="@+id/layout_text"
-        android:weightSum="2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
- <ImageView
-            android:src="@drawable/ic_uname"
-            android:layout_weight="1"
-            android:layout_width="70dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="50dp"/>
-    <EditText
-        android:layout_width="300"
-        android:layout_height="wrap_content"
-        android:hint="Masukkan Username Anda"
-        android:gravity="center"
-        android:textColor="@color/black"
-        android:id="@+id/EditTextUsername"
-        android:layout_marginTop="50dp"
-	android:layout_marginLeft="10dp"/>
-</LinearLayout>
-<LinearLayout
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_below="@+id/layout_text"
-        android:id="@+id/layout_text1"
-        android:weightSum="2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-
-        <ImageView
-            android:src="@drawable/ic_pass"
-            android:layout_weight="1"
-            android:layout_width="70dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"/>
-
-    <EditText
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:hint="Masukkan Password Anda"
-        android:gravity="center"
-        android:textColor="@color/black"
-        android:inputType="textPassword"
-        android:id="@+id/EditTextPassword"
-        android:layout_below="@+id/EditTextUsername"
-        android:layout_marginTop="20dp"/>
-</LinearLayout>
-<LinearLayout
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_below="@+id/layout_text1"
-        android:id="@+id/layout_text2"
-        android:weightSum="2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="LOGIN"
-        android:id="@+id/button_login"
-        android:layout_below="@+id/EditTextPassword"
-        android:layout_marginTop="20dp"/>
-</LinearLayout>
-<LinearLayout
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_below="@+id/layout_text2"
-        android:id="@+id/layout_text3"
-        android:weightSum="2"
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:layout_weight="1">
     <TextView
-        android:layout_width="match_parent"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:text="Belum memiliki akun?"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="160dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/link_register"
-        android:text="Belum Punya Akun? Register"
-        android:gravity="center"/>
-    </LinearLayout>
+        android:layout_below="@+id/btn_login"/>
+
+    <TextView
+        android:id="@+id/tvRegis"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:text="Daftar disini"
+        android:textStyle="bold"
+        android:layout_marginLeft="185dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>
