@@ -9,7 +9,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <h6><a class="navbar-brand"><?php echo ucfirst($this->uri->segment(2)) ?></a></h6>
+            <h6><a class="navbar-brand"><?php echo ucfirst($this->uri->segment(2))?></a></h6>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -37,14 +37,22 @@
                   <a class="dropdown-item" href="#">Verifikasi User</a> -->
                 </div>
               </li>
+              <?php if ($this->session->userdata('ID_USR') != '') { ?>
               <li class="nav-item">
-                <a class="nav-link btn-rotate" href="#">
-                  <i class="nc-icon nc-settings-gear-65"></i>Setting
-                  <p>
-                    <span class="d-lg-none d-md-block">Setting</span>
-                  </p>
-                </a>
+                  <a href="<?= base_url('auth/logout'); ?>" class="nav-link btn-rotate">
+                    <i class="nc-icon nc-button-power"></i>
+                    Logout
+                  </a>
               </li>
+              <?php }else{
+                // $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+                // <strong>Silakan login terlebih dahulu!</strong>
+                // <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                // <span aria-hidden="true">&times;</span>
+                // </button>
+                // </div>');
+                redirect(base_url('auth/logout'));
+              }?>
             </ul>
           </div>
         </div>

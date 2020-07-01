@@ -7,7 +7,7 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a href="#beranda" class="nav-link">Beranda</a></li>
+                <li class="nav-item"><a href="<?= base_url('beranda'); ?>" class="nav-link">Beranda</a></li>
                 <li class="nav-item"><a href="#berita" class="nav-link">Berita</a></li>
                 <li class="nav-item"><a href="#tentang" class="nav-link">Tentang</a></li>
                 <li class="nav-item"><a href="#kontak" class="nav-link">Kontak</a></li>

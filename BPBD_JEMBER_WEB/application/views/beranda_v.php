@@ -73,9 +73,9 @@
     <div class="hero-wrap" style="background: rgba(53, 53, 53, 0.8);" data-stellar-background-ratio="0.5">
     <div class="container">
         <div class="col-md-12 p-5 text-center">
-                <h3 class="text-white">Terjadi Bencana di sekitar anda?</h3>
-                <h5 class="text-white mt-3">Segera hubungi atau laporkan bencana tersebut sebelum terlambat! klik tombol dibawah ini untuk melaporkan bencana</h5>
-                <a type="button" class="btn btn-info mt-4 text-white">Lapor Benacana</a>
+                <h3 class="text-white">Terjadi bencana di sekitar Anda?</h3>
+                <h5 class="text-white mt-3">Segera hubungi atau laporkan bencana tersebut sebelum terlambat! Klik tombol dibawah ini untuk melaporkan bencana</h5>
+                <a type="button" class="btn btn-info mt-4 text-white">Lapor Bencana</a>
         </div>
         </div>
     </div>
@@ -88,7 +88,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-9">
-                <h4 class="pb-4">Dafter Berita</h4>
+                <h4 class="pb-4">Daftar Berita</h4>
                     <?php foreach ($tb_berita as $berita):?>
                     <a href="<?php echo base_url(); ?>beranda/baca/<?php echo $berita['ID_BRT']; ?>">
                     <div class="card mb-4 border-0" >
@@ -146,7 +146,7 @@
           			<img src="<?php echo base_url('assets/img/logo.png')?>" width="400" height="400" style="max-width: 100%; height: auto; float:left; padding:50px;">
                     </div>
                     <div class="col-md mr-5 mt-5 pt-5 text-justify">
-                    <h2 class="text-white pb-4">BPBD PROVENSI JEMBER</h2>
+                    <h2 class="text-white pb-4">BPBD PROVINSI JEMBER</h2>
                     <p class="">Badan Penanggulangan Bencana Daerah adalah lembaga pemerintah non-departemen yang melaksanakan tugas penanggulangan bencana di daerah baik Provinsi maupun Kabupaten/ Kota dengan berpedoman pada kebijakan yang ditetapkan oleh Badan Nasional Penanggulangan Bencana</p>
                     </div>
           		</div>
@@ -160,7 +160,7 @@
     <div class="container">
         <section id="contact" class="pt-4 my-5 font-m-light text-center">
             <h2 class="font-m-bold pt-5">KONTAK</h2>
-            <h5 class=" mx-auto">Silahkan isi formulir dibawah ini jika anda memiliki pertanyaan atau kritik dan saran.</h5>
+            <h5 class=" mx-auto">Silahkan isi formulir dibawah ini jika Anda memiliki pertanyaan atau kritik dan saran.</h5>
             <form action="contact_us.php" method="post">
                 <div class="row text-left mt-5">
                     <div class="col-md pr-5">
