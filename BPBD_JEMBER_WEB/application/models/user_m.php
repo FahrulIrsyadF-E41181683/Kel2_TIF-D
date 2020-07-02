@@ -18,14 +18,14 @@ class User_m extends CI_Model
         $response['message']="Profil Berhasil Diperbarui";
         return $response;
     }
-    public function uploadfoto($id, $foto){
-        if($id == '' || empty($foto)){
+    public function uploadFoto($id, $GAMBAR){
+        if($id == '' || empty($GAMBAR)){
             return $this->empty_response();
         } else {
             $path = $_SERVER['DOCUMENT_ROOT'].str_replace(basename($_SERVER['SCRIPT_NAME']),"",
-            $_SERVER['SCRIPT_NAME'])."assets/img/profile/".$id.".jpeg";
+            $_SERVER['SCRIPT_NAME'])."assets/img/Profile/".$id.".jpeg";
             $finalpath = $id.".jpeg";
-            if(file_put_contents($path, base64_decode($foto))){
+            if(file_put_contents($path, base64_decode($GAMBAR))){
                 $where = array(
                     "ID_USER"=>$id
                 );
@@ -54,6 +54,11 @@ class User_m extends CI_Model
             }
         }
     }
-
+    public function empty_response(){
+        $response['status']=502;
+        $response['error']=true;
+        $response['message']='Field tidak boleh kosong';
+        return $response;
+    }
 }
 ?>
