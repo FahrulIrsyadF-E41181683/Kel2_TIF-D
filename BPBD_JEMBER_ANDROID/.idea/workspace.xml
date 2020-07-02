@@ -11,15 +11,17 @@
   <component name="ChangeListManager">
     <list default="true" id="77376987-4329-4460-be12-775d474ab991" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/bpbd/www/bpbdjember/ProfilActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/bpbd/www/bpbdjember/ProfilActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BPBD_JEMBER_WEB/application/views/admin/tambah_kategori_v.php" beforeDir="false" afterPath="$PROJECT_DIR$/../BPBD_JEMBER_WEB/application/views/admin/tambah_kategori_v.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BPBD_JEMBER_WEB/application/views/includes/navbar2.php" beforeDir="false" afterPath="$PROJECT_DIR$/../BPBD_JEMBER_WEB/application/views/includes/navbar2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="3452324" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -55,7 +57,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
-    <property name="last_opened_file_path" value="D:/BPBD_Jember_Android" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -228,10 +230,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="306" y="153" key="AndroidCreateResourceFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1593444353405" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1593353045189">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1593631243141">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1593353045189" />
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1593631243141" />
     <state width="1323" height="155" key="GridCell.Tab.0.bottom" timestamp="1593513850851">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -249,9 +251,9 @@
     </state>
     <state width="1323" height="155" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1593513850851" />
     <state x="92" y="92" width="1182" height="544" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1366.728@0.0.1366.728" timestamp="1593453663246" />
-    <state x="721" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1593601996718">
+    <state x="721" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1593631164415">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="721" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1593601996718" />
+    <state x="721" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1593631164415" />
   </component>
 </project>

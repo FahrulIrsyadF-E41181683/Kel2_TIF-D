@@ -95,3 +95,23 @@
     })
   </script>
 <?php endif; ?>
+
+<?php if ($this->session->flashdata('edit_profile')) : ?>
+  <script>
+    Swal.fire({
+      title: 'Sukses',
+      text: 'Profil berhasil diedit',
+      icon: 'success'
+    })
+  </script>
+<?php endif; ?>
+
+<?php if ($this->session->flashdata('password_changed')) : ?>
+  <script>
+    Swal.fire({
+      title: 'Sukses',
+      text: 'Password berhasil diubah',
+      icon: 'success'
+    })
+  </script>
+<?php endif; ?>
