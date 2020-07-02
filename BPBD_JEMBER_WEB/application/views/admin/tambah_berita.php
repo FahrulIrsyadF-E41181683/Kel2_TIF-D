@@ -69,7 +69,7 @@
                                 </div>
                             </div>
                     </div>
-                    <input type="text" class="form-control" value="USR0000002" id="user" name="user" hidden>
+                    <input type="text" class="form-control" value="<?php echo $ID_USER?>" id="user" name="user" hidden>
                     <div class="col-md-12 pb-3">
                         <!-- input isi berita -->
                         <div class="form-group col-md-12 pb-3">

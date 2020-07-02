@@ -1,41 +1,84 @@
 package com.bpbd.www.bpbdjember;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Base64;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.bpbd.www.bpbdjember.helper.SessionManager;
+// import com.example.androidlogin.helper.SessionManager;
 
-public class ProfilActivity extends AppCompatActivity {
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.lang.reflect.Method;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
+
+import de.hdodenhof.circleimageview.CircleImageView;
+
+public class profile extends AppCompatActivity {
+    //getting the info
     private static final String TAG= profile.class.getSimpleName();
     private Menu action;
     private Bitmap bitmap;
 
+
+
+
     //creating TextView
-    TextView Username, Email, Nomer, Alamat, Password;
+    TextView Username, Nama, Email, Nomer, Alamat, Password;
     //creating ImageView
-    ImageView Profil;
+    CircleImageView profile_image;
     //creating button
-    Button Button_editphoto;
+    Button EditButton, Button_editphoto;
 
     SessionManager sessionManager;
     String getId;
-    String URL_EDIT =  "http://192.168.1.4/android_register/edit_detail.php";
-    String URL_SAVE =  "http://192.168.1.4/android_register/read_detail.php";
-    String URL_UPLOAD = "http://192.168.1.4/android_register/upload,php";
+    String BaseUrl;
+    String URL_EDIT = "http://192.168.1.2/Kel2_TIF-D/BPBD_JEMBER_WEB/api/profil/getprofil";
+    String URL_SAVE = "http://192.168.1.2/Kel2_TIF-D/BPBD_JEMBER_WEB/api/profil/Profil";
+    String URL_UPLOAD = "http://192.168.1.2/Kel2_TIF-D/BPBD_JEMBER_WEB/api/profil/uploadfoto";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profil);
+        setContentView(R.layout.activity_profile);
+
 
         sessionManager = new SessionManager(this);
-        sessionManager.checkLogin();
+//        sessionManager.checkLogin();
 
 
 
@@ -45,33 +88,37 @@ public class ProfilActivity extends AppCompatActivity {
         Email = (TextView) findViewById(R.id.email);
         Nomer = (TextView) findViewById(R.id.nomer);
         Alamat = (TextView) findViewById(R.id.alamat);
-//        Password = (TextView) findViewById(R.id.password);
         EditButton = (Button) findViewById(R.id.button_edit);
         Button_editphoto = (Button)findViewById(R.id.button_editfoto);
-        profile_image = (ImageView)findViewById(R.id.profile_image);
+        profile_image = (CircleImageView) findViewById(R.id.foto_profil);
+
+//        EditButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                SaveEditDetail();
+//            }
+//        });
 
         HashMap<String, String> user = sessionManager.getUserDetail();
-        getId = user.get(sessionManager.ID);
+//        getId = user.get(sessionManager.ID);
+        getId = "USR0000001";
 
+        getUserDetail();
 
         //Receiving value into activity using intent
         String TempHolder1 = getIntent().getStringExtra("UsernameTAG");
-//        String TempHolder2 = getIntent().getStringExtra("NamaTAG");
-//        String TempHolder3 = getIntent().getStringExtra("AlamatTAG");
-//        String TempHolder4 = getIntent().getStringExtra("NomerTAG");
-//        String TempHolder5 = getIntent().getStringExtra("EmailTAG");
-//        String TempHolder6 = getIntent().getStringExtra("PasswordTAG");
+
 //
 //        //Setting up received value into EditText
 //        Username.setText(Username.getText() + TempHolder1);
 
 
         //Adding click listener to logout button
-       Button_editphoto.setOnClickListener(new View.OnClickListener() {
+        Button_editphoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               //Showing echo response message from server
-               chooseFile();
+                //Showing echo response message from server
+                chooseFile();
             }
         });
     }
@@ -85,20 +132,20 @@ public class ProfilActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         progressDialog.dismiss();
-                        Log.i(TAG, response.toString());
+//                        Log.i(TAG, response.toString());
                         try {
                             JSONObject jsonObject = new JSONObject(response);
-                            String success = jsonObject.getString("success");
-                            JSONArray jsonArray = jsonObject.getJSONArray("read");
+                            String success = jsonObject.getString("status");
+                            JSONArray jsonArray = jsonObject.getJSONArray("data");
 
-                            if (success.equals("1")){
+                            if (success.equals("200")){
                                 for (int i =0; i < jsonArray.length(); i++){
-                                   JSONObject object = jsonArray.getJSONObject(i);
-                                   String strUsername = object.getString("Username").trim();
-                                    String strNama = object.getString("Nama").trim();
-                                    String strAlamat = object.getString("Alamat").trim();
-                                    String strNomer = object.getString("Nomer").trim();
-                                    String strEmail = object.getString("Email").trim();
+                                    JSONObject object = jsonArray.getJSONObject(i);
+                                    String strUsername = object.getString("USERNAME").trim();
+                                    String strNama = object.getString("NAMA").trim();
+                                    String strAlamat = object.getString("ALAMAT").trim();
+                                    String strNomer = object.getString("NOMER").trim();
+                                    String strEmail = object.getString("EMAIL").trim();
 
                                     Username.setText(strUsername);
                                     Nama.setText(strNama);
@@ -118,8 +165,8 @@ public class ProfilActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                    progressDialog.dismiss();
-                    Toast.makeText(profile.this, "Error reading Detail" +error.toString(), Toast.LENGTH_SHORT).show();
+                        progressDialog.dismiss();
+                        Toast.makeText(profile.this, "Error reading Detail" +error.toString(), Toast.LENGTH_SHORT).show();
 
                     }
                 })
@@ -127,7 +174,7 @@ public class ProfilActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("id", getId);
+                params.put("ID_USR", getId);
                 return params;
 
             }
@@ -206,18 +253,18 @@ public class ProfilActivity extends AppCompatActivity {
         progressDialog.show();
 
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_EDIT,
+        StringRequest stringRequest = new StringRequest(Request.Method.PUT, URL_EDIT,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                    progressDialog.dismiss();
+                        progressDialog.dismiss();
                         try {
                             JSONObject jsonObject= new JSONObject(response);
-                            String success = jsonObject.getString("Sukses");
+                            String success = jsonObject.getString("data");
 
-                            if (success.equals("1")){
-                                Toast.makeText(profile.this, "Sukses", Toast.LENGTH_SHORT).show();
-                                sessionManager.createSession(Username, Nama, Alamat, Nomer, Email, Id);
+                            if (success.equals("200")){
+                                Toast.makeText(profile.this, "sukses", Toast.LENGTH_SHORT).show();
+
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -235,12 +282,12 @@ public class ProfilActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("Username", Username);
-                params.put("Nama", Nama);
-                params.put("Alamat", Alamat);
-                params.put("Nomer", Nomer);
-                params.put("Email", Email);
-                params.put("Id", Id);
+                params.put("USERNAME", Username);
+                params.put("NAMA", Nama);
+                params.put("ALAMAT", Alamat);
+                params.put("NOMER", Nomer);
+                params.put("EMAIL", Email);
+                params.put("ID_USR", Id);
                 return params;
             }
         };
@@ -248,12 +295,12 @@ public class ProfilActivity extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
-        private void chooseFile(){
+    private void chooseFile(){
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent, "Pilih gambar"), 1);
-        }
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -308,8 +355,8 @@ public class ProfilActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("id", id);
-                params.put("gambar", gambar);
+                params.put("ID_USR", id);
+                params.put("GAMBAR", gambar);
                 return params;
             }
         };

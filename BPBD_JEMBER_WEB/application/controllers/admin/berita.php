@@ -53,6 +53,7 @@ class Berita extends CI_Controller
     // menambahkan data berita
     public function tambah()
     {
+        $data['ID_USER']=$this->session->userdata('ID_USR');
         // method mengambil data dari model berita_m dan memanggil method getBerita
         $data["tb_kategori"] = $this->berita->getKategori();
         $data['notif'] = $this->laporan->getLaporanUnread()->result_array();

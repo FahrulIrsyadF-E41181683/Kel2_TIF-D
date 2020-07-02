@@ -123,7 +123,7 @@ class Berita_m extends CI_Model
             "TANGGAL" => $this->input->post('tanggal', true),
             "LOKASI" => $this->input->post('lokasi', true),
             "ISI_BERITA" => $this->input->post('isi_berita', true),
-            "GAMBAR" => $this->uploadGambar('gambar', true),
+            "GAMBAR_BRT" => $this->uploadGambar('gambar', true),
             "ID_USR" => $this->input->post('user', true),
             "STATUS_BRT" => "1"
         ];
