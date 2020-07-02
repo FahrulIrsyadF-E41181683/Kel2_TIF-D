@@ -12,7 +12,7 @@ class Login extends REST_Controller{
     $this->load->helper('url');
     $this->load->model('LoginM');
     $this->load->model('m_id');
-    $this->load->library('auto_id');
+    $this->load->library('Auto_id');
   }
 
   // method index untuk menampilkan semua data login menggunakan method get
@@ -46,7 +46,6 @@ class Login extends REST_Controller{
       $id = 'USR0000001';
       }
 
-  
         $response = $this->LoginM->add_login(
             $id,
             $this->input->post('nama'),
@@ -90,5 +89,3 @@ class Login extends REST_Controller{
   }
 
 }
-
-?>

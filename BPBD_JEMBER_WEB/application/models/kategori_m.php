@@ -1,6 +1,6 @@
 <?php
 //  berfungsi untuk melayani segala query CRUD database
-class kategori_m extends CI_Model
+class Kategori_m extends CI_Model
 {
 
   public function getIdKategori()

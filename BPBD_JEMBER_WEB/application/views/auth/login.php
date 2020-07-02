@@ -11,19 +11,17 @@
 					<div class="row">
 						<div class="col-lg">
 							<div class="p-5">
-							<?= $this->session->flashdata('message'); ?>
+								<?= $this->session->flashdata('message'); ?>
 								<div class="text-center">
 									<h1 class="h4 text-gray-900 mb-4">Login</h1>
 								</div>
 								<form class="user" method="POST" action="<?= base_url('auth/'); ?>">
 									<div class="form-group">
-										<input type="text" class="form-control form-control-user" id="username"
-											name="username" placeholder="Username" value="<?= set_value('username'); ?>">
+										<input type="text" class="form-control form-control-user" id="username" name="username" placeholder="Username" value="<?= set_value('username'); ?>">
 										<?= form_error('username', '<small class="text-danger pl-3">', '</small>'); ?>
 									</div>
 									<div class="form-group">
-										<input type="password" class="form-control form-control-user" id="password"
-											name="password" placeholder="Password">
+										<input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password">
 										<?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
 									</div>
 									<button type="submit" class="btn btn-success btn-user btn-block">
@@ -32,10 +30,7 @@
 								</form>
 								<hr>
 								<div class="text-center">
-									<a class="small" href="forgot-password.html">Lupa Password?</a>
-								</div>
-								<div class="text-center">
-									<a class="small" href="<?= base_url('auth/registrasi'); ?>">Belum punya akun? Klik disini</a>
+									<a class="medium text-secondary" href="<?= base_url('auth/registrasi'); ?>">Belum punya akun? Klik disini</a>
 								</div>
 							</div>
 						</div>

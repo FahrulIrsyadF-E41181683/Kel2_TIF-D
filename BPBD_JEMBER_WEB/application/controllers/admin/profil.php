@@ -10,7 +10,7 @@ class Profil extends CI_Controller
         $this->load->helper('url');
         $this->load->model('daftar_laporan_m', 'laporan');
         if (!$this->session->userdata('ID_USR')) {
-            redirect('auth');
+            redirect('Auth');
         }
         // is_logged_in();
     }
@@ -78,12 +78,9 @@ class Profil extends CI_Controller
         $this->db->where('ID_USR', $id);
         $this->db->update('tb_user');
         // baris kode yang mengerahkan pengguna ke link base_url()crud/index/
-        redirect('admin/profil/index');
+        redirect('admin/Profil/index');
     }
 
-    public function konfirmasi()
-    {
-    }
 
     public function edit_password()
     {

@@ -1,5 +1,5 @@
 <?php
-class profil_m extends CI_Model
+class Profil_m extends CI_Model
 {
     public function edit_user($id, $nama, $email, $image, $password, $date_created)
     {

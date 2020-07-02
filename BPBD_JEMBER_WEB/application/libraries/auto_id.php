@@ -1,6 +1,6 @@
 <?php
 
-class auto_id {
+class Auto_id {
 
     public function autonumber($id_terakhir, $panjang_kode, $panjang_angka) {
 
@@ -23,5 +23,3 @@ class auto_id {
         return $id_baru;
         }
 }
-
-?>

@@ -1,5 +1,5 @@
 <?php
-class listuser_m extends CI_Model
+class Listuser_m extends CI_Model
 {
     public function tampil_data()
     {

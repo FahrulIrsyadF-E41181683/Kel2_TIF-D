@@ -16,7 +16,7 @@
 					<a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						<i class="fas fa-user-circle" style="font-size:35px"></i>
 					</a>
-					<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+					<div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="dropdownMenuLink">
 						<?php if ($this->session->userdata('ID_USR') == '') { ?>
 							<a href="<?= base_url('auth'); ?>" class="dropdown-item">Login</a>
 						<?php } else { ?>

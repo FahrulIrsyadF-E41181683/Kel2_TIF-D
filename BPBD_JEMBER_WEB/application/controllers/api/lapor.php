@@ -10,7 +10,7 @@ class Lapor extends REST_Controller
     function __construct($config = 'rest')
     {
         parent::__construct($config);
-        $this->load->library('auto_id');
+        $this->load->library('Auto_id');
         $this->load->model('kategori_m');
         $this->load->model('laporan_m');
         $this->load->database();

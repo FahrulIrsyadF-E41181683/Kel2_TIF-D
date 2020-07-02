@@ -11,7 +11,7 @@ class Listuser extends CI_Controller
         $this->load->helper('url');
         $this->load->model('daftar_laporan_m', 'laporan');
         if (!$this->session->userdata('ID_USR')) {
-            redirect('auth');
+            redirect('Auth');
         }
     }
 

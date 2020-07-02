@@ -10,7 +10,7 @@ class Daftar_admin extends CI_Controller
         $this->load->model('daftar_laporan_m', 'laporan');
         $this->load->model('kategori_m');
         if (!$this->session->userdata('ID_USR')) {
-            redirect('auth');
+            redirect('Auth');
         }
     }
 
@@ -78,7 +78,7 @@ class Daftar_admin extends CI_Controller
                     $img = $this->upload->data('file_name');
                     $this->db->set('GAMBAR', $img);
                 } else {
-                    redirect('main/daftar');
+                    redirect('admin/Daftar_admin');
                 }
             } else {
                 $data['GAMBAR'] = 'default.png';
@@ -86,7 +86,7 @@ class Daftar_admin extends CI_Controller
 
             $this->daftar_admin_m->tambah_data('tb_user', $data);
 
-            redirect('admin/daftar_admin');
+            redirect('admin/Daftar_admin');
         }
     }
 
@@ -148,19 +148,19 @@ class Daftar_admin extends CI_Controller
                     $img = $this->upload->data('file_name');
                     $this->db->set('GAMBAR', $img);
                 } else {
-                    redirect('main/daftar');
+                    redirect('admin/Daftar_admin');
                 }
             }
 
             $this->daftar_admin_m->edit_data('tb_user', $id, $data1);
 
-            redirect('admin/daftar_admin');
+            redirect('admin/Daftar_admin');
         }
     }
 
     public function hapus($id)
     {
         $this->daftar_admin_m->delete_data($id);
-        redirect('admin/daftar_admin');
+        redirect('admin/Daftar_admin');
     }
 }

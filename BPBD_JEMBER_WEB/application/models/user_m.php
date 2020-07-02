@@ -54,6 +54,11 @@ class User_m extends CI_Model
             }
         }
     }
+    public function empty_response(){
+        $response['status']=502;
+        $response['error']=true;
+        $response['message']='Field tidak boleh kosong';
+        return $response;
+    }
 
 }
-?>

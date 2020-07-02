@@ -10,7 +10,7 @@ class Kategori extends CI_Controller
         $this->load->model('kategori_m');
         $this->load->model('daftar_laporan_m', 'laporan');
         if (!$this->session->userdata('ID_USR')) {
-            redirect('auth');
+            redirect('Auth');
         }
     }
 
@@ -50,7 +50,7 @@ class Kategori extends CI_Controller
                 'KETERANGAN' => $deskripsi
             ];
             $this->kategori_m->input_data($data, 'tb_kategori');
-            redirect('admin/kategori');
+            redirect('admin/Kategori');
         }
     }
 
@@ -76,13 +76,13 @@ class Kategori extends CI_Controller
                 'KETERANGAN' => $deskripsi
             ];
             $this->kategori_m->update_data(['ID_KTR' => $id], $data, 'tb_kategori');
-            redirect('admin/kategori');
+            redirect('admin/Kategori');
         }
     }
 
     public function hapus($id)
     {
         $this->kategori_m->hapus_data(['ID_KTR' => $id], 'tb_kategori');
-        redirect('admin/kategori');
+        redirect('admin/Kategori');
     }
 }
