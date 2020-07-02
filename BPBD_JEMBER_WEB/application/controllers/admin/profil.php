@@ -10,7 +10,7 @@ class Profil extends CI_Controller
         $this->load->helper('url');
         $this->load->model('daftar_laporan_m', 'laporan');
         if (!$this->session->userdata('ID_USR')) {
-            redirect('Auth');
+            redirect('auth');
         }
         // is_logged_in();
     }
@@ -78,9 +78,71 @@ class Profil extends CI_Controller
         $this->db->where('ID_USR', $id);
         $this->db->update('tb_user');
         // baris kode yang mengerahkan pengguna ke link base_url()crud/index/
-        redirect('admin/Profil/index');
+        redirect('admin/profil/index');
     }
 
+    public function changePassword()
+    {
+        //untuk mengecek session sesuai dengan email saat login
+        $data['tb_user'] = $this->db->get_where('tb_user', ['ID_USR' =>
+        $this->session->userdata('ID_USR')])->row_array();
+
+        $this->form_validation->set_rules('current_password', 'Password Saat Ini', 'required|trim', [
+            'required' => 'Mohon isi password saat ini!'
+        ]);
+        $this->form_validation->set_rules('new_password1', 'Password Baru', 'required|trim|min_length[8]|matches[new_password2]', [
+            'required' => 'Mohon isi password baru!',
+            'min_length' => 'Password minimal 8 digit',
+            'matches' => 'Password tidak sesuai'
+        ]);
+        $this->form_validation->set_rules('new_password2', 'Ulangi Password', 'required|trim|min_length[8]|matches[new_password1]', [
+            'required' => 'Mohon ulangi password baru!',
+            'min_length' => 'Password minimal 8 digit'
+        ]);
+
+        if ($this->form_validation->run() == false) {
+            // memparsing ke dalam v_changepassword 
+            $data['admin'] = $this->db->get_where('tb_user', [
+                'ID_USR' =>
+                $this->session->userdata('ID_USR')
+            ])->row_array();
+            $data['tb_admin'] = $this->profil_m->tampil_data(); //Untuk me-load fungsi tampil_data() di modal profil_m
+            $data['notif'] = $this->laporan->getLaporanUnread()->result_array();
+            $data['notifcount'] = $this->laporan->getLaporanUnread()->num_rows();
+            $data['role'] = $this->session->userdata('ROLE');
+            $this->load->view("admin/includes/head", $data);
+            $this->load->view("admin/includes/sidebar", $data);
+            $this->load->view("admin/includes/navbar", $data);
+            $this->load->view('admin/ubahpw_v', $data);
+            $this->load->view("admin/includes/footer.php");
+            $this->load->view("admin/includes/js.php");
+        } else {
+
+            $current_password = $this->input->post('current_password');
+            $new_password = $this->input->post('new_password1');
+            //melakukan pengecekan password apakah password yang diketik oleh user sama dengan yang ada dalam database
+            if (md5($current_password) != $data['tb_user']['PASSWORD']) {
+
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role= "alert">Password yang anda masukkan salah!</div>');
+                redirect('profile/changepassword');
+            } else {
+                if ($current_password == $new_password) {
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role= "alert">Password tidak boleh sama dengan sebelumnya !</div>');
+                    redirect('profile/changepassword');
+                } else {
+                    $password_hash = md5($new_password);
+
+                    $this->db->set('PASSWORD', $password_hash);
+                    $this->db->where('ID_USR', $this->session->userdata('ID_USR'));
+                    $this->db->update('tb_user');
+
+
+                    $this->session->set_flashdata('password_changed', '<div class="alert alert-success" role="alert">Password berhasil diubah!</div>');
+                    redirect('admin/profil');
+                }
+            }
+        }
+    }
 
     public function edit_password()
     {

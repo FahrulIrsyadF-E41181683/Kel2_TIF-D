@@ -26,7 +26,7 @@
                         <div class="button-container">
                             <div class="row">
                                 <div class="update ml-auto mr-auto">
-                                    <button type="submit" class="btn btn-primary btn-round">Ubah Password</button>
+                                    <a type="submit" class="btn btn-primary btn-round" href="<?= base_url('admin/profil/changepassword'); ?>">Ubah Password</a>
                                 </div>
                             </div>
                         </div>
@@ -77,9 +77,9 @@
                                 </div>
                             </div>
                             <div class="row">
-                            <div class="col-md-12">
+                                <div class="col-md-12">
                                     <label>Ganti Foto</label>
-                            </div>
+                                </div>
                             </div>
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" name="GAMBAR" id="GAMBAR">
