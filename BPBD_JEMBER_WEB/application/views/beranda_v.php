@@ -242,7 +242,7 @@
                     Agar Laporan Bencana Anda Dapat Direspon Lebih Cepat Oleh Kami. </p>
                 </div>
                 <div class="modal-footer mx-auto text-center"> 
-                <a href="<?= base_url('auth/registrasi'); ?>" ?><button type="button" class="btn btn-primary"><i class="fas fa-plus"></i> buat akun</button></a>
+                <a href="<?= base_url('auth/registrasi'); ?>" ?><button type="button" class="btn btn-primary"><i class="fas fa-plus"></i>Buat akun</button></a>
                 </div>
             </div>
         </div>

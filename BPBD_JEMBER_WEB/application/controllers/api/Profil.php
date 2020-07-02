@@ -28,17 +28,19 @@ class Profil extends REST_Controller
   {
     $username = $this->db->get_where('tb_user', array('ID_USR' => $this->put('ID_USR')))->row()->USERNAME;
     if($this->put('USERNAME') == $username){
-      $data = array('USERNAME' => $this->put('USERNAME'),
-                  'NAMA' => $this->put('NAMA'),
-                  'ALAMAT' => $this->put('ALAMAT'),
-                  'NOMER' => $this->put('NOMER'),
-                  'EMAIL' => $this->put('EMAIL'));
+      $data = array(
+                  'USERNAME'  =>  $this->put('USERNAME'),
+                  'NAMA'      =>  $this->put('NAMA'),
+                  'ALAMAT'    =>  $this->put('ALAMAT'),
+                  'NOMER'     =>  $this->put('NOMER'),
+                  'EMAIL'     =>  $this->put('EMAIL'));
               }else{
-      $data = array('USERNAME' => $this->put('USERNAME'),
-                  'NAMA' => $this->put('NAMA'),
-                  'ALAMAT' => $this->put('ALAMAT'),
-                  'NOMER' => $this->put('NOMER'),
-                  'EMAIL' => $this->put('EMAIL'));
+      $data = array(
+                  'USERNAME'  =>  $this->put('USERNAME'),
+                  'NAMA'      =>  $this->put('NAMA'),
+                  'ALAMAT'    =>  $this->put('ALAMAT'),
+                  'NOMER'     =>  $this->put('NOMER'),
+                  'EMAIL'     =>  $this->put('EMAIL'));
                   
     }
 
