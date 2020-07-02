@@ -22,14 +22,6 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <hr>
-                        <div class="button-container">
-                            <div class="row">
-                                <div class="update ml-auto mr-auto">
-                                    <a type="submit" class="btn btn-primary btn-round" href="<?= base_url('admin/profil/changepassword'); ?>">Ubah Password</a>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -85,11 +77,21 @@
                                 <input type="file" class="custom-file-input" name="GAMBAR" id="GAMBAR">
                                 <label class="custom-file-label" for="customFile">Pilih foto</label>
                             </div>
-                            <div class="row">
+                            <br>
+                            <br>
+                            <div class="button-container">
+                                <div class="row">
+                                    <div class="update ml-auto mr-auto">
+                                        <a type="submit" class="btn btn-danger btn-round mr-5" href="<?= base_url('admin/profil/changepassword'); ?>">Ubah Password</a>
+                                        <button type="submit" class="btn btn-primary btn-round ml-5">Update Profil</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="row">
                                 <div class="update ml-auto mr-auto">
                                     <button type="submit" class="btn btn-primary btn-round">Update Profil</button>
                                 </div>
-                            </div>
+                            </div> -->
                         </form>
                     </div>
                 </div>
