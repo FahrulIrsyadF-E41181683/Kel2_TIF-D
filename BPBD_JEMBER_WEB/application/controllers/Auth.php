@@ -52,13 +52,14 @@ class Auth extends CI_Controller
                 if ($password == $user['PASSWORD']) {
                     $data = [
                         'ID_USR' => $user['ID_USR'],
+                        'NAMA' => $user['NAMA'],
                         'ROLE' => $user['ROLE']
                     ];
                     $this->session->set_userdata($data);
                     if ($user['ROLE'] == 1) {
                         redirect('beranda');
-                    } else if ($user['ROLE'] == 0) {
-                        redirect('admin/dashboard');
+                    } else {
+                        redirect('admin/dashboard', $data);
                     }
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger text-center" role="alert">Password salah!</div>');
@@ -204,6 +205,7 @@ class Auth extends CI_Controller
 
     public function logout()
     {
+        $this->session->set_flashdata('flashdata', 'Dihapus');
         //  baris kode yang akan menghapus session yang ada
         $this->session->sess_destroy();
         //  baris kode yang mengarahkan pengguna ke halaman beranda

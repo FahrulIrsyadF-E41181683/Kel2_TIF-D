@@ -2,16 +2,11 @@
 <html lang="en">
 
 <head>
-    <!-- HEAD MEMANGGIL HEAD YANG ADA DI admin/includes/head.php -->
-    <?php $this->load->view("admin/includes/head.php") ?>
+
 </head>
 
 <body id="">
-    <!-- SIDEBAR MEMANGGIL SIDEBAR YANG ADA DI admin/includes/sidebar.php -->
-    <?php $this->load->view("admin/includes/sidebar.php") ?>
 
-    <!-- SIDEBAR MEMANGGIL NAVBAR YANG ADA DI admin/includes/sidebar.php -->
-    <?php $this->load->view("admin/includes/navbar.php") ?>
 
     <!-- ISI KONTEN HALAMAN -->
 

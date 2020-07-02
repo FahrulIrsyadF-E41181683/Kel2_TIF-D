@@ -36,7 +36,7 @@ class Berita extends CI_Controller
 
         // mulainya halaman
         $data['start'] = $this->uri->segment(4); // <- 4 menandakan posisi url setelah index
-
+        $data['role'] = $this->session->userdata('ROLE');
         // method mengambil data dari model berita_m dan memanggil method getBerita
         $data["tb_berita"] = $this->berita->getBerita($config['per_page'], $data['start'], $data['cari']);
 
@@ -44,6 +44,9 @@ class Berita extends CI_Controller
         $data['notifcount'] = $this->laporan->getLaporanUnread()->num_rows();
 
         // memanggil halaman view admin/berita_v
+        $this->load->view("admin/includes/head", $data);
+        $this->load->view("admin/includes/sidebar", $data);
+        $this->load->view("admin/includes/navbar", $data);
         $this->load->view("admin/berita_v", $data);
     }
 
@@ -54,10 +57,13 @@ class Berita extends CI_Controller
         $data["tb_kategori"] = $this->berita->getKategori();
         $data['notif'] = $this->laporan->getLaporanUnread()->result_array();
         $data['notifcount'] = $this->laporan->getLaporanUnread()->num_rows();
-
+        $data['role'] = $this->session->userdata('ROLE');
         // validasi data
         $this->form_validation->set_rules($this->berita->rules());
         if ($this->form_validation->run() == FALSE) {
+            $this->load->view("admin/includes/head", $data);
+            $this->load->view("admin/includes/sidebar", $data);
+            $this->load->view("admin/includes/navbar", $data);
             // memanggil halaman view admin/berita_tambah
             $this->load->view('admin/tambah_berita', $data);
         } else {
@@ -83,10 +89,13 @@ class Berita extends CI_Controller
         $data["tb_berita"] = $this->berita->getBeritabyID($ID_BRT);
         $data['notif'] = $this->laporan->getLaporanUnread()->result_array();
         $data['notifcount'] = $this->laporan->getLaporanUnread()->num_rows();
-
+        $data['role'] = $this->session->userdata('ROLE');
         // validasi data
         $this->form_validation->set_rules($this->berita->rules());
         if ($this->form_validation->run() == FALSE) {
+            $this->load->view("admin/includes/head", $data);
+            $this->load->view("admin/includes/sidebar", $data);
+            $this->load->view("admin/includes/navbar", $data);
             // memanggil halaman view admin/berita_tambah
             $this->load->view('admin/ubah_berita', $data);
         } else {

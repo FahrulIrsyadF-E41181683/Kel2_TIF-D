@@ -24,9 +24,10 @@ class Profil extends CI_Controller
         $data['tb_admin'] = $this->profil_m->tampil_data(); //Untuk me-load fungsi tampil_data() di modal profil_m
         $data['notif'] = $this->laporan->getLaporanUnread()->result_array();
         $data['notifcount'] = $this->laporan->getLaporanUnread()->num_rows();
-        $this->load->view("admin/includes/head.php");
-        $this->load->view("admin/includes/sidebar.php");
-        $this->load->view("admin/includes/navbar.php", $data);
+        $data['role'] = $this->session->userdata('ROLE');
+        $this->load->view("admin/includes/head", $data);
+        $this->load->view("admin/includes/sidebar", $data);
+        $this->load->view("admin/includes/navbar", $data);
         $this->load->view('admin/profil_v', $data);
         $this->load->view("admin/includes/footer.php");
         $this->load->view("admin/includes/js.php");
@@ -52,7 +53,7 @@ class Profil extends CI_Controller
         $upload_image = $_FILES['GAMBAR'];
 
         if ($upload_image) {
-            $config['allowed_types'] = 'gif|jpg|png';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg';
             $config['max_size'] = '2048';
             $config['upload_path'] = './assets/img/Profile/';
 

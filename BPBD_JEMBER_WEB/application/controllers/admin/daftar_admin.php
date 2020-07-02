@@ -19,7 +19,11 @@ class Daftar_admin extends CI_Controller
         $data['tb_user'] = $this->daftar_admin_m->getAllAdmin();
         $data['notif'] = $this->laporan->getLaporanUnread()->result_array();
         $data['notifcount'] = $this->laporan->getLaporanUnread()->num_rows();
+        $data['role'] = $this->session->userdata('ROLE');
         // memanggil halaman view
+        $this->load->view("admin/includes/head", $data);
+        $this->load->view("admin/includes/sidebar", $data);
+        $this->load->view("admin/includes/navbar", $data);
         $this->load->view("admin/daftar_admin_v", $data);
     }
 
@@ -28,6 +32,7 @@ class Daftar_admin extends CI_Controller
         $data['tb'] = $this->kategori_m->tampil_data();
         $data['notif'] = $this->laporan->getLaporanUnread()->result_array();
         $data['notifcount'] = $this->laporan->getLaporanUnread()->num_rows();
+        $data['role'] = $this->session->userdata('ROLE');
         $this->form_validation->set_rules('nama', 'Nama', 'required');
         $this->form_validation->set_rules('alamat', 'Alamat', 'required');
         $this->form_validation->set_rules('nomor', 'Nomor', 'trim|required');
@@ -35,6 +40,9 @@ class Daftar_admin extends CI_Controller
         $this->form_validation->set_rules('username', 'Username', 'trim|required');
         $this->form_validation->set_rules('password', 'Password', 'trim|required');
         if ($this->form_validation->run() == false) {
+            $this->load->view("admin/includes/head", $data);
+            $this->load->view("admin/includes/sidebar", $data);
+            $this->load->view("admin/includes/navbar", $data);
             $this->load->view("admin/tambah_admin", $data);
         } else {
             $nama = $this->input->post('nama');
@@ -88,6 +96,7 @@ class Daftar_admin extends CI_Controller
         $data['tb'] = $this->kategori_m->tampil_data();
         $data['notif'] = $this->laporan->getLaporanUnread()->result_array();
         $data['notifcount'] = $this->laporan->getLaporanUnread()->num_rows();
+        $data['role'] = $this->session->userdata('ROLE');
         $this->form_validation->set_rules('nama', 'Nama', 'required');
         $this->form_validation->set_rules('alamat', 'Alamat', 'required');
         $this->form_validation->set_rules('nomor', 'Nomor', 'trim|required');
@@ -95,6 +104,9 @@ class Daftar_admin extends CI_Controller
         $this->form_validation->set_rules('username', 'Username', 'trim|required');
         $this->form_validation->set_rules('password', 'Password', 'trim|required');
         if ($this->form_validation->run() == false) {
+            $this->load->view("admin/includes/head", $data);
+            $this->load->view("admin/includes/sidebar", $data);
+            $this->load->view("admin/includes/navbar", $data);
             $this->load->view("admin/edit_admin", $data);
         } else {
             $nama = $this->input->post('nama');

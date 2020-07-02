@@ -20,7 +20,11 @@ class Listuser extends CI_Controller
         $data['pengguna'] = $this->listuser_m->tampil_data();
         $data['notif'] = $this->laporan->getLaporanUnread()->result_array();
         $data['notifcount'] = $this->laporan->getLaporanUnread()->num_rows();
+        $data['role'] = $this->session->userdata('ROLE');
         // memanggil halaman view admin/list_user_v
+        $this->load->view("admin/includes/head", $data);
+        $this->load->view("admin/includes/sidebar", $data);
+        $this->load->view("admin/includes/navbar", $data);
         $this->load->view('admin/list_user_v', $data);
     }
 }

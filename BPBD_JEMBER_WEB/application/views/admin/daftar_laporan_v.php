@@ -2,16 +2,11 @@
 <html lang="en">
 
 <head>
-    <!-- HEAD MEMANGGIL HEAD YANG ADA DI admin/includes/head.php -->
-    <?php $this->load->view("admin/includes/head.php") ?>
+
 </head>
 
 <body id="">
-    <!-- SIDEBAR MEMANGGIL SIDEBAR YANG ADA DI admin/includes/sidebar.php -->
-    <?php $this->load->view("admin/includes/sidebar.php") ?>
 
-    <!-- SIDEBAR MEMANGGIL NAVBAR YANG ADA DI admin/includes/sidebar.php -->
-    <?php $this->load->view("admin/includes/navbar.php") ?>
 
     <!-- ISI KONTEN HALAMAN -->
 
@@ -63,7 +58,7 @@
                                             <td><?php echo $berita['KATEGORI'] ?></td>
                                             <td><?php echo $berita['TANGGAL'] ?></td>
                                             <td><?php echo $berita['LOKASI'] ?></td>
-                                            <td><img src="<?php echo base_url('assets/img/berita_gambar/default.png' . $berita['GAMBAR']) ?>" width="64"></td>
+                                            <td><img src="<?php echo base_url('assets/img/gambar_laporan/' . $berita['GAMBAR']); ?>" width="64"></td>
                                             <!-- merubah status agar mudah dipahami -->
                                             <td class="text-center"><a href="<?php echo base_url(); ?>admin/daftar_laporan/status/<?php echo $berita['ID_LPR']; ?>/<?php echo $berita['STATUS']; ?>">
                                                     <?php if ($berita['STATUS'] == 1) : ?>
@@ -90,7 +85,7 @@
                                                 <td><?php echo $berita['KATEGORI'] ?></td>
                                                 <td><?php echo $berita['TANGGAL'] ?></td>
                                                 <td><?php echo $berita['LOKASI'] ?></td>
-                                                <td><img src="<?php echo base_url('assets/img/berita_gambar/default.png' . $berita['GAMBAR']) ?>" width="64"></td>
+                                                <td><img src="<?php echo base_url('assets/img/gambar_laporan/' . $berita['GAMBAR']) ?>" width="200"></td>
                                                 <!-- merubah status agar mudah dipahami -->
                                                 <td class="text-center"><a href="<?php echo base_url(); ?>admin/daftar_laporan/status/<?php echo $berita['ID_LPR']; ?>/<?php echo $berita['STATUS']; ?>">
                                                         <?php if ($berita['STATUS'] == 1) : ?>
