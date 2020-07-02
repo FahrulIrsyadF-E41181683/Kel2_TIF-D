@@ -45,6 +45,12 @@ class Lapor extends REST_Controller
             // generate id pertama kali jika tidak ada data sama sekali di dalam database
             $id = 'LPR0000001';
         }
+
+
+        $nama = $this->post('GAMBAR');
+        $rand = rand(0, 10000000);
+        $path = $_SERVER['DOCUMENT_ROOT'] . str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERVER['SCRIPT_NAME']) . "assets/img/gambar_laporan/" . $rand . '.jpeg';
+        file_put_contents($path, base64_decode($nama));
         $data = array(
             'ID_LPR'           => $id,
             'NAMA_PELAPOR'          => $this->post('NAMA_PELAPOR'),
@@ -53,8 +59,9 @@ class Lapor extends REST_Controller
             'LOKASI'          => $this->post('LOKASI'),
             'ID_KTR'        => $this->post('KATEGORI'),
             'DESKRIPSI'          => $this->post('DESKRIPSI'),
-            'GAMBAR'          => $this->post('GAMBAR')
+            'GAMBAR'          => $rand . '.jpeg'
         );
+
         $insert = $this->db->insert('tb_laporan', $data);
         if ($insert) {
             $response['status'] = 200;

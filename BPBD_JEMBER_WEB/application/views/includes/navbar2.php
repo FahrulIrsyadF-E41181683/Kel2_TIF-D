@@ -8,11 +8,23 @@
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a href="<?= base_url('beranda'); ?>" class="nav-link">Beranda</a></li>
-                <li class="nav-item"><a href="#berita" class="nav-link">Berita</a></li>
-                <li class="nav-item"><a href="#tentang" class="nav-link">Tentang</a></li>
-                <li class="nav-item"><a href="#kontak" class="nav-link">Kontak</a></li>
                 <li class="nav-item"><a href="<?= base_url('laporan'); ?>" class="nav-link">Lapor Bencana</a></li>
-                <li class="nav-item"><a href="<?= base_url('auth'); ?>" class="nav-link">Login</a></li>
+                <li class="dropdown nav-item">
+                    <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user-circle" style="font-size:35px"></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <?php if ($this->session->userdata('ID_USR') == '') { ?>
+                            <a href="<?= base_url('auth'); ?>" class="dropdown-item">Login</a>
+                        <?php } else { ?>
+                            <p class="dropdown-item">Halo, <?= $this->session->userdata('NAMA') ?></p>
+                            <hr>
+                            <a class="dropdown-item" href="<?= base_url('profile/edituser') ?>">User Profile</a>
+                            <a class="dropdown-item" href="<?= base_url('profile/changePassword') ?>">Ubah Password</a>
+                            <a href="<?= base_url('auth/logout'); ?>" class="dropdown-item">Logout</a>
+                        <?php } ?>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>

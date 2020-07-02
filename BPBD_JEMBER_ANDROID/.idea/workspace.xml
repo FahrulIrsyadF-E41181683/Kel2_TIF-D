@@ -31,12 +31,16 @@
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_profil.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BPBD_JEMBER_WEB/application/views/admin/tambah_kategori_v.php" beforeDir="false" afterPath="$PROJECT_DIR$/../BPBD_JEMBER_WEB/application/views/admin/tambah_kategori_v.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BPBD_JEMBER_WEB/application/views/includes/navbar2.php" beforeDir="false" afterPath="$PROJECT_DIR$/../BPBD_JEMBER_WEB/application/views/includes/navbar2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="3452324" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -105,6 +109,8 @@
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Kel2_TIF-D_Android/BPBD_JEMBER_ANDROID" />
     <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.externalDependencies" />
@@ -288,6 +294,12 @@
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1593665293379" />
     <state width="1325" height="307" key="GridCell.Tab.0.bottom" timestamp="1593664973448">
+    <state x="306" y="153" key="AndroidCreateResourceFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1593444353405" />
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1593631243141">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1593631243141" />
+    <state width="1323" height="155" key="GridCell.Tab.0.bottom" timestamp="1593513850851">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1325" height="307" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1593664973448" />
@@ -316,5 +328,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="164" width="672" height="677" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1593663503329" />
+    <state x="721" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1593631164415">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="721" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1593631164415" />
   </component>
 </project>
