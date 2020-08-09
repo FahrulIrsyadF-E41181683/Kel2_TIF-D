@@ -2,18 +2,18 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Profile extends CI_Controller {
-    function __construct(){
-    parent::__construct();
-    // is_logged_in();		
-    // $this->load->model('m_user');
+  //   function __construct(){
+  //   parent::__construct();
+  //   // is_logged_in();		
+  //   // $this->load->model('m_user');
     
-    //function untuk memanggil helper url melalui controller
-                $this->load->helper('url');
-	}
+  //   //function untuk memanggil helper url melalui controller
+  //               $this->load->helper('url');
+	// }
     public function index(){
-      //untuk mengecek session sesuai dengan email saat login
-      $data['tb_user']= $this->db->get_where('tb_user', ['EMAIL' =>
-      $this->session->userdata('EMAIL')])->row_array();
+      //untuk mengecek session sesuai dengan ID
+      $data['user']= $this->db->get_where('tb_user', ['ID_USR' =>
+      $this->session->userdata('ID_USR')])->row_array();
         // $data['tb_user'] = $this->m_user->tampil_datauser()->result();
       // memparsing ke dalam v_profile  
             $this->load->view('v_profile', $data);
@@ -22,8 +22,8 @@ class Profile extends CI_Controller {
         //membuat method untuk edit profile
     public function edituser(){
       $this->load->library('form_validation');
-      $data['tb_user']= $this->db->get_where('tb_user', ['EMAIL' =>
-      $this->session->userdata('EMAIL')])->row_array();
+      $data['user']= $this->db->get_where('tb_user', ['ID_USR' =>
+      $this->session->userdata('ID_USR')])->row_array();
 
       $this->form_validation->set_rules('USERNAME', 'Username', 'required|trim');
       $this->form_validation->set_rules('NAMA', 'Nama', 'required');
@@ -89,13 +89,13 @@ class Profile extends CI_Controller {
 
 
     public function changePassword(){
-      //untuk mengecek session sesuai dengan email saat login
-      $data['tb_user']= $this->db->get_where('tb_user', ['EMAIL' =>
-      $this->session->userdata('EMAIL')])->row_array();
+      //untuk mengecek session sesuai dengan ID 
+      $data['user']= $this->db->get_where('tb_user', ['ID_USR' =>
+      $this->session->userdata('ID_USR')])->row_array();
         
-      $this->form_validtion->set_rules('current_password', 'Password Saat Ini', 'required|trim');
-      $this->form_validtion->set_rules('new_password1', 'Password Baru', 'required|trim|min_length[8]|matches[new_password2]');
-      $this->form_validtion->set_rules('new_password2', 'Ulangi Password', 'required|trim|min_length[8]|matches[new_password1]');
+      $this->form_validation->set_rules('current_password', 'Password Saat Ini', 'required|trim');
+      $this->form_validation->set_rules('new_password1', 'Password Baru', 'required|trim|min_length[8]|matches[new_password2]');
+      $this->form_validation->set_rules('new_password2', 'Ulangi Password', 'required|trim|min_length[8]|matches[new_password1]');
 
       if($this->form_validation->run() == false){
       // memparsing ke dalam v_changepassword 

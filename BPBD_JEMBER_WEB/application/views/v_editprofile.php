@@ -20,35 +20,35 @@
             <div class="form-group row">
               <label for="USERNAME" class="col-sm-2 col-form-label">Username</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="USERNAME" name="USERNAME" value="<?= $tb_user['USERNAME']; ?>">
+                <input type="text" class="form-control" id="USERNAME" name="USERNAME" value="<?= $user['USERNAME']; ?>">
                 <?= form_error('USERNAME', ' <small class="text-danger pl-3">', '</small>'); ?>
               </div>
             </div>
             <div class="form-group row">
               <label for="NAMA" class="col-sm-2 col-form-label">Nama</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="NAMA" name="NAMA" value="<?= $tb_user['NAMA']; ?>">
+                <input type="text" class="form-control" id="NAMA" name="NAMA" value="<?= $user['NAMA']; ?>">
                 <?= form_error('NAMA', ' <small class="text-danger pl-3">', '</small>'); ?>
               </div>
             </div>
             <div class="form-group row">
               <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="ALAMAT" name="ALAMAT" value="<?= $tb_user['ALAMAT']; ?>">
+                <input type="text" class="form-control" id="ALAMAT" name="ALAMAT" value="<?= $user['ALAMAT']; ?>">
                 <?= form_error('ALAMAT', ' <small class="text-danger pl-3">', '</small>'); ?>
               </div>
             </div>
             <div class="form-group row">
               <label for="NOMER" class="col-sm-2 col-form-label">Nomer Hp</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="NOMER" name="NOMER" value="<?= $tb_user['NOMER']; ?>">
+                <input type="text" class="form-control" id="NOMER" name="NOMER" value="<?= $user['NOMER']; ?>">
                 <?= form_error('NOMER', ' <small class="text-danger pl-3">', '</small>'); ?>
               </div>
             </div>
             <div class="form-group row">
               <label for="EMAIL" class="col-sm-2 col-form-label">Email</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="EMAIL" name="EMAIL" value="<?= $tb_user['EMAIL']; ?>">
+                <input type="text" class="form-control" id="EMAIL" name="EMAIL" value="<?= $user['EMAIL']; ?>">
                 <?= form_error('EMAIL', ' <small class="text-danger pl-3">', '</small>'); ?>
               </div>
             </div>
@@ -57,7 +57,7 @@
               <div class="col-sm-10">
                 <div class="row">
                   <div class="col-sm-3">
-                    <img src="<?= base_url('assets/img/profile/') . $tb_user['GAMBAR']; ?>" class="img-thumbnail">
+                    <img src="<?= base_url('assets/img/profile/') . $user['GAMBAR']; ?>" class="img-thumbnail">
                   </div>
                   <div class="col-sm-9">
                     <div class="custom-file">
